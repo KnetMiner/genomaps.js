@@ -1,5 +1,4 @@
 g.gene-annotations {
-
   rect.border {
     fill: none;
     stroke-width: 0.5;
@@ -8,16 +7,16 @@ g.gene-annotations {
 
   .gene-annotation {
     polygon {
-      fill: #3366FF;
+      fill: #3366ff;
       stroke: black;
       stroke-width: 0.5;
       vector-effect: non-scaling-stroke;
     }
 
     text {
-      font-family: sans-serif;
       cursor: pointer;
-      fill: gray;
+      fill: #121212;
+      color: #121212;
     }
 
     line {
@@ -35,7 +34,8 @@ g.gene-annotations {
   }
 
   .gene-annotation:hover {
-    polygon, path.link {
+    polygon,
+    path.link {
       stroke-width: 1;
     }
 
@@ -44,20 +44,20 @@ g.gene-annotations {
     }
 
     text {
-      fill: black
+      fill: black;
     }
-
   }
 
   .gene-annotation.selected {
-    polygon, path.link, line {
+    polygon,
+    path.link,
+    line {
       stroke-width: 2;
     }
   }
 }
 
 g.qtl-annotations {
-
   rect.border {
     fill: none;
     stroke-width: 0.5;
@@ -65,16 +65,15 @@ g.qtl-annotations {
   }
 
   .qtl-annotation {
-
     text {
       font-family: sans-serif;
-      text-anchor: center;
+      text-anchor: middle;
     }
 
     line {
       stroke: #666;
       stroke-width: 1;
-      stroke-dasharray: 1 1 ;
+      stroke-dasharray: 1 1;
       vector-effect: non-scaling-stroke;
     }
 
@@ -91,8 +90,8 @@ g.qtl-annotations {
   cursor: pointer;
 }
 
-g.gene-annotation-group, g.qtl-annotation-group {
-
+g.gene-annotation-group,
+g.qtl-annotation-group {
   line {
     stroke: #666;
     stroke-width: 1;
@@ -110,17 +109,16 @@ g.gene-annotation-group, g.qtl-annotation-group {
     cursor: pointer;
   }
 
-
   .gene_annotation {
     polygon {
-      fill: #3366FF;
+      fill: #3366ff;
       stroke: black;
       stroke-width: 0.5;
       vector-effect: non-scaling-stroke;
     }
 
     text {
-      text-anchor: center;
+      text-anchor: middle;
     }
 
     path.link {
@@ -129,33 +127,32 @@ g.gene-annotation-group, g.qtl-annotation-group {
       stroke-width: 0.5;
       vector-effect: non-scaling-stroke;
     }
-
   }
 
   .gene_annotation:hover {
-    polygon, path.link {
+    polygon,
+    path.link {
       stroke-width: 1;
     }
 
     line {
       stroke-width: 1.5;
     }
-
-
   }
 
   .gene_annotation.selected {
-    polygon, path.link, line {
+    polygon,
+    path.link,
+    line {
       stroke-width: 2;
     }
   }
 
   .qtl_annotation {
-
     rect.qtl-selector {
       stroke: none;
-      stroke-width:1;
-      vector-effect: 'non-scaling-stroke';
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
     }
 
     text {
