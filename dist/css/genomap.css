@@ -1,18 +1,194 @@
+@import 'bootstrap.css';
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  color: inherit;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+body {
+  line-height: 1;
+}
+.wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.genomaps-wrapper {
+  height: 100%;
+  margin-bottom: 100px;
+}
+html,
+body {
+  height: 100%;
+  background-color: #ededed;
+  font-family: "Play", sans-serif;
+  margin: 0;
+}
+#map {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #eef0f3;
+  background: #fff;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.03);
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.03);
+}
+.navbar {
+  display: block;
+  height: 51px;
+  -webkit-box-shadow: 0 1px 5px;
+          box-shadow: 0 1px 5px;
+  background-color: #2a2a2a;
+  margin-bottom: 40px;
+}
+ul.nav {
+  float: right;
+  list-style: none;
+}
+ul {
+  font-size: 19px;
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding-right: 30px;
+}
+.nav a:hover {
+  color: darkorange;
+}
+/*Footer*/
+.contact-footer {
+  background-color: #2a2a2a;
+  color: white;
+  padding-bottom: 10px;
+  padding-top: 25px;
+}
+.contact-footer p {
+  font-size: 12px;
+  color: white;
+}
+.knetminer-logo {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#text-logo {
+  text-align: center;
+}
+#content {
+  padding: 30px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+#genemap-target {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mapview-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.bootstrap-select .dropdown-toggle .caret {
+  background: url("../img/dropdownArrow.svg") center center no-repeat;
+  background-size: cover;
+  border: none;
+  width: 15px;
+  height: 15px;
+  margin-top: 0px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.bootstrap .dropdown-toggle {
+  border-radius: 0.5rem;
+  color: #6f7f8f;
+  font-size: 0.875rem;
+  line-height: 142%;
+  letter-spacing: -0.0088rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.bootstrap .dropdown-toggle .filter-option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 g.gene-annotations rect.border {
   fill: none;
   stroke-width: 0.5;
   stroke: blue;
 }
 g.gene-annotations .gene-annotation polygon {
-  fill: #3366FF;
+  fill: #3366ff;
   stroke: black;
   stroke-width: 0.5;
   vector-effect: non-scaling-stroke;
 }
 g.gene-annotations .gene-annotation text {
-  font-family: sans-serif;
   cursor: pointer;
-  fill: gray;
+  fill: #121212;
+  color: #121212;
 }
 g.gene-annotations .gene-annotation line {
   stroke: #666;
@@ -47,12 +223,12 @@ g.qtl-annotations rect.border {
 }
 g.qtl-annotations .qtl-annotation text {
   font-family: sans-serif;
-  text-anchor: center;
+  text-anchor: middle;
 }
 g.qtl-annotations .qtl-annotation line {
   stroke: #666;
   stroke-width: 1;
-  stroke-dasharray: 1 1 ;
+  stroke-dasharray: 1 1;
   vector-effect: non-scaling-stroke;
 }
 g.qtl-annotations .qtl-annotation path.link {
@@ -83,14 +259,14 @@ g.qtl-annotation-group text {
 }
 g.gene-annotation-group .gene_annotation polygon,
 g.qtl-annotation-group .gene_annotation polygon {
-  fill: #3366FF;
+  fill: #3366ff;
   stroke: black;
   stroke-width: 0.5;
   vector-effect: non-scaling-stroke;
 }
 g.gene-annotation-group .gene_annotation text,
 g.qtl-annotation-group .gene_annotation text {
-  text-anchor: center;
+  text-anchor: middle;
 }
 g.gene-annotation-group .gene_annotation path.link,
 g.qtl-annotation-group .gene_annotation path.link {
@@ -121,13 +297,12 @@ g.gene-annotation-group .qtl_annotation rect.qtl-selector,
 g.qtl-annotation-group .qtl_annotation rect.qtl-selector {
   stroke: none;
   stroke-width: 1;
-  vector-effect: 'non-scaling-stroke';
+  vector-effect: non-scaling-stroke;
 }
 g.gene-annotation-group .qtl_annotation text,
 g.qtl-annotation-group .qtl_annotation text {
   text-anchor: middle;
 }
-
 .bootstrap {
   /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -6967,12 +7142,12 @@ g.qtl-annotation-group .qtl_annotation text {
     display: none !important;
   }
 }
-
 .chromosome {
   font-family: sans-serif;
   text-anchor: middle;
   vector-effect: non-scaling-stroke;
   font-weight: bold;
+  border-radius: 50px;
 }
 .chromosome .mask_rect {
   stroke: none;
@@ -6981,7 +7156,7 @@ g.qtl-annotation-group .qtl_annotation text {
 .chromosome rect.outline {
   fill: none;
   stroke-width: 0.5;
-  stroke: #000;
+  stroke: #bdc5ce;
   vector-effect: non-scaling-stroke;
 }
 .chromosome rect.border {
@@ -6994,6 +7169,7 @@ g.qtl-annotation-group .qtl_annotation text {
 }
 .chromosome rect.background {
   fill: #fff;
+  border-radius: 50px;
 }
 .chromosome-label {
   font-family: sans-serif;
@@ -7006,8 +7182,7 @@ g.qtl-annotation-group .qtl_annotation text {
   text-anchor: middle;
   font-weight: bold;
   cursor: pointer;
-  color: gray;
-  fill: gray;
+  color: #121212;
 }
 .qtl-hoverbox {
   opacity: 0.1;
@@ -7015,14 +7190,99 @@ g.qtl-annotation-group .qtl_annotation text {
 .chromosome rect.band.geneline:hover {
   fill: gray;
 }
-
+.bands_container {
+  border-radius: 50px;
+}
 .chromosome-cell .border {
   fill: none;
   stroke-width: 0.5;
   stroke: green;
   vector-effect: non-scaling-stroke;
 }
-
+.color-picker-container {
+  padding: 1rem 0 1rem 1rem;
+}
+.color-picker-btn {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-color: #00acac;
+}
+.color-picker-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.8rem;
+  gap: 1.2rem;
+}
+.color-picker-modal {
+  width: 100%;
+}
+.color-picker-modal__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.6rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
+}
+.color-picker-modal__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.color-picker-modal__color-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 0.8rem;
+  gap: 0.5rem;
+}
+.color-picker-modal__color {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
+  height: 30px;
+  border-radius: 0.5rem;
+}
+.color-picker-modal__color.selected {
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+.color-picker-modal__selected {
+  background-color: #3c66e2;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+.color-picker-modal__btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  height: 35px;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.color-picker-modal__apply-btn {
+  background-size: 15.177px 15.177px;
+  background: royalblue url("../svg/checkmark.svg") no-repeat center center;
+}
+.color-picker-modal__close-btn {
+  border: 1px solid #121212;
+  background-size: 15.177px 15.177px;
+  background: url("../svg/close.svg") center center no-repeat;
+}
 .infobox {
   cursor: pointer;
 }
@@ -7060,7 +7320,6 @@ p.popover-annotation.selected {
   stroke: black;
   stroke-width: 0;
 }
-
 .lorem-ipsum {
   color: #eceadf;
 }
@@ -7091,9 +7350,7 @@ svg {
   z-index: 2;
 }
 .drawing_outline {
-  fill: #fefefe;
-  stroke: #ccc;
-  stroke-width: 0.5;
+  fill: #fff;
 }
 .drawing_margin {
   fill: none;
@@ -7113,7 +7370,13 @@ svg {
   cursor: grabbing;
 }
 .genemap-menu {
-  margin-top: 10px /*20px*/;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 .fullscreen .genemap-menu {
   margin-top: 0px;
@@ -7131,43 +7394,137 @@ svg {
   display: inline-block;
   cursor: pointer;
 }
+.menu-btn {
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid #eef0f3;
+  width: 2.4143rem;
+  height: 2.4143rem;
+  background-size: 23.177px 23.177px;
+  background-position: center center;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.menu-btn:hover {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.menu-btn:not(:last-child) {
+  margin-right: 0.625rem;
+}
 .info-btn {
   background: url(../img/information.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
   display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid #eef0f3;
+  width: 2.4143rem;
+  height: 2.4143rem;
+  background-size: 23.177px 23.177px;
+  background-position: center center;
   cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.info-btn:hover {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.info-btn:not(:last-child) {
+  margin-right: 0.625rem;
 }
 .info-btn:hover {
   background: url(../img/information_hover.png) 0 0 no-repeat;
 }
-.fit-btn {
-  background: url(../img/layout_center.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.fit-btn:hover {
-  background: url(../img/layout_center_hover.png) 0 0 no-repeat;
-}
-.fit-btn.disabled {
-  background: url(../img/layout_center_disabled.png) 0 0 no-repeat;
-  pointer: default;
-}
 .network-btn {
-  background: url(../img/graph.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
+  background: url(../img/graph.svg) center center no-repeat;
   display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid #eef0f3;
+  width: 2.4143rem;
+  height: 2.4143rem;
+  background-size: 23.177px 23.177px;
+  background-position: center center;
   cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 .network-btn:hover {
-  background: url(../img/graph_hover.png) 0 0 no-repeat;
+  background-color: rgba(204, 204, 204, 0.5);
 }
-.network-btn.disabled {
-  background: url(../img/graph_disabled.png) 0 0 no-repeat;
-  cursor: default;
+.network-btn:not(:last-child) {
+  margin-right: 0.625rem;
+}
+.reset-btn {
+  background: url(../img/refresh.svg) center center no-repeat;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid #eef0f3;
+  width: 2.4143rem;
+  height: 2.4143rem;
+  background-size: 23.177px 23.177px;
+  background-position: center center;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.reset-btn:hover {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.reset-btn:not(:last-child) {
+  margin-right: 0.625rem;
+}
+.export-btn {
+  background: url(../img/download.svg) center center no-repeat;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid #eef0f3;
+  width: 2.4143rem;
+  height: 2.4143rem;
+  background-size: 23.177px 23.177px;
+  background-position: center center;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.export-btn:hover {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.export-btn:not(:last-child) {
+  margin-right: 0.625rem;
+}
+.export-all-btn {
+  background: url(../img/save_all.png) 0 0 no-repeat;
+  height: 36px;
+  width: 36px;
+  display: inline-block;
+  cursor: pointer;
+}
+.export-all-btn:hover {
+  background: url(../img/save_all_hover.png) 0 0 no-repeat;
+}
+.advanced-toggle {
+  background: url(../img/settings.svg) center center no-repeat;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid #eef0f3;
+  width: 2.4143rem;
+  height: 2.4143rem;
+  background-size: 23.177px 23.177px;
+  background-position: center center;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.advanced-toggle:hover {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.advanced-toggle:not(:last-child) {
+  margin-right: 0.625rem;
 }
 .tag-btn {
   height: 36px;
@@ -7214,84 +7571,6 @@ svg {
 .btn-infobox-label.hide-label {
   background: url(../img/tag_hide.png) 0 0 no-repeat;
 }
-.reset-btn {
-  background: url(../img/reset_selection.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.reset-btn:hover {
-  background: url(../img/reset_selection_hover.png) 0 0 no-repeat;
-}
-.export-btn {
-  background: url(../img/save.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.export-btn:hover {
-  background: url(../img/save_hover.png) 0 0 no-repeat;
-}
-.export-all-btn {
-  background: url(../img/save_all.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.export-all-btn:hover {
-  background: url(../img/save_all_hover.png) 0 0 no-repeat;
-}
-.expand-btn {
-  background: url(../img/fit_to_size.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.expand-btn:hover {
-  background: url(../img/fit_to_size_hover.png) 0 0 no-repeat;
-}
-.fullscreen .expand-btn {
-  background: url(../img/minimize.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.fullscreen .expand-btn:hover {
-  background: url(../img/minimize_hover.png) 0 0 no-repeat;
-}
-.advanced-toggle {
-  background: url(../img/gearwheel.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.advanced-toggle:hover {
-  background: url(../img/gearwheel_hover.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.help-btn {
-  background: url(../img/help.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
-.help-btn:hover {
-  background: url(../img/help_hover.png) 0 0 no-repeat;
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  cursor: pointer;
-}
 .btn-genelist-gene-select {
   display: inline-block;
   cursor: pointer;
@@ -7299,6 +7578,7 @@ svg {
 .menu-dropdown {
   display: inline-block;
   vertical-align: top;
+  height: 2.4143rem;
 }
 .genemap-advanced-menu .popover-content > div {
   margin-top: 10px;
@@ -7327,6 +7607,7 @@ svg {
 #keybar {
   max-height: 80px;
   overflow-y: auto;
+  padding: 15px;
 }
 span.key-item span:first-child {
   white-space: nowrap;
