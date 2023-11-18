@@ -2526,6 +2526,12 @@ GENEMAP.GeneMap = function (userConfig) {
     updateLegend(legendSpan, genome);
   };
 
+  my.changeColor = function (color) {
+    d3.select('#map').style('background-color', color);
+    computeGeneLayout();
+    drawMap();
+  }
+
   my.redraw = function (outerTarget) {
     target = d3.select(outerTarget).select("#genemap-target")[0][0];
     updateDimensions();
@@ -4212,11 +4218,10 @@ GENEMAP.MenuBar = function (userConfig) {
       .data([
         ["label-btn", "ngenes-dropdown"],
         [
-          // "network-btn",
+          "help-btn",
+          "expand-btn",
           "reset-btn",
           "export-btn",
-          "advanced-toggle",
-          "help-btn",
         ],
       ])
       .enter()
@@ -4311,6 +4316,7 @@ GENEMAP.MenuBar = function (userConfig) {
     menu
       .select(".help-btn")
       .attr({ title: "help" })
+      .text("Help")
       .on("click", function () {
         window.open(helpURL, "_blank");
       });

@@ -7373,9 +7373,9 @@ svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .fullscreen .genemap-menu {
   margin-top: 0px;
@@ -7386,6 +7386,10 @@ svg {
 .menu-block {
   padding-left: 10px;
   padding-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
 }
 .menubtn {
   height: 36px;
@@ -7409,9 +7413,6 @@ svg {
 .menu-btn:hover {
   background-color: rgba(204, 204, 204, 0.5);
 }
-.menu-btn:not(:last-child) {
-  margin-right: 0.625rem;
-}
 .info-btn {
   background: url(../img/information.png) 0 0 no-repeat;
   display: inline-block;
@@ -7428,9 +7429,6 @@ svg {
 }
 .info-btn:hover {
   background-color: rgba(204, 204, 204, 0.5);
-}
-.info-btn:not(:last-child) {
-  margin-right: 0.625rem;
 }
 .info-btn:hover {
   background: url(../img/information_hover.png) 0 0 no-repeat;
@@ -7452,9 +7450,6 @@ svg {
 .network-btn:hover {
   background-color: rgba(204, 204, 204, 0.5);
 }
-.network-btn:not(:last-child) {
-  margin-right: 0.625rem;
-}
 .reset-btn {
   background: url(../img/refresh.svg) center center no-repeat;
   display: inline-block;
@@ -7471,9 +7466,6 @@ svg {
 }
 .reset-btn:hover {
   background-color: rgba(204, 204, 204, 0.5);
-}
-.reset-btn:not(:last-child) {
-  margin-right: 0.625rem;
 }
 .export-btn {
   background: url(../img/download.svg) center center no-repeat;
@@ -7492,8 +7484,40 @@ svg {
 .export-btn:hover {
   background-color: rgba(204, 204, 204, 0.5);
 }
-.export-btn:not(:last-child) {
-  margin-right: 0.625rem;
+.expand-btn {
+  background: url(../img/zoomOut.svg) center center no-repeat;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 1px solid #eef0f3;
+  width: 2.4143rem;
+  height: 2.4143rem;
+  background-size: 23.177px 23.177px;
+  background-position: center center;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.expand-btn:hover {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.help-btn {
+  background: url(../img/alert.svg) 75% center no-repeat;
+  border-radius: 2.5rem;
+  border: 1px solid #eef0f3;
+  padding: 0.62rem 2.75rem 0.62rem 1.25rem;
+  background-size: 1rem 1rem;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  color: #121212;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.help-btn:hover {
+  background-color: rgba(204, 204, 204, 0.5);
 }
 .export-all-btn {
   background: url(../img/save_all.png) 0 0 no-repeat;
@@ -7521,9 +7545,6 @@ svg {
 }
 .advanced-toggle:hover {
   background-color: rgba(204, 204, 204, 0.5);
-}
-.advanced-toggle:not(:last-child) {
-  margin-right: 0.625rem;
 }
 .tag-btn {
   height: 36px;
