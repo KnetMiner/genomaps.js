@@ -2496,11 +2496,11 @@ GENEMAP.GeneMap = function (userConfig) {
     return my;
   };
 
-  my.draw = function (outerTargetId, basemapPath, annotationPath) {
+  my.draw = function (outerTargetId, basemapPath, annotationPath, isString=false) {
     var reader = GENEMAP.XmlDataReader();
 
-    reader.readXMLData(basemapPath, annotationPath).then(function (data) {
-      my._draw(outerTargetId, data);
+    reader.readXMLData(basemapPath, annotationPath, isString).then(function (data) {
+      my._draw(outerTargetId, data, isString);
     });
   };
 
@@ -6184,14 +6184,23 @@ GENEMAP.XmlDataReader = function () {
   };
 
   return {
-    readXMLData: function (basemapPath, annotationPath) {
+    readXMLData: function (basemapPath, annotationPath, isString) {
       var basemapReader = GENEMAP.BasemapXmlReader();
-      var basemapPromise = basemapReader.readBasemapXML(basemapPath);
-
+      let basemapPromise;
+      if(!isString){
+        basemapPromise = basemapReader.readBasemapXML(basemapPath);
+      }
+      else {
+        basemapPromise = basemapReader.readBasemapXMLFromRawXML(basemapPath);
+      }
       if (annotationPath) {
         var annotationReader = GENEMAP.AnnotationXMLReader();
-        var annotationPromise =
-          annotationReader.readAnnotationXML(annotationPath);
+        let annotationPromise;
+        if(isString){
+          annotationPromise = annotationReader.readAnnotationXMLFromRawXML(annotationPath);
+        } else {
+          annotationPromise = annotationReader.readAnnotationXML(annotationPath);
+        }
 
         var promise = Promise.all([basemapPromise, annotationPromise]).then(
           _processJoinedData,
