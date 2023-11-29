@@ -2088,6 +2088,8 @@ GENEMAP.GeneMap = function (userConfig) {
     });
   };
 
+
+
   //REMOVE IF NOT NEEDED
 
   // const onSubmitColorClick = function () {
@@ -2377,6 +2379,15 @@ GENEMAP.GeneMap = function (userConfig) {
       });
     }
 
+    console.log('logspan', logSpan.text(
+      "translate: [ " +
+      zoom.translate()[0].toFixed(1) +
+      "," +
+      zoom.translate()[1].toFixed(1) +
+      "]  zoom:" +
+      zoom.scale().toFixed(2)
+    ))
+
     logSpan.text(
       "translate: [ " +
         zoom.translate()[0].toFixed(1) +
@@ -2526,6 +2537,19 @@ GENEMAP.GeneMap = function (userConfig) {
     updateLegend(legendSpan, genome);
   };
 
+  my.changeQtlColor = function (chromosomeId, color, label) {
+    genome.chromosomes.forEach(function (chromosome) {
+      chromosome.layout.qtlNodes.forEach(function (qtlNode) {
+        if (qtlNode.id === chromosomeId) {
+          qtlNode.color = color;
+          qtlNode.label = label;
+        }
+      });
+    });
+    computeGeneLayout();
+    drawMap();
+  }
+
   my.changeColor = function (color) {
     d3.select('#map').style('background-color', color);
     computeGeneLayout();
@@ -2611,6 +2635,18 @@ GENEMAP.GeneMap = function (userConfig) {
   my.loggingOff = function () {
     logSpan.style("display", "none");
   };
+
+  my.getSelectedGenes = function() {
+    var selectedGenes = [];
+    genome.chromosomes.forEach(function (chromosome) {
+      chromosome.annotations.genes.forEach(function (gene) {
+        if (gene.selected) {
+          selectedGenes.push(gene);
+        }
+      });
+    });
+    return selectedGenes;
+  }
 
   my.getGenome = function () {
     return genome;
