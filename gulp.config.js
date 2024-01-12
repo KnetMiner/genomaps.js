@@ -32,6 +32,7 @@ module.exports = function () {
 			'./node_modules/es6-shim/es6-shim.js',
    	],
  
+      // "./node_modules/file-saver/FileSaver.js",
     // all the source files
     less: ['./src/less/*.less', '!./src/less/variables.less'],
     srcDir: './src/',
