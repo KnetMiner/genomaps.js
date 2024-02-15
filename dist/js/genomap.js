@@ -378,9 +378,10 @@ var GENEMAP = GENEMAP || {};
 GENEMAP.BasemapXmlReader = function () {
   var _readBasemapJSON = function (json) {
     var genome = {};
-    genome.chromosomes = json?.chromosomes;
+    genome.chromosomes = json?.genome.chromosomes;
 
     console.log("json", json);
+    console.log("genome", genome);
 
     return genome;
   };
