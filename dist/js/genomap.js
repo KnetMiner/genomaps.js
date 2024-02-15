@@ -380,6 +380,8 @@ GENEMAP.BasemapXmlReader = function () {
     var genome = {};
     genome.chromosomes = json?.chromosomes;
 
+    console.log("genome", genome);
+
     return genome;
   };
 
