@@ -137,6 +137,7 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
   return {
     decorateGenome: function (inputGenome) {
       //var genome = _.cloneDeep(inputGenome);
+      console.log("inputGenome", inputGenome);
       var genome = inputGenome;
 
       var sizeLessMargin = {
@@ -377,7 +378,7 @@ var GENEMAP = GENEMAP || {};
 GENEMAP.BasemapXmlReader = function () {
   var _readBasemapJSON = function (json) {
     var genome = {};
-    genome.chromosomes = json?.chromosomes;
+    genome.chromosomes = json?.genome.chromosomes;
 
     return genome;
   };
@@ -388,8 +389,8 @@ GENEMAP.BasemapXmlReader = function () {
       return d3.promise.json(path).then(_readBasemapJSON);
     },
     readBasemapXMLFromRawXML: function (json) {
-      log.info("reading basemap json");
-      return json;
+      // log.info("reading basemap json");
+      return _readBasemapJSON(json);
     },
   };
 };
@@ -2037,7 +2038,7 @@ GENEMAP.GeneMap = function (userConfig) {
       });
     });
 
-    console.log('anyGenesSelected', anyGenesSelected)
+    console.log("anyGenesSelected", anyGenesSelected);
 
     computeGeneLayout();
     drawMap();
@@ -2091,8 +2092,6 @@ GENEMAP.GeneMap = function (userConfig) {
       keyword: $("#keywords").val(),
     });
   };
-
-
 
   //REMOVE IF NOT NEEDED
 
@@ -2383,14 +2382,17 @@ GENEMAP.GeneMap = function (userConfig) {
       });
     }
 
-    console.log('logspan', logSpan.text(
-      "translate: [ " +
-      zoom.translate()[0].toFixed(1) +
-      "," +
-      zoom.translate()[1].toFixed(1) +
-      "]  zoom:" +
-      zoom.scale().toFixed(2)
-    ))
+    console.log(
+      "logspan",
+      logSpan.text(
+        "translate: [ " +
+          zoom.translate()[0].toFixed(1) +
+          "," +
+          zoom.translate()[1].toFixed(1) +
+          "]  zoom:" +
+          zoom.scale().toFixed(2)
+      )
+    );
 
     logSpan.text(
       "translate: [ " +
@@ -2403,7 +2405,6 @@ GENEMAP.GeneMap = function (userConfig) {
 
     //Update layout parameters
     decorateGenomeLayout();
-
 
     // if(!colorPicker) {
     //   colorPicker = GENEMAP.ColorPicker().chromosomes(genome.chromosomes);
@@ -2511,12 +2512,24 @@ GENEMAP.GeneMap = function (userConfig) {
     return my;
   };
 
-  my.draw = function (outerTargetId, basemapPath, annotationPath, isString=false) {
+  my.draw = function (
+    outerTargetId,
+    basemapPath,
+    annotationPath,
+    isString = false
+  ) {
     var reader = GENEMAP.XmlDataReader();
 
-    reader.readXMLData(basemapPath, annotationPath, isString).then(function (data) {
+    if (annotationPath) {
+      reader
+        .readXMLData(basemapPath, annotationPath, isString)
+        .then(function (data) {
+          my._draw(outerTargetId, data, isString);
+        });
+    } else {
+      const data = reader.readXMLData(basemapPath, annotationPath, isString);
       my._draw(outerTargetId, data, isString);
-    });
+    }
   };
 
   my._draw = function (outerTargetId, data) {
@@ -2543,7 +2556,7 @@ GENEMAP.GeneMap = function (userConfig) {
 
   my.changeQtlColor = function (chromosomeId, color, label) {
     genome.chromosomes.forEach(function (chromosome) {
-      console.log('chromosome', chromosome)
+      console.log("chromosome", chromosome);
       chromosome.layout.qtlNodes.forEach(function (qtlNode) {
         if (qtlNode.id === chromosomeId) {
           qtlNode.color = color;
@@ -2553,13 +2566,13 @@ GENEMAP.GeneMap = function (userConfig) {
     });
     computeGeneLayout();
     drawMap();
-  }
+  };
 
   my.changeColor = function (color) {
-    d3.select('#map').style('background-color', color);
+    d3.select("#map").style("background-color", color);
     computeGeneLayout();
     drawMap();
-  }
+  };
 
   my.redraw = function (outerTarget) {
     target = d3.select(outerTarget).select("#genemap-target")[0][0];
@@ -2641,7 +2654,7 @@ GENEMAP.GeneMap = function (userConfig) {
     logSpan.style("display", "none");
   };
 
-  my.getSelectedGenes = function() {
+  my.getSelectedGenes = function () {
     var selectedGenes = [];
     genome.chromosomes.forEach(function (chromosome) {
       chromosome.annotations.genes.forEach(function (gene) {
@@ -2651,7 +2664,7 @@ GENEMAP.GeneMap = function (userConfig) {
       });
     });
     return selectedGenes;
-  }
+  };
 
   my.getGenome = function () {
     return genome;
@@ -6228,19 +6241,20 @@ GENEMAP.XmlDataReader = function () {
     readXMLData: function (basemapPath, annotationPath, isString) {
       var basemapReader = GENEMAP.BasemapXmlReader();
       let basemapPromise;
-      if(!isString){
+      if (!isString) {
         basemapPromise = basemapReader.readBasemapXML(basemapPath);
-      }
-      else {
+      } else {
         basemapPromise = basemapReader.readBasemapXMLFromRawXML(basemapPath);
       }
       if (annotationPath) {
         var annotationReader = GENEMAP.AnnotationXMLReader();
         let annotationPromise;
-        if(isString){
-          annotationPromise = annotationReader.readAnnotationXMLFromRawXML(annotationPath);
+        if (isString) {
+          annotationPromise =
+            annotationReader.readAnnotationXMLFromRawXML(annotationPath);
         } else {
-          annotationPromise = annotationReader.readAnnotationXML(annotationPath);
+          annotationPromise =
+            annotationReader.readAnnotationXML(annotationPath);
         }
 
         var promise = Promise.all([basemapPromise, annotationPromise]).then(
@@ -6256,7 +6270,7 @@ GENEMAP.XmlDataReader = function () {
         return promise;
       }
 
-      return basemapPromise.then(_processBasemapData);
+      return _processBasemapData(basemapPromise);
     },
   };
 };
