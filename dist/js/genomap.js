@@ -387,6 +387,10 @@ GENEMAP.BasemapXmlReader = function () {
       log.info("reading basemap file: ", path);
       return d3.promise.json(path).then(_readBasemapJSON);
     },
+    readBasemapXMLFromRawXML: function (path) {
+      log.info("reading basemap file: ", path);
+      return d3.promise.json(path).then(_readBasemapJSON);
+    },
   };
 };
 
