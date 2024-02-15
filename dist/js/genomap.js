@@ -378,7 +378,7 @@ var GENEMAP = GENEMAP || {};
 GENEMAP.BasemapXmlReader = function () {
   var _readBasemapJSON = function (json) {
     var genome = {};
-    genome.chromosomes = json?.genome.chromosomes;
+    genome.chromosomes = json?.chromosomes;
 
     return genome;
   };
@@ -389,7 +389,7 @@ GENEMAP.BasemapXmlReader = function () {
       return d3.promise.json(path).then(_readBasemapJSON);
     },
     readBasemapXMLFromRawXML: function (json) {
-      // log.info("reading basemap json");
+      log.info("reading basemap json");
       return _readBasemapJSON(json);
     },
   };
