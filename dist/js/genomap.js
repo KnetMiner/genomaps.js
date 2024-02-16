@@ -6143,6 +6143,7 @@ GENEMAP.XmlDataReader = function () {
   };
 
   var _processBasemapData = function (genome) {
+    console.log("genome", genome);
     genome.chromosomes.forEach(function (chromosome) {
       // include empty lists incase there is no annotation data
       chromosome.annotations = {
