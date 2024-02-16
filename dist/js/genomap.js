@@ -378,7 +378,7 @@ var GENEMAP = GENEMAP || {};
 GENEMAP.BasemapXmlReader = function () {
   var _readBasemapJSON = function (json) {
     var genome = {};
-    genome.chromosomes = json?.chromosomes;
+    genome.chromosomes = json?.genome.chromosomes;
 
     console.log("json", json);
     console.log("genome", genome);
@@ -6143,7 +6143,6 @@ GENEMAP.XmlDataReader = function () {
   };
 
   var _processBasemapData = function (genome) {
-    console.log("genome", genome);
     genome.chromosomes.forEach(function (chromosome) {
       // include empty lists incase there is no annotation data
       chromosome.annotations = {
@@ -6152,6 +6151,9 @@ GENEMAP.XmlDataReader = function () {
         qtls: [],
         snps: [],
       };
+      if (!chromosome.bands) {
+        chromosome.bands = [];
+      }
 
       chromosome.bands.forEach(function (band) {
         band.color = getColor(band.color);
