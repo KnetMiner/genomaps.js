@@ -1780,6 +1780,7 @@ GENEMAP.GeneMap = function (userConfig) {
 
   // reset the maps pan and zoom to the initial state
   var resetMapZoom = function () {
+    console.log("zoom", zoom.scale());
     if (zoom.scale() == 1 && _.isEqual(zoom.translate(), [0, 0])) {
       //No need to do anything
       return;
@@ -2309,6 +2310,7 @@ GENEMAP.GeneMap = function (userConfig) {
 
   // builds the basic chart components, should only be called once
   var constructSkeletonChart = function (mapContainer) {
+    console.log("constructSkeletonChart");
     var svgWrapper = mapContainer.append("div").attr({
       class: "mapview-wrapper",
     });
@@ -2375,6 +2377,7 @@ GENEMAP.GeneMap = function (userConfig) {
   // draw the genemap into the target element.
   var drawMap = function () {
     //Create svg if necessary
+    console.log("draw map target", target);
     if (!d3.select(target).select("svg").node()) {
       svg = constructSkeletonChart(d3.select(target));
     } else {
@@ -2449,6 +2452,7 @@ GENEMAP.GeneMap = function (userConfig) {
   // element, it expects that to already have been created.
 
   function my(selection) {
+    console.log("selection", selection);
     selection.each(function (d) {
       var _this = this;
       target = _this;
@@ -2550,9 +2554,13 @@ GENEMAP.GeneMap = function (userConfig) {
 
     target = d3.select(outerTargetId).select("#genemap-target")[0][0];
 
+    console.log("target", target);
+
     log.info("drawing genome to target");
     d3.select(target).datum(data).call(my);
+
     my.nGenesToDisplay(config.initialMaxGenes);
+    console.log("reset map zoom");
     resetMapZoom();
     updateLegend(legendSpan, genome);
   };
@@ -4274,12 +4282,7 @@ GENEMAP.MenuBar = function (userConfig) {
       .selectAll("span")
       .data([
         ["label-btn", "ngenes-dropdown"],
-        [
-          "help-btn",
-          "expand-btn",
-          "reset-btn",
-          "export-btn",
-        ],
+        ["help-btn", "reset-btn", "export-btn"],
       ])
       .enter()
       .append("span")
@@ -6143,9 +6146,9 @@ GENEMAP.XmlDataReader = function () {
   };
 
   var _processBasemapData = function (genome) {
-    console.log("genome chromosomes", genome.chromosomes);
+    // console.log("genome chromosomes", genome.chromosomes);
     genome.chromosomes.forEach(function (chromosome) {
-      console.log("chromosome", chromosome);
+      // console.log("chromosome", chromosome);
       // include empty lists incase there is no annotation data
       chromosome.annotations = {
         allGenes: [],
