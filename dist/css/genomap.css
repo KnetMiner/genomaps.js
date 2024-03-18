@@ -168,6 +168,9 @@ ul {
       -ms-flex-align: center;
           align-items: center;
 }
+.bootstrap .dropup .caret {
+  border-bottom: none !important;
+}
 g.gene-annotations rect.border {
   fill: none;
   stroke-width: 0.5;
