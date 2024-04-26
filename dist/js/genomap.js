@@ -1,85 +1,89 @@
 var GENEMAP = GENEMAP || {};
 
 // reads the gene and qtl annotations from the .xml file
-// GENEMAP.AnnotationXMLReader = function () {
-//   var _readAnnotations = function (json) {
-//     var genome = {};
-//     console.log("json", json);
-//     genome.features = json.genome.features?.map((feature) => ({
-//       ...feature,
-//       midpoint: (feature.end - feature.start) / 2 + feature.start,
-//       selected: false,
-//     }));
-//     return genome;
-//   };
-//
-//   return {
-//     readAnnotationXML: function (path) {
-//       log.info("reading annotation file: ", path);
-//       return d3.promise.json(path).then(_readAnnotations);
-//     },
-//   };
-// };
-
 GENEMAP.AnnotationXMLReader = function () {
-  var _getValue = function (elt, name) {
-    var element = elt.getElementsByTagName(name);
-    if (element && element.length > 0) {
-      return element[0].childNodes[0].nodeValue;
-    } else {
-      return null;
-    }
-  };
-
-  var _readFeature = function (elt) {
-    var start = +elt.getElementsByTagName("start")[0].childNodes[0].nodeValue;
-    var end = +elt.getElementsByTagName("end")[0].childNodes[0].nodeValue;
-    var midpoint = (end - start) / 2 + start;
-
-    return {
-      id: elt.getAttribute("id"),
-      chromosome:
-        elt.getElementsByTagName("chromosome")[0].childNodes[0].nodeValue,
-      start: start,
-      end: end,
-      midpoint: midpoint,
-      type: _getValue(elt, "type"),
-      color: _getValue(elt, "color"),
-      label: _getValue(elt, "label"),
-      link: _getValue(elt, "link"),
-      score: _getValue(elt, "score"),
-      pvalue: _getValue(elt, "pvalue"),
-      trait: _getValue(elt, "trait"),
-      selected: false,
-    };
-  };
-
-  var _readAnnotations = function (xml) {
+  var _readAnnotations = function (json) {
     var genome = {};
-    genome.features = [];
-
-    var elements = xml.getElementsByTagName("feature");
-    for (var i = 0; i < elements.length; i++) {
-      genome.features.push(_readFeature(elements[i]));
-    }
-
+    console.log("annotations json", json);
+    genome.features = json.genome.features?.map((feature) => ({
+      ...feature,
+      midpoint: (feature.end - feature.start) / 2 + feature.start,
+      selected: false,
+    }));
     return genome;
   };
 
   return {
+    readAnnotationXMLFromRawXML: function (json) {
+      log.info("reading basemap json");
+      return _readAnnotations(json);
+    },
     readAnnotationXML: function (path) {
       log.info("reading annotation file: ", path);
-      return d3.promise.xml(path).then(_readAnnotations);
-    },
-
-    readAnnotationXMLFromRawXML: function (xmlStr) {
-      log.info("reading annotation xml");
-      return new Promise(function (resolve, reject) {
-        resolve(new DOMParser().parseFromString(xmlStr, "application/xml"));
-      }).then(_readAnnotations);
+      return d3.promise.json(path).then(_readAnnotations);
     },
   };
 };
+
+// GENEMAP.AnnotationXMLReader = function () {
+//   var _getValue = function (elt, name) {
+//     var element = elt.getElementsByTagName(name);
+//     if (element && element.length > 0) {
+//       return element[0].childNodes[0].nodeValue;
+//     } else {
+//       return null;
+//     }
+//   };
+
+//   var _readFeature = function (elt) {
+//     var start = +elt.getElementsByTagName("start")[0].childNodes[0].nodeValue;
+//     var end = +elt.getElementsByTagName("end")[0].childNodes[0].nodeValue;
+//     var midpoint = (end - start) / 2 + start;
+
+//     return {
+//       id: elt.getAttribute("id"),
+//       chromosome:
+//         elt.getElementsByTagName("chromosome")[0].childNodes[0].nodeValue,
+//       start: start,
+//       end: end,
+//       midpoint: midpoint,
+//       type: _getValue(elt, "type"),
+//       color: _getValue(elt, "color"),
+//       label: _getValue(elt, "label"),
+//       link: _getValue(elt, "link"),
+//       score: _getValue(elt, "score"),
+//       pvalue: _getValue(elt, "pvalue"),
+//       trait: _getValue(elt, "trait"),
+//       selected: false,
+//     };
+//   };
+
+//   var _readAnnotations = function (xml) {
+//     var genome = {};
+//     genome.features = [];
+
+//     var elements = xml.getElementsByTagName("feature");
+//     for (var i = 0; i < elements.length; i++) {
+//       genome.features.push(_readFeature(elements[i]));
+//     }
+
+//     return genome;
+//   };
+
+//   return {
+//     readAnnotationXML: function (path) {
+//       log.info("reading annotation file: ", path);
+//       return d3.promise.xml(path).then(_readAnnotations);
+//     },
+
+//     readAnnotationXMLFromRawXML: function (xmlStr) {
+//       log.info("reading annotation xml");
+//       return new Promise(function (resolve, reject) {
+//         resolve(new DOMParser().parseFromString(xmlStr, "application/xml"));
+//       }).then(_readAnnotations);
+//     },
+//   };
+// };
 
 var GENEMAP = GENEMAP || {};
 
@@ -376,8 +380,9 @@ var GENEMAP = GENEMAP || {};
 // reads the chromosome data from the basemap file
 GENEMAP.BasemapXmlReader = function () {
   var _readBasemapJSON = function (json) {
+    console.log("json", json);
     var genome = {};
-    genome.chromosomes = json?.chromosomes;
+    genome.chromosomes = json?.genome.chromosomes;
 
     return genome;
   };
@@ -6151,7 +6156,7 @@ GENEMAP.XmlDataReader = function () {
   };
 
   var _processBasemapData = function (genome) {
-    // console.log("genome chromosomes", genome.chromosomes);
+    console.log("genome chromosomes", genome);
     genome.chromosomes.forEach(function (chromosome) {
       // console.log("chromosome", chromosome);
       // include empty lists incase there is no annotation data
@@ -6272,6 +6277,8 @@ GENEMAP.XmlDataReader = function () {
           annotationPromise =
             annotationReader.readAnnotationXML(annotationPath);
         }
+
+        console.log("basemapPromise", basemapPromise);
 
         var promise = Promise.all([basemapPromise, annotationPromise]).then(
           _processJoinedData,
