@@ -380,9 +380,8 @@ var GENEMAP = GENEMAP || {};
 // reads the chromosome data from the basemap file
 GENEMAP.BasemapXmlReader = function () {
   var _readBasemapJSON = function (json) {
-    console.log("json", json);
     var genome = {};
-    genome.chromosomes = json?.genome.chromosomes;
+    genome.chromosomes = json?.chromosomes;
 
     return genome;
   };
