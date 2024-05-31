@@ -23,43 +23,42 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-!function ($) {
-
+!(function ($) {
   /* MODAL POPOVER PUBLIC CLASS DEFINITION
    * =============================== */
 
   var ModalPopover = function (element, options) {
     this.options = options;
     this.$body = $(document.body);
-    this.$navbar = $('.navbar.navbar-fixed-top');
-    this.$element = $(element)
-      .delegate('[data-dismiss="modal-popup"]', 'click.dismiss.modal-popup', $.proxy(this.hide, this));
-    this.$dialog = this.$element.find('.modal-dialog');
-    this.options.remote && this.$element.find('.popover-content').load(this.options.remote);
+    this.$navbar = $(".navbar.navbar-fixed-top");
+    this.$element = $(element).delegate(
+      '[data-dismiss="modal-popup"]',
+      "click.dismiss.modal-popup",
+      $.proxy(this.hide, this)
+    );
+    this.$dialog = this.$element.find(".modal-dialog");
+    this.options.remote &&
+      this.$element.find(".popover-content").load(this.options.remote);
     this.$parent = options.$parent; // todo make sure parent is specified
   };
 
-
   /* NOTE: MODAL POPOVER EXTENDS BOOTSTRAP-MODAL.js
-   ========================================== */
-
+     ========================================== */
 
   ModalPopover.prototype = $.extend({}, $.fn.modal.Constructor.prototype, {
-
     constructor: ModalPopover,
 
-    getDimensions:function($element) {
+    getDimensions: function ($element) {
       var width;
       var height;
 
       if ("offsetWidth" in $element[0] && $element[0].offsetWidth) {
-        log.trace('Using offsetWidth');
+        log.trace("Using offsetWidth");
         //This works fine for html objecst
         width = $element[0].offsetWidth;
         height = $element[0].offsetHeight;
-      }
-      else if ("getBBox" in $element[0]) {
-        log.trace('Using getBBox');
+      } else if ("getBBox" in $element[0]) {
+        log.trace("Using getBBox");
         //This works for svg text objects
 
         //Raw BBox doesn't take Current Transformation Matrix into account.
@@ -69,18 +68,17 @@
         height = bbox.height * ctm.d;
       }
 
-      var result ={ width: width, height: height};
+      var result = { width: width, height: height };
 
-      return  result;
+      return result;
     },
 
     show: function () {
-
-      for( var round = 0 ; round < 2 ; round ++ ){
-
+      for (var round = 0; round < 2; round++) {
         //dialog is the popup box we are creating
         var $dialog = this.$element;
-        $dialog.css({ top: 0, left: 0, display: 'block', 'z-index': 1050 });
+        console.log("dialog", $dialog);
+        $dialog.css({ top: 0, left: 0, display: "block", "z-index": 1050 });
 
         var dialogWidth = $dialog[0].offsetWidth;
         var dialogHeight = $dialog[0].offsetHeight;
@@ -91,84 +89,131 @@
 
         var parentPosition;
         var positionDirective = {
-          my: 'left top', at: 'left top', of: parent,
-          collision: 'none',
-          using: function( hash, feedback){
-              parentPosition = hash;
-          }
+          my: "left top",
+          at: "left top",
+          of: parent,
+          collision: "none",
+          using: function (hash, feedback) {
+            parentPosition = hash;
+          },
         };
 
-        $dialog
-          .position(positionDirective);
+        const target = document.getElementById("genemap-target");
 
-        var parentDimensions = this.getDimensions( $(parent));
+        const relativeTop =
+          parent[0].getBoundingClientRect().top -
+          target.getBoundingClientRect().top;
+
+        const relativeLeft =
+          parent[0].getBoundingClientRect().left -
+          target.getBoundingClientRect().left;
+
+        parentPosition = {
+          top: relativeTop,
+          left: relativeLeft,
+        };
+        console.log("parent element", parent[0]);
+        $dialog.position(positionDirective);
+
+        var parentDimensions = this.getDimensions($(parent));
 
         parentPosition = _.merge({}, parentPosition, parentDimensions);
 
-        var placement = typeof this.options.placement == 'function' ?
-          this.options.placement.call(this, $tip[0], this.$element[0]) :
-          this.options.placement;
+        console.log("parentPosition", parentPosition);
+
+        var placement =
+          typeof this.options.placement == "function"
+            ? this.options.placement.call(this, $tip[0], this.$element[0])
+            : this.options.placement;
 
         var boundLeftPos = null;
         var boundRightPos = null;
 
-        if ( this.options.boundingSize ){
+        if (this.options.boundingSize) {
           var boundingLeftDirective = {
-            my: 'left center', at: 'right center', of: this.options.boundingSize[0],
-            collision: 'none',
-            using: function( hash, feedback){
+            my: "left center",
+            at: "right center",
+            of: this.options.boundingSize[0],
+            collision: "none",
+            using: function (hash, feedback) {
               boundLeftPos = hash;
-            }
+            },
           };
 
-          $dialog
-            .position(boundingLeftDirective);
+          $dialog.position(boundingLeftDirective);
 
           var boundingRightDirective = {
-            my: 'right center', at: 'left center', of: this.options.boundingSize[0],
-            collision: 'none',
-            using: function( hash, feedback){
+            my: "right center",
+            at: "left center",
+            of: this.options.boundingSize[0],
+            collision: "none",
+            using: function (hash, feedback) {
               boundRightPos = hash;
-            }
+            },
           };
 
-          $dialog
-            .position(boundingRightDirective);
+          $dialog.position(boundingRightDirective);
         }
 
         var arrowMargin = 10;
 
         var tp;
         switch (placement) {
-          case 'bottom':
-            tp = { top: parentPosition.top + parentPosition.height, left: parentPosition.left + parentPosition.width / 2 - dialogWidth / 2 }
+          case "bottom":
+            tp = {
+              top: parentPosition.top + parentPosition.height,
+              left:
+                parentPosition.left +
+                parentPosition.width / 2 -
+                dialogWidth / 2,
+            };
             break;
-          case 'top':
-            tp = { top: parentPosition.top - dialogHeight, left: parentPosition.left + parentPosition.width / 2 - dialogWidth / 2 }
+          case "top":
+            tp = {
+              top: parentPosition.top - dialogHeight,
+              left:
+                parentPosition.left +
+                parentPosition.width / 2 -
+                dialogWidth / 2,
+            };
             break;
-          case 'left':
-            var left = parentPosition.left - dialogWidth
-            if ( boundRightPos){
-              left = Math.max( left, boundRightPos.left) - arrowMargin;
+          case "left":
+            var left = parentPosition.left - dialogWidth;
+            if (boundRightPos) {
+              left = Math.max(left, boundRightPos.left) - arrowMargin;
             }
-            tp = { top: parentPosition.top + parentPosition.height / 2 - dialogHeight / 2, left: left }
+            tp = {
+              top:
+                parentPosition.top +
+                parentPosition.height / 2 -
+                dialogHeight / 2,
+              left: left,
+            };
             break;
-          case 'right':
+          case "right":
             var left = parentPosition.left + parentPosition.width;
-            if ( boundLeftPos){
-              left = Math.min( left, boundLeftPos.left) + arrowMargin;
+            if (boundLeftPos) {
+              left = Math.min(left, boundLeftPos.left) + arrowMargin;
             }
-            tp = { top: parentPosition.top + parentPosition.height / 2 - dialogHeight / 2, left: left }
+            tp = {
+              top:
+                parentPosition.top +
+                parentPosition.height / 2 -
+                dialogHeight / 2,
+              left: left,
+            };
+            break;
+          case "top left":
+            tp = {
+              top: parentPosition.top - dialogHeight,
+              left: parentPosition.left + parentPosition.width / 2,
+            };
             break;
         }
 
+        $dialog.css(tp).addClass(placement).addClass("in");
 
-        $dialog
-          .css(tp)
-          .addClass(placement)
-          .addClass('in');
-
-        $dialog.toggleClass('force-redraw');
+        $dialog.toggleClass("force-redraw");
 
         $.fn.modal.Constructor.prototype.show.call(this, arguments); // super
       }
@@ -176,95 +221,117 @@
 
     /** todo entire function was copied just to set the background to 'none'. need a better way */
     backdrop: function (callback) {
-      var that = this
-        , animate = this.$element.hasClass('fade') ? 'fade' : ''
+      var that = this,
+        animate = this.$element.hasClass("fade") ? "fade" : "";
 
       if (this.isShown && this.options.backdrop) {
-        var doAnimate = $.support.transition && animate
+        var doAnimate = $.support.transition && animate;
 
-        this.$backdrop = $('<div class="modal-backdrop ' + animate + '" style="background:none" />')
-          .appendTo(document.body)
+        this.$backdrop = $(
+          '<div class="modal-backdrop ' +
+            animate +
+            '" style="background:none" />'
+        ).appendTo(document.body);
 
-        if (this.options.backdrop != 'static') {
-          this.$backdrop.click($.proxy(this.hide, this))
+        if (this.options.backdrop != "static") {
+          this.$backdrop.click($.proxy(this.hide, this));
         }
 
-        if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+        if (doAnimate) this.$backdrop[0].offsetWidth; // force reflow
 
-        this.$backdrop.addClass('in');
+        this.$backdrop.addClass("in");
 
-        doAnimate ?
-          this.$backdrop.one($.support.transition.end, callback) :
-          callback()
+        doAnimate
+          ? this.$backdrop.one($.support.transition.end, callback)
+          : callback();
 
         if (that.bodyIsOverflowing) {
           this.$navbar.css({ paddingRight: that.scrollbarWidth });
-        };
-
+        }
       } else if (!this.isShown && this.$backdrop) {
-        this.$backdrop.removeClass('in');
+        this.$backdrop.removeClass("in");
 
-        $.support.transition && this.$element.hasClass('fade') ?
-          this.$backdrop.one($.support.transition.end, $.proxy(this.removeBackdrop, this)) :
-          this.removeBackdrop();
+        $.support.transition && this.$element.hasClass("fade")
+          ? this.$backdrop.one(
+              $.support.transition.end,
+              $.proxy(this.removeBackdrop, this)
+            )
+          : this.removeBackdrop();
 
-        this.$body.removeClass('modal-open');
+        this.$body.removeClass("modal-open");
 
         this.$navbar.css({ paddingRight: 0 });
-        this.$body.css({paddingRight: 0});
-
+        this.$body.css({ paddingRight: 0 });
       } else if (callback) {
-        callback()
+        callback();
       }
-    }
-
+    },
   });
-
 
   /* MODAL POPOVER PLUGIN DEFINITION
    * ======================= */
 
   $.fn.modalPopover = function (option) {
+    console.log("option", option);
     return this.each(function () {
       var $this = $(this);
-      var data = typeof option == 'string' ? $this.data('modal-popover') : undefined;
-      var options = $.extend({}, $.fn.modalPopover.defaults, $this.data(), typeof option == 'object' && option);
+      var data =
+        typeof option == "string" ? $this.data("modal-popover") : undefined;
+      var options = $.extend(
+        {},
+        $.fn.modalPopover.defaults,
+        $this.data(),
+        typeof option == "object" && option
+      );
       // todo need to replace 'parent' with 'target'
-      options['$parent'] = ( options.$parent || (data && data.$parent) || $(options.target) );
+      options["$parent"] =
+        options.$parent || (data && data.$parent) || $(options.target);
 
-      if (!data) $this.data('modal-popover', (data = new ModalPopover(this, options)));
+      if (!data)
+        $this.data("modal-popover", (data = new ModalPopover(this, options)));
 
-      if (typeof option == 'string') data[option]()
-    })
+      if (typeof option == "string") data[option]();
+    });
   };
 
   $.fn.modalPopover.Constructor = ModalPopover;
 
   $.fn.modalPopover.defaults = $.extend({}, $.fn.modal.defaults, {
-    placement: 'right',
-    modalPosition: 'body',
+    placement: "right",
+    modalPosition: "body",
     keyboard: true,
-    backdrop: true
+    backdrop: true,
   });
 
-
   $(function () {
-    $('body').on('click.modal-popover.data-api', '[data-toggle="modal-popover"]', function (e) {
-      var $this = $(this);
-      var href = $this.attr('href');
-      var $dialog = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
-      var option = $dialog.data('modal-popover') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $dialog.data(), $this.data());
-      option['$parent'] = $this;
+    $("body").on(
+      "click.modal-popover.data-api",
+      '[data-toggle="modal-popover"]',
+      function (e) {
+        var $this = $(this);
+        var href = $this.attr("href");
+        var $dialog = $(
+          $this.attr("data-target") ||
+            (href && href.replace(/.*(?=#[^\s]+$)/, ""))
+        ); //strip for ie7
+        var option = $dialog.data("modal-popover")
+          ? "toggle"
+          : $.extend(
+              { remote: !/#/.test(href) && href },
+              $dialog.data(),
+              $this.data()
+            );
+        option["$parent"] = $this;
 
-      e.preventDefault();
+        e.preventDefault();
 
-      $dialog
-        .modalPopover(option)
-        .modalPopover('show')
-        .one('hide', function () {
-          $this.focus()
-        })
-    })
-  })
-
-}(window.jQuery);
+        $dialog
+          .modalPopover(option)
+          .modalPopover("show")
+          .one("hide", function () {
+            $this.focus();
+          });
+      }
+    );
+  });
+})(window.jQuery);
