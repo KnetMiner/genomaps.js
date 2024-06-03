@@ -383,6 +383,7 @@ GENEMAP.BasemapXmlReader = function () {
     console.log("json", json);
     var genome = {};
     genome.chromosomes = json?.chromosomes;
+    // genome.chromosomes = json?.genome.chromosomes;
 
     return genome;
   };
@@ -563,7 +564,7 @@ GENEMAP.BasemapXmlReader = function () {
         };
 
         const target = document.getElementById("genemap-target");
-
+        console.log("target position", target.getBoundingClientRect());
         const relativeTop =
           parent[0].getBoundingClientRect().top -
           target.getBoundingClientRect().top;
@@ -662,7 +663,7 @@ GENEMAP.BasemapXmlReader = function () {
             tp = {
               top:
                 parentPosition.top +
-                parentPosition.height / 2 -
+                parentPosition.height * 1.6 -
                 dialogHeight / 2,
               left: left,
             };
@@ -6302,7 +6303,9 @@ GENEMAP.XmlDataReader = function () {
         return promise;
       }
 
-      return _processBasemapData(basemapPromise);
+      console.log("basemapPromise");
+
+      return basemapPromise.then(_processBasemapData);
     },
   };
 };

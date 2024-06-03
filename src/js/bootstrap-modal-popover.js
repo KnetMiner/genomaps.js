@@ -99,7 +99,7 @@
         };
 
         const target = document.getElementById("genemap-target");
-
+        console.log("target position", target.getBoundingClientRect());
         const relativeTop =
           parent[0].getBoundingClientRect().top -
           target.getBoundingClientRect().top;
@@ -198,7 +198,7 @@
             tp = {
               top:
                 parentPosition.top +
-                parentPosition.height / 2 -
+                parentPosition.height * 1.6 -
                 dialogHeight / 2,
               left: left,
             };
