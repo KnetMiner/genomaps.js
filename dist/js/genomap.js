@@ -542,7 +542,6 @@ GENEMAP.BasemapXmlReader = function () {
       for (var round = 0; round < 2; round++) {
         //dialog is the popup box we are creating
         var $dialog = this.$element;
-        console.log("dialog", $dialog);
         $dialog.css({ top: 0, left: 0, display: "block", "z-index": 1050 });
 
         var dialogWidth = $dialog[0].offsetWidth;
@@ -564,7 +563,6 @@ GENEMAP.BasemapXmlReader = function () {
         };
 
         const target = document.getElementById("genemap-target");
-        console.log("target position", target.getBoundingClientRect());
         const relativeTop =
           parent[0].getBoundingClientRect().top -
           target.getBoundingClientRect().top;
@@ -577,14 +575,11 @@ GENEMAP.BasemapXmlReader = function () {
           top: relativeTop,
           left: relativeLeft,
         };
-        console.log("parent element", parent[0]);
         $dialog.position(positionDirective);
 
         var parentDimensions = this.getDimensions($(parent));
 
         parentPosition = _.merge({}, parentPosition, parentDimensions);
-
-        console.log("parentPosition", parentPosition);
 
         var placement =
           typeof this.options.placement == "function"
@@ -737,7 +732,6 @@ GENEMAP.BasemapXmlReader = function () {
    * ======================= */
 
   $.fn.modalPopover = function (option) {
-    console.log("option", option);
     return this.each(function () {
       var $this = $(this);
       var data =
@@ -2082,12 +2076,15 @@ GENEMAP.GeneMap = function (userConfig) {
   // network button should be enabled or not
   var onAnnotationSelectionChanged = function () {
     //find out if any of the genes in any of the chromosomes are currently selected
-    console.log("select");
     var anyGenesSelected = genome.chromosomes.some(function (chromosome) {
       return chromosome.annotations.genes.some(function (gene) {
         return gene.selected;
       });
     });
+
+    if (my.onAnonationLabelSelectFunction) {
+      my.onAnonationLabelSelectFunction(my.getSelectedGenes());
+    }
 
     computeGeneLayout();
     drawMap();

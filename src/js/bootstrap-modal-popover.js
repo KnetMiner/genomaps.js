@@ -77,7 +77,6 @@
       for (var round = 0; round < 2; round++) {
         //dialog is the popup box we are creating
         var $dialog = this.$element;
-        console.log("dialog", $dialog);
         $dialog.css({ top: 0, left: 0, display: "block", "z-index": 1050 });
 
         var dialogWidth = $dialog[0].offsetWidth;
@@ -99,7 +98,6 @@
         };
 
         const target = document.getElementById("genemap-target");
-        console.log("target position", target.getBoundingClientRect());
         const relativeTop =
           parent[0].getBoundingClientRect().top -
           target.getBoundingClientRect().top;
@@ -112,14 +110,11 @@
           top: relativeTop,
           left: relativeLeft,
         };
-        console.log("parent element", parent[0]);
         $dialog.position(positionDirective);
 
         var parentDimensions = this.getDimensions($(parent));
 
         parentPosition = _.merge({}, parentPosition, parentDimensions);
-
-        console.log("parentPosition", parentPosition);
 
         var placement =
           typeof this.options.placement == "function"
@@ -272,7 +267,6 @@
    * ======================= */
 
   $.fn.modalPopover = function (option) {
-    console.log("option", option);
     return this.each(function () {
       var $this = $(this);
       var data =
