@@ -1,89 +1,89 @@
 var GENEMAP = GENEMAP || {};
 
 // reads the gene and qtl annotations from the .xml file
-// GENEMAP.AnnotationXMLReader = function () {
-//   var _readAnnotations = function (json) {
-//     var genome = {};
-//     console.log("json", json);
-//     genome.features = json.genome.features?.map((feature) => ({
-//       ...feature,
-//       midpoint: (feature.end - feature.start) / 2 + feature.start,
-//       selected: false,
-//     }));
-//     return genome;
-//   };
-
-//   return {
-//     readAnnotationXMLFromRawXML: function (json) {
-//       log.info("reading basemap json");
-//       return _readAnnotations(json);
-//     },
-//     readAnnotationXML: function (path) {
-//       log.info("reading annotation file: ", path);
-//       return d3.promise.json(path).then(_readAnnotations);
-//     },
-//   };
-// };
-
 GENEMAP.AnnotationXMLReader = function () {
-  var _getValue = function (elt, name) {
-    var element = elt.getElementsByTagName(name);
-    if (element && element.length > 0) {
-      return element[0].childNodes[0].nodeValue;
-    } else {
-      return null;
-    }
-  };
-
-  var _readFeature = function (elt) {
-    var start = +elt.getElementsByTagName("start")[0].childNodes[0].nodeValue;
-    var end = +elt.getElementsByTagName("end")[0].childNodes[0].nodeValue;
-    var midpoint = (end - start) / 2 + start;
-
-    return {
-      id: elt.getAttribute("id"),
-      chromosome:
-        elt.getElementsByTagName("chromosome")[0].childNodes[0].nodeValue,
-      start: start,
-      end: end,
-      midpoint: midpoint,
-      type: _getValue(elt, "type"),
-      color: _getValue(elt, "color"),
-      label: _getValue(elt, "label"),
-      link: _getValue(elt, "link"),
-      score: _getValue(elt, "score"),
-      pvalue: _getValue(elt, "pvalue"),
-      trait: _getValue(elt, "trait"),
-      selected: false,
-    };
-  };
-
-  var _readAnnotations = function (xml) {
+  var _readAnnotations = function (json) {
     var genome = {};
-    genome.features = [];
-
-    var elements = xml.getElementsByTagName("feature");
-    for (var i = 0; i < elements.length; i++) {
-      genome.features.push(_readFeature(elements[i]));
-    }
-
+    console.log("json", json);
+    genome.features = json.genome.features?.map((feature) => ({
+      ...feature,
+      midpoint: (feature.end - feature.start) / 2 + feature.start,
+      selected: false,
+    }));
     return genome;
   };
 
   return {
+    readAnnotationXMLFromRawXML: function (json) {
+      log.info("reading basemap json");
+      return _readAnnotations(json);
+    },
     readAnnotationXML: function (path) {
       log.info("reading annotation file: ", path);
-      return d3.promise.xml(path).then(_readAnnotations);
-    },
-
-    readAnnotationXMLFromRawXML: function (xmlStr) {
-      log.info("reading annotation xml");
-      return new Promise(function (resolve, reject) {
-        resolve(new DOMParser().parseFromString(xmlStr, "application/xml"));
-      }).then(_readAnnotations);
+      return d3.promise.json(path).then(_readAnnotations);
     },
   };
 };
+
+// GENEMAP.AnnotationXMLReader = function () {
+//   var _getValue = function (elt, name) {
+//     var element = elt.getElementsByTagName(name);
+//     if (element && element.length > 0) {
+//       return element[0].childNodes[0].nodeValue;
+//     } else {
+//       return null;
+//     }
+//   };
+
+//   var _readFeature = function (elt) {
+//     var start = +elt.getElementsByTagName("start")[0].childNodes[0].nodeValue;
+//     var end = +elt.getElementsByTagName("end")[0].childNodes[0].nodeValue;
+//     var midpoint = (end - start) / 2 + start;
+
+//     return {
+//       id: elt.getAttribute("id"),
+//       chromosome:
+//         elt.getElementsByTagName("chromosome")[0].childNodes[0].nodeValue,
+//       start: start,
+//       end: end,
+//       midpoint: midpoint,
+//       type: _getValue(elt, "type"),
+//       color: _getValue(elt, "color"),
+//       label: _getValue(elt, "label"),
+//       link: _getValue(elt, "link"),
+//       score: _getValue(elt, "score"),
+//       pvalue: _getValue(elt, "pvalue"),
+//       trait: _getValue(elt, "trait"),
+//       selected: false,
+//     };
+//   };
+
+//   var _readAnnotations = function (xml) {
+//     var genome = {};
+//     genome.features = [];
+
+//     var elements = xml.getElementsByTagName("feature");
+//     for (var i = 0; i < elements.length; i++) {
+//       genome.features.push(_readFeature(elements[i]));
+//     }
+
+//     return genome;
+//   };
+
+//   return {
+//     readAnnotationXML: function (path) {
+//       log.info("reading annotation file: ", path);
+//       return d3.promise.xml(path).then(_readAnnotations);
+//     },
+
+//     readAnnotationXMLFromRawXML: function (xmlStr) {
+//       log.info("reading annotation xml");
+//       return new Promise(function (resolve, reject) {
+//         resolve(new DOMParser().parseFromString(xmlStr, "application/xml"));
+//       }).then(_readAnnotations);
+//     },
+//   };
+// };
 
 var GENEMAP = GENEMAP || {};
 
@@ -2081,7 +2081,6 @@ GENEMAP.GeneMap = function (userConfig) {
         return gene.selected;
       });
     });
-
     if (my.onAnonationLabelSelectFunction) {
       my.onAnonationLabelSelectFunction(my.getSelectedGenes());
     }
@@ -3731,7 +3730,6 @@ var GENEMAP = GENEMAP || {};
 //Labella is used to generate layout of nodes
 
 GENEMAP.GeneBandsLayout = function (userConfig) {
-
   var defaultConfig = {
     longestChromosome: 100,
     layout: {
@@ -3740,7 +3738,7 @@ GENEMAP.GeneBandsLayout = function (userConfig) {
       x: 0, //not used
       y: 0, //not used
     },
-    doCluster : true,
+    doCluster: true,
     nClusters: 6,
     scale: 1,
     nGenesToDisplay: 1000,
@@ -3750,83 +3748,79 @@ GENEMAP.GeneBandsLayout = function (userConfig) {
   var y;
 
   var buildYScale = function () {
-    return d3.scale.linear()
+    return d3.scale
+      .linear()
       .range([0, config.layout.height])
       .domain([0, config.longestChromosome]);
   };
 
-  var shouldRecluster = function(nodes) {
+  var shouldRecluster = function (nodes) {
     return config.doCluster;
-  }
+  };
 
-
-  var createNode = function(cluster){
+  var createNode = function (cluster) {
     if (cluster.type == "gene") {
       var gene = cluster;
 
       result = {
-        start : gene.start,
-        end : gene.end,
-        midpoint : gene.midpoint,
-        color : gene.color,
-        data : gene
+        start: gene.start,
+        end: gene.end,
+        midpoint: gene.midpoint,
+        color: gene.color,
+        data: gene,
       };
 
       return result;
-    }
-    else if (cluster.type == "geneslist"){
-      maxPosition = cluster.genesList.reduce( function(max,current){
+    } else if (cluster.type == "geneslist") {
+      maxPosition = cluster.genesList.reduce(function (max, current) {
         return Math.max(max, current.end);
       }, 0);
-      minPosition = cluster.genesList.reduce( function(min,current){
+      minPosition = cluster.genesList.reduce(function (min, current) {
         return Math.min(min, current.start);
       }, Infinity);
 
       result = {
-        start : minPosition,
-        end : maxPosition,
-        midpoint : cluster.midpoint,
-        color : "#0000FF",
-        data : cluster
+        start: minPosition,
+        end: maxPosition,
+        midpoint: cluster.midpoint,
+        color: "#0000FF",
+        data: cluster,
       };
 
       return result;
-      }
-    else{
-      log.error( "unregconized cluster type");
-      log.info( cluster);
+    } else {
+      log.error("unregconized cluster type");
+      log.info(cluster);
     }
-  }
+  };
 
-  var generateChromosomeLayout = function(chromosome){
+  var generateChromosomeLayout = function (chromosome) {
     y = buildYScale();
 
     //Start by constructing nodes directly from genes
     var nodeSource = chromosome.layout.geneBandDisplayClusters;
-    var nodes = nodeSource.map( createNode );
+    var nodes = nodeSource.map(createNode);
     return nodes;
+  };
 
-  }
-
-//Produce list of clusters (which could be single genes)
-//for a given chromosome
-  var generateChromosomeClusters = function(chromosome) {
-
-    var genes = chromosome.annotations.allGenes.filter( function(gene){
-      return (gene.globalIndex < config.nGenesToDisplay )
+  //Produce list of clusters (which could be single genes)
+  //for a given chromosome
+  var generateChromosomeClusters = function (chromosome) {
+    var genes = chromosome.annotations.allGenes.filter(function (gene) {
+      return gene.globalIndex < config.nGenesToDisplay;
     });
 
-    log.trace( "nGenesToDisplay is " + config.nGenesToDisplay );
-    log.trace( "Laying out " + genes.length + " genes.");
+    log.trace("nGenesToDisplay is " + config.nGenesToDisplay);
+    log.trace("Laying out " + genes.length + " genes.");
     genes.sort(function (lhs, rhs) {
-        return lhs.midpoint - rhs.midpoint
-      });
+      return lhs.midpoint - rhs.midpoint;
+    });
 
-    if ( false && chromosome.number == "2B") {
-      log.info( "GENES");
+    if (false && chromosome.number == "2B") {
+      log.info("GENES");
       genes.forEach(function (c) {
-        log.info(c.type, c.midpoint)
-      })
+        log.info(c.type, c.midpoint);
+      });
     }
 
     var geneClusters = [];
@@ -3834,8 +3828,10 @@ GENEMAP.GeneBandsLayout = function (userConfig) {
     var iGene = 0;
     while (iGene < genes.length) {
       iDiff = iGene;
-      while (iDiff < genes.length &&
-      (genes[iGene].midpoint == genes[iDiff].midpoint)) {
+      while (
+        iDiff < genes.length &&
+        genes[iGene].midpoint == genes[iDiff].midpoint
+      ) {
         iDiff++;
       }
       nMatching = iDiff - iGene;
@@ -3843,8 +3839,7 @@ GENEMAP.GeneBandsLayout = function (userConfig) {
       if (nMatching == 1) {
         geneClusters.push(genes[iGene]);
         iGene++;
-      }
-      else {
+      } else {
         var genesList = genes.slice(iGene, iDiff);
         var id = genesList.reduce(function (sum, current) {
           return sum + current.id.toString();
@@ -3862,49 +3857,48 @@ GENEMAP.GeneBandsLayout = function (userConfig) {
     }
 
     geneClusters.sort(function (lhs, rhs) {
-      return lhs.midpoint < rhs.midpoint
+      return lhs.midpoint < rhs.midpoint;
     });
 
-    if ( false && chromosome.number == "2B") {
-      log.info( "CLUSTERS");
+    if (false && chromosome.number == "2B") {
+      log.info("CLUSTERS");
       geneClusters.forEach(function (c) {
-        log.info(c.type, c.midpoint)
-      })
+        log.info(c.type, c.midpoint);
+      });
     }
     return geneClusters;
-  }
-
+  };
 
   my = {};
 
-  my.layoutChromosome = function(chromosome){
-    chromosome.layout.geneBandNodes = generateChromosomeLayout(chromosome)
-  }
+  my.layoutChromosome = function (chromosome) {
+    chromosome.layout.geneBandNodes = generateChromosomeLayout(chromosome);
+  };
 
-  my.computeChromosomeClusters = function(chromosome){
+  my.computeChromosomeClusters = function (chromosome) {
     ly = chromosome.layout;
     ly.geneBandClusters = generateChromosomeClusters(chromosome);
     ly.geneBandDisplayClusters = ly.geneBandClusters.slice();
   };
 
-  my.expandAllChromosomeClusters = function(chromosome) {
+  my.expandAllChromosomeClusters = function (chromosome) {
     ly = chromosome.layout;
     ly.geneBandDisplayClusters = chromosome.annotations.allGenes;
   };
 
-  my.collapseAllChromosomeClusters = function(chromosome) {
+  my.collapseAllChromosomeClusters = function (chromosome) {
     ly = chromosome.layout;
     ly.geneBandDisplayClusters = ly.geneBandClusters.slice();
   };
 
-  my.expandAChromosomeCluster= function( chromosome, cluster) {
+  my.expandAChromosomeCluster = function (chromosome, cluster) {
     ly = chromosome.layout;
     ly.geneBandDisplayClusters = ly.geneBandClusters.slice();
 
     //add each gene as it's own cluster
-    cluster.genesList.forEach( function(gene){
-      ly.geneBandDisplayClusters.push(gene) ;
-    } );
+    cluster.genesList.forEach(function (gene) {
+      ly.geneBandDisplayClusters.push(gene);
+    });
 
     //delete the original cluster
     var clusterIndex = ly.geneBandDisplayClusters.indexOf(cluster);
@@ -3912,7 +3906,7 @@ GENEMAP.GeneBandsLayout = function (userConfig) {
   };
 
   return my;
-}
+};
 
 var GENEMAP = GENEMAP || {};
 
@@ -3921,7 +3915,7 @@ var GENEMAP = GENEMAP || {};
 GENEMAP.GeneClusterer = function (userConfig) {
   var my = {};
 
-  var defaultConfig = {nClusters: 6};
+  var defaultConfig = { nClusters: 6 };
 
   var config = _.merge({}, defaultConfig, userConfig);
 
@@ -3937,11 +3931,11 @@ GENEMAP.GeneClusterer = function (userConfig) {
     //It return list of lists of midpoints
 
     var nClusters = Math.min(config.nClusters, genes.length);
-    var midpoints = genes.map(function(d){
+    var midpoints = genes.map(function (d) {
       return d.midpoint;
     });
 
-    clusterPointsList = ss.ckmeans( midpoints, nClusters);
+    clusterPointsList = ss.ckmeans(midpoints, nClusters);
 
     //Start with all the clusters empty
     var clusterList = [];
@@ -3951,10 +3945,9 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
     //Now we append each gene to the correct cluster
     genes.map(function (gene) {
-
       //which cluster contains this gene's midpoint?
       iCluster = clusterPointsList.findIndex(function (clusterPoints) {
-        return clusterPoints.includes(gene.midpoint)
+        return clusterPoints.includes(gene.midpoint);
       });
 
       clusterList[iCluster].push(gene);
@@ -3962,7 +3955,6 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
     //loop over clusters and add nodes to the result
     clusterList.map(function (genes) {
-
       //for small clusters, add individual genes
       if (genes.length < 2) {
         result.push.apply(result, genes);
@@ -3970,7 +3962,8 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
       //for large clusters, add 1 node to hold all of them
       else {
-        var averageMidpoint = genes.reduce(function (sum, current) {
+        var averageMidpoint =
+          genes.reduce(function (sum, current) {
             return sum + current.midpoint;
           }, 0) / genes.length;
 
@@ -3983,7 +3976,7 @@ GENEMAP.GeneClusterer = function (userConfig) {
           genesList: genes,
           midpoint: averageMidpoint,
           type: "geneslist",
-          id: id.toString()
+          id: id.toString(),
         };
 
         result.push(genesCollection);
@@ -4000,7 +3993,7 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
     config.nClusters = value;
     return my;
-  }
+  };
 
   return my;
 };
@@ -4029,17 +4022,17 @@ GENEMAP.GeneClusterer = function (userConfig) {
 //OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-(function(exports) {
+(function (exports) {
   var HierarchicalClustering = function (distance, linkage, threshold) {
     this.distance = distance;
     this.linkage = linkage;
     this.threshold = threshold == undefined ? Infinity : threshold;
-  }
+  };
 
   HierarchicalClustering.prototype = {
     cluster: function (items, snapshotPeriod, snapshotCb) {
       this.clusters = [];
-      this.dists = [];  // distances between each pair of clusters
+      this.dists = []; // distances between each pair of clusters
       this.mins = []; // closest cluster for each cluster
       this.index = []; // keep a hash of all clusters by key
 
@@ -4048,7 +4041,7 @@ GENEMAP.GeneClusterer = function (userConfig) {
           value: items[i],
           key: i,
           index: i,
-          size: 1
+          size: 1,
         };
         this.clusters[i] = cluster;
         this.index[i] = cluster;
@@ -4058,8 +4051,10 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
       for (var i = 0; i < this.clusters.length; i++) {
         for (var j = 0; j <= i; j++) {
-          var dist = (i == j) ? Infinity :
-            this.distance(this.clusters[i].value, this.clusters[j].value);
+          var dist =
+            i == j
+              ? Infinity
+              : this.distance(this.clusters[i].value, this.clusters[j].value);
           this.dists[i][j] = dist;
           this.dists[j][i] = dist;
 
@@ -4072,7 +4067,7 @@ GENEMAP.GeneClusterer = function (userConfig) {
       var merged = this.mergeClosest();
       var i = 0;
       while (merged) {
-        if (snapshotCb && (i++ % snapshotPeriod) == 0) {
+        if (snapshotCb && i++ % snapshotPeriod == 0) {
           snapshotCb(this.clusters);
         }
         merged = this.mergeClosest();
@@ -4089,7 +4084,8 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
     mergeClosest: function () {
       // find two closest clusters from cached mins
-      var minKey = 0, min = Infinity;
+      var minKey = 0,
+        min = Infinity;
       for (var i = 0; i < this.clusters.length; i++) {
         var key = this.clusters[i].key,
           dist = this.dists[key][this.mins[key]];
@@ -4110,7 +4106,7 @@ GENEMAP.GeneClusterer = function (userConfig) {
         left: c1,
         right: c2,
         key: c1.key,
-        size: c1.size + c2.size
+        size: c1.size + c2.size,
       };
 
       this.clusters[c1.index] = merged;
@@ -4123,30 +4119,27 @@ GENEMAP.GeneClusterer = function (userConfig) {
         var dist;
         if (c1.key == ci.key) {
           dist = Infinity;
-        }
-        else if (this.linkage == "single") {
+        } else if (this.linkage == "single") {
           dist = this.dists[c1.key][ci.key];
           if (this.dists[c1.key][ci.key] > this.dists[c2.key][ci.key]) {
             dist = this.dists[c2.key][ci.key];
           }
-        }
-        else if (this.linkage == "complete") {
+        } else if (this.linkage == "complete") {
           dist = this.dists[c1.key][ci.key];
           if (this.dists[c1.key][ci.key] < this.dists[c2.key][ci.key]) {
             dist = this.dists[c2.key][ci.key];
           }
-        }
-        else if (this.linkage == "average") {
-          dist = (this.dists[c1.key][ci.key] * c1.size
-            + this.dists[c2.key][ci.key] * c2.size) / (c1.size + c2.size);
-        }
-        else {
+        } else if (this.linkage == "average") {
+          dist =
+            (this.dists[c1.key][ci.key] * c1.size +
+              this.dists[c2.key][ci.key] * c2.size) /
+            (c1.size + c2.size);
+        } else {
           dist = this.distance(ci.value, c1.value);
         }
 
         this.dists[c1.key][ci.key] = this.dists[ci.key][c1.key] = dist;
       }
-
 
       // update cached mins
       for (var i = 0; i < this.clusters.length; i++) {
@@ -4171,23 +4164,33 @@ GENEMAP.GeneClusterer = function (userConfig) {
       delete c2.index;
 
       return true;
-    }
-  }
+    },
+  };
 
-  var hcluster = function (items, distance, linkage, threshold, snapshot, snapshotCallback) {
+  var hcluster = function (
+    items,
+    distance,
+    linkage,
+    threshold,
+    snapshot,
+    snapshotCallback
+  ) {
     linkage = linkage || "average";
 
-    var clusters = (new HierarchicalClustering(distance, linkage, threshold))
-      .cluster(items, snapshot, snapshotCallback);
+    var clusters = new HierarchicalClustering(
+      distance,
+      linkage,
+      threshold
+    ).cluster(items, snapshot, snapshotCallback);
 
     if (threshold === undefined) {
       return clusters[0]; // all clustered into one
     }
     return clusters;
-  }
+  };
 
   exports.hcluster = hcluster;
-})(this.hcluster = {});
+})((this.hcluster = {}));
 
 var GENEMAP = GENEMAP || {};
 
@@ -4839,72 +4842,123 @@ GENEMAP.QtlAnnotations = function (userConfig) {
     showAnnotationLabels: true,
     maxSnpPValue: 1.0,
     drawing: null,
-    scale:1,
+    scale: 1,
   };
 
   var config = _.merge({}, defaultConfig, userConfig);
 
   var buildYScale = function () {
-    return d3.scale.linear().range([0, config.layout.height]).domain([0, config.longestChromosome]);
+    return d3.scale
+      .linear()
+      .range([0, config.layout.height])
+      .domain([0, config.longestChromosome]);
   };
 
-  var leftRoundedRect = function (start, end, x, width, radius ){
-    if ( (end - start) < width){
-      return "M" + x  + "," + start
-        + "h" + -width
-        + "v" + (end - start)
-        + "h" + width
-        +  "z";
-    }
-    else {
-      return "M" + x + "," + start
-        + "h" + (radius - width)
-        + "a" + radius + " " + radius + " 0 0 0" + -radius + " " + radius
-        + "v" + (end - start - 2 * radius)
-        + "a" + radius + "," + radius + " 0 0 0" + radius + "," + radius
-        + "h" + (width - radius)
-        + "z";
+  var leftRoundedRect = function (start, end, x, width, radius) {
+    if (end - start < width) {
+      return (
+        "M" +
+        x +
+        "," +
+        start +
+        "h" +
+        -width +
+        "v" +
+        (end - start) +
+        "h" +
+        width +
+        "z"
+      );
+    } else {
+      return (
+        "M" +
+        x +
+        "," +
+        start +
+        "h" +
+        (radius - width) +
+        "a" +
+        radius +
+        " " +
+        radius +
+        " 0 0 0" +
+        -radius +
+        " " +
+        radius +
+        "v" +
+        (end - start - 2 * radius) +
+        "a" +
+        radius +
+        "," +
+        radius +
+        " 0 0 0" +
+        radius +
+        "," +
+        radius +
+        "h" +
+        (width - radius) +
+        "z"
+      );
     }
   };
 
-  var setupSNPAnnotations = function (annotationsGroup, chromosome, snps, traits) {
+  var setupSNPAnnotations = function (
+    annotationsGroup,
+    chromosome,
+    snps,
+    traits
+  ) {
     //--SNPS------------------------------
 
-   //Generate an index for each trait
+    //Generate an index for each trait
     var traitPos = {};
-    traits.map( function(trait, index){
+    traits.map(function (trait, index) {
       traitPos[trait] = index;
     });
 
     var y = buildYScale();
 
-    var snpsAnnotations = annotationsGroup.selectAll('rect.snp-annotation').data(snps, function(d){
-      return d.id});
-
-    var snpThickness =  4;
-    var snpX = function(d) { return config.layout.width - 0.2 * config.layout.chromosomeWidth * (1 + traitPos[d.trait])};
-    var snpY = function(d){ return y(d.midpoint) - 0.5 *  Math.max(snpThickness / config.scale, y(10));}
-    var snpHeight = Math.max( snpThickness / config.scale, y(10));
-    var snpWidth = 0.2 * config.layout.chromosomeWidth;
-
-    snpsAnnotations
-      .attr({
-        x: snpX,
-        y: snpY,
-        width: snpWidth,
-        height: snpHeight,
+    var snpsAnnotations = annotationsGroup
+      .selectAll("rect.snp-annotation")
+      .data(snps, function (d) {
+        return d.id;
       });
 
-    function rgb( r, g, b){
-      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    var snpThickness = 4;
+    var snpX = function (d) {
+      return (
+        config.layout.width -
+        0.2 * config.layout.chromosomeWidth * (1 + traitPos[d.trait])
+      );
+    };
+    var snpY = function (d) {
+      return y(d.midpoint) - 0.5 * Math.max(snpThickness / config.scale, y(10));
+    };
+    var snpHeight = Math.max(snpThickness / config.scale, y(10));
+    var snpWidth = 0.2 * config.layout.chromosomeWidth;
+
+    snpsAnnotations.attr({
+      x: snpX,
+      y: snpY,
+      width: snpWidth,
+      height: snpHeight,
+    });
+
+    function rgb(r, g, b) {
+      return "rgb(" + r + "," + g + "," + b + ")";
     }
 
-    snpsAnnotations.enter()
-      .append( 'rect')
-      .attr( {
-        fill: function(d){ return d.color; },
-        opacity: function(d){return  d.importance},
-        class: 'snp-annotation',
+    snpsAnnotations
+      .enter()
+      .append("rect")
+      .attr({
+        fill: function (d) {
+          return d.color;
+        },
+        opacity: function (d) {
+          return d.importance;
+        },
+        class: "snp-annotation",
         x: snpX,
         y: snpY,
         width: snpWidth,
@@ -4915,169 +4969,189 @@ GENEMAP.QtlAnnotations = function (userConfig) {
 
     //POPOVER HANDLING
 
-    snpsAnnotations
-      .on('contextmenu', function(d){
-        log.trace('SNP Context Menu');
+    snpsAnnotations.on("contextmenu", function (d) {
+      log.trace("SNP Context Menu");
 
-        var popover = d3.select( '#clusterPopover');
-        popover.attr( 'class', 'popover');
+      var popover = d3.select("#clusterPopover");
+      popover.attr("class", "popover");
 
-        //CLEAR ALL
-        var popoverTitle = popover.select('.popover-title');
-        popoverTitle.selectAll('*').remove();
-        popoverTitle.text("");
+      //CLEAR ALL
+      var popoverTitle = popover.select(".popover-title");
+      popoverTitle.selectAll("*").remove();
+      popoverTitle.text("");
 
-        var popoverContentElement = popover.select('.popover-content');
-        popoverContentElement.selectAll('*').remove();
-        popoverContentElement.text("");
+      var popoverContentElement = popover.select(".popover-content");
+      popoverContentElement.selectAll("*").remove();
+      popoverContentElement.text("");
 
-        //POPOVER TITLE
-        popoverTitle
-          .append('span')
-          .text( 'SNP: ')
+      //POPOVER TITLE
+      popoverTitle.append("span").text("SNP: ");
 
-        popoverTitle
-          .append('a')
-          .attr('href', d.link)
-          .text(d.label)
-        ;
+      popoverTitle.append("a").attr("href", d.link).text(d.label);
 
-        //POPOVER CONTENT
+      //POPOVER CONTENT
 
-        var popoverContent = popoverContentElement
-          .selectAll('p').data([
-            ['Chromsome ' + chromosome.number , d.midpoint],
-            ['p-value', Number(d.pvalue).toExponential()],
-            ['Trait', d.trait],
-          ]);
+      var popoverContent = popoverContentElement.selectAll("p").data([
+        ["Chromsome " + chromosome.number, d.midpoint],
+        ["p-value", Number(d.pvalue).toExponential()],
+        ["Trait", d.trait],
+      ]);
 
-        var popoverContentEnter = popoverContent.enter();
+      var popoverContentEnter = popoverContent.enter();
 
-        popoverContentEnter
-          .append('p')
-          .classed( 'popover-annotation', true)
-          .text(function(d){
-            return d[0]  + ': ' + d[1]
-          });
+      popoverContentEnter
+        .append("p")
+        .classed("popover-annotation", true)
+        .text(function (d) {
+          return d[0] + ": " + d[1];
+        });
 
-        //Apply the boostrap popover function
-        $clusterPopover = $('#clusterPopover');
+      //Apply the boostrap popover function
+      $clusterPopover = $("#clusterPopover");
 
-        $clusterPopover
-          .modalPopover( {
-            target: $(this),
-            $parent: $(this),
-            'modal-position': 'body',
-            placement: "left",
-            boundingSize: config.drawing,
-          });
-
-        $clusterPopover
-          .modalPopover('show');
-
-        $clusterPopover
-          .on('mousedown mousewheel', function(event){
-            log.info('popover click');
-            event.stopPropagation();
-          });
+      $clusterPopover.modalPopover({
+        target: $(this),
+        $parent: $(this),
+        "modal-position": "body",
+        placement: "left",
+        boundingSize: config.drawing,
       });
-  }
 
-  var setupQTLAnnotations = function (annotationsGroup, chromosome, nSnpsTraits) {
+      $clusterPopover.modalPopover("show");
 
+      $clusterPopover.on("mousedown mousewheel", function (event) {
+        log.info("popover click");
+        event.stopPropagation();
+      });
+    });
+  };
+
+  var setupQTLAnnotations = function (
+    annotationsGroup,
+    chromosome,
+    nSnpsTraits
+  ) {
     var tranSpeed = 500;
     var y = buildYScale();
     var xEnd = config.layout.width;
 
-    var bandWidth = 0.3 * config.layout.chromosomeWidth ;
-    var gap = 0.4 * config.layout.chromosomeWidth ;
+    var bandWidth = 0.3 * config.layout.chromosomeWidth;
+    var gap = 0.4 * config.layout.chromosomeWidth;
 
-    var labelsToDisplay = chromosome.layout.qtlNodes.some( function(node){
-        return node.displayLabel;
+    var labelsToDisplay = chromosome.layout.qtlNodes.some(function (node) {
+      return node.displayLabel;
     });
 
     if (labelsToDisplay) {
-      gap = gap * 1.5 ;
+      gap = gap * 1.5;
     }
 
     var snpsOffset = nSnpsTraits * 0.2 * config.layout.chromosomeWidth;
 
     var xLabel = function (d) {
-      return config.layout.width - (d.labelPosition ) * (gap + bandWidth) - snpsOffset;
+      return (
+        config.layout.width - d.labelPosition * (gap + bandWidth) - snpsOffset
+      );
     };
 
     var xStart = function (d) {
       return config.layout.width - d.position * (gap + bandWidth) - snpsOffset;
     };
 
-
-
     //--BOXES-----------------------------
     //Here we handle the actual rectangles but not the labels
 
     // Enter + Update elements
-    var qtlAnnotations = annotationsGroup.selectAll('g.qtl-annotation').data(chromosome.layout.qtlNodes, function(d){
-      return d.id});
+    var qtlAnnotations = annotationsGroup
+      .selectAll("g.qtl-annotation")
+      .data(chromosome.layout.qtlNodes, function (d) {
+        return d.id;
+      });
 
     // setup the new annotations
-    var qtlAnnotationsEnterGroup = qtlAnnotations.enter()
-      .append('g').classed('qtl-annotation infobox', true);
+    var qtlAnnotationsEnterGroup = qtlAnnotations
+      .enter()
+      .append("g")
+      .classed("qtl-annotation infobox", true);
 
-    qtlAnnotationsEnterGroup.append('rect').classed('qtl-hoverbox', true);
-    var qtlSelector = qtlAnnotationsEnterGroup.append('rect').classed('qtl-selector infobox', true);
+    qtlAnnotationsEnterGroup.append("rect").classed("qtl-hoverbox", true);
+    var qtlSelector = qtlAnnotationsEnterGroup
+      .append("rect")
+      .classed("qtl-selector infobox", true);
 
     var oldNodes = {};
     var newNodes = {};
 
-    qtlAnnotations.exit().select('rect').each(function (d) {
-      oldNodes[d.index] = _.pick(this, ['x', 'y', 'width', 'height']);
-      oldNodes[d.index].midpoint = d.midpoint;
-      oldNodes[d.index].position = d.position;
-    });
+    qtlAnnotations
+      .exit()
+      .select("rect")
+      .each(function (d) {
+        oldNodes[d.index] = _.pick(this, ["x", "y", "width", "height"]);
+        oldNodes[d.index].midpoint = d.midpoint;
+        oldNodes[d.index].position = d.position;
+      });
 
     qtlSelector.each(function (d) {
-      newNodes[d.index] = _.pick(this, ['x', 'y', 'width', 'height']);
+      newNodes[d.index] = _.pick(this, ["x", "y", "width", "height"]);
       newNodes[d.index].midpoint = d.midpoint;
       newNodes[d.index].position = d.position;
     });
 
-    var chooser = function(dict, index, key, fallThrough){
-      if (_.has(dict, index)){
+    var chooser = function (dict, index, key, fallThrough) {
+      if (_.has(dict, index)) {
         return dict[index][key].animVal.value;
-      }
-      else{
+      } else {
         return fallThrough;
       }
-    }
+    };
 
     qtlSelector.attr({
       x: function (d) {
-        return chooser( oldNodes, d.parentIndex, 'x', xStart(d))
+        return chooser(oldNodes, d.parentIndex, "x", xStart(d));
       },
       y: function (d) {
-        return chooser( oldNodes, d.parentIndex, 'y', y(d.start))
+        return chooser(oldNodes, d.parentIndex, "y", y(d.start));
       },
       width: bandWidth,
 
       height: function (d) {
-        return chooser( oldNodes, d.parentIndex, 'height', y(d.end) - y(d.start))
-        }
+        return chooser(
+          oldNodes,
+          d.parentIndex,
+          "height",
+          y(d.end) - y(d.start)
+        );
+      },
     });
 
     //Apply attributes to all elements
 
-    qtlAnnotations.attr('id', function (d) {
-      return 'feature_' + d.id;
+    qtlAnnotations.attr("id", function (d) {
+      return "feature_" + d.id;
     });
 
-    qtlAnnotations.select('rect.qtl-hoverbox').attr({
-      x: function(d) { return xStart(d)},
-      y: function (d) { return y(d.start);},
-      width: function(d) { return  d.position * (gap + bandWidth) + config.chromosomeWidth + snpsOffset; },
-      height: function(d){ return y(d.end) -y (d.start)} ,
-      fill: function(d){ return d.color; },
-      visibility: function(d){return d.hover ? 'visible' : 'hidden' },
-    })
+    qtlAnnotations.select("rect.qtl-hoverbox").attr({
+      x: function (d) {
+        return xStart(d);
+      },
+      y: function (d) {
+        return y(d.start);
+      },
+      width: function (d) {
+        return (
+          d.position * (gap + bandWidth) + config.chromosomeWidth + snpsOffset
+        );
+      },
+      height: function (d) {
+        return y(d.end) - y(d.start);
+      },
+      fill: function (d) {
+        return d.color;
+      },
+      visibility: function (d) {
+        return d.hover ? "visible" : "hidden";
+      },
+    });
 
     //qtlAnnotations.select('path.qtl-selector')
     //  .attr({
@@ -5091,67 +5165,80 @@ GENEMAP.QtlAnnotations = function (userConfig) {
     //    fill: function (d) { return d.color; },
     //  } )
 
-    qtlAnnotations.select('rect.qtl-selector').transition().duration(tranSpeed)
+    qtlAnnotations
+      .select("rect.qtl-selector")
+      .transition()
+      .duration(tranSpeed)
       .attr({
         x: xStart,
-        y: function (d) { return y(d.start); },
+        y: function (d) {
+          return y(d.start);
+        },
         width: bandWidth,
-        height: function (d) { return y(d.end) - y(d.start); }
+        height: function (d) {
+          return y(d.end) - y(d.start);
+        },
       });
 
-
-    qtlAnnotations.select('rect.qtl-selector')
-      .style({
-        fill: function (d) { return d.color; },
-      }) ;
-
+    qtlAnnotations.select("rect.qtl-selector").style({
+      fill: function (d) {
+        return d.color;
+      },
+    });
 
     debugQtlLableBoxes = false;
 
-    if( debugQtlLableBoxes) { //Rectanges to check size of labels
-      qtlAnnotations.select('rect.test')
-        .attr({
-            x: function (d) {
-              return d.displayLabel ? xLabel(d) : 0
-            },
-            y: function (d) {
-              return d.displayLabel
-                ? y(d.midpoint) - 0.6 * d.screenLabel.length * config.annotationLabelSize / 2
-                : 0
-            },
-            width: function (d) {
-              return bandWidth
-            },
-            height: function (d) {
-              return d.displayLabel
-                ? 0.6 * d.screenLabel.length * config.annotationLabelSize
-                : 0
-            },
-            fill: function (d) {
-              return 'pink'
-            }
-          }
-        );
+    if (debugQtlLableBoxes) {
+      //Rectanges to check size of labels
+      qtlAnnotations.select("rect.test").attr({
+        x: function (d) {
+          return d.displayLabel ? xLabel(d) : 0;
+        },
+        y: function (d) {
+          return d.displayLabel
+            ? y(d.midpoint) -
+                (0.6 * d.screenLabel.length * config.annotationLabelSize) / 2
+            : 0;
+        },
+        width: function (d) {
+          return bandWidth;
+        },
+        height: function (d) {
+          return d.displayLabel
+            ? 0.6 * d.screenLabel.length * config.annotationLabelSize
+            : 0;
+        },
+        fill: function (d) {
+          return "pink";
+        },
+      });
     }
 
-    qtlAnnotations.exit().select('rect')
-      .transition().duration(tranSpeed)
+    qtlAnnotations
+      .exit()
+      .select("rect")
+      .transition()
+      .duration(tranSpeed)
       .attr({
-      x: function (d) {
-        return chooser( newNodes, d.parentIndex, 'x', xStart(d))
-      },
-      y: function (d) {
-        return chooser( newNodes, d.parentIndex, 'y', y(d.start))
-      },
+        x: function (d) {
+          return chooser(newNodes, d.parentIndex, "x", xStart(d));
+        },
+        y: function (d) {
+          return chooser(newNodes, d.parentIndex, "y", y(d.start));
+        },
 
-      width: bandWidth,
+        width: bandWidth,
 
-      height: function (d) {
-        return chooser( newNodes, d.parentIndex, 'height', y(d.end) - y(d.start))
-      }
-    })
-      .remove()
-    ;
+        height: function (d) {
+          return chooser(
+            newNodes,
+            d.parentIndex,
+            "height",
+            y(d.end) - y(d.start)
+          );
+        },
+      })
+      .remove();
 
     qtlAnnotations.exit().remove();
 
@@ -5163,347 +5250,394 @@ GENEMAP.QtlAnnotations = function (userConfig) {
     };
 
     var labelVisibility = function (d) {
-      if (d.displayLabel === 'show') {
-        return 'visible';
-      } else if (d.displayLabel === 'hide') {
-        return 'hidden';
+      if (d.displayLabel === "show") {
+        return "visible";
+      } else if (d.displayLabel === "hide") {
+        return "hidden";
       }
       //return config.showAnnotationLabels ? 'visible' : 'hidden';
       return true;
     };
 
-
     var qtlCountParentGroup = qtlAnnotationsEnterGroup
-      .append('g').classed('qtl-count-group', true);
+      .append("g")
+      .classed("qtl-count-group", true);
 
-    var qtlCountAnnotations = qtlAnnotations.select('g.qtl-count-group')
-      .selectAll('g.qtllist').data( function(d){
-        //Only need to display count if we have a qtllist
-        //If it's just a single qtl then don't connect any data
-        var data =   (d.type == 'qtllist' ? [d] : []);
-        return data;
-      }, function (d){ return 'label_' + d.id });
-
+    var qtlCountAnnotations = qtlAnnotations
+      .select("g.qtl-count-group")
+      .selectAll("g.qtllist")
+      .data(
+        function (d) {
+          //Only need to display count if we have a qtllist
+          //If it's just a single qtl then don't connect any data
+          var data = d.type == "qtllist" ? [d] : [];
+          return data;
+        },
+        function (d) {
+          return "label_" + d.id;
+        }
+      );
 
     var qtlCountParentEnterGroup = qtlCountAnnotations.enter();
     var qtlCountGroup = qtlCountParentEnterGroup
-      .append('g').classed( 'qtllist', true);
-    qtlCountGroup.append('circle').classed('qtl-count', true);
-    qtlCountGroup.append('text').classed('qtl-count', true);
+      .append("g")
+      .classed("qtllist", true);
+    qtlCountGroup.append("circle").classed("qtl-count", true);
+    qtlCountGroup.append("text").classed("qtl-count", true);
 
-    qtlCountParentGroup
-      .each( function(d){
-        if (_.has(newNodes, d.index)){
+    qtlCountParentGroup.each(function (d) {
+      if (_.has(newNodes, d.index)) {
+        if (_.has(oldNodes, d.parentIndex)) {
+          oldNode = oldNodes[d.parentIndex];
 
-          if (_.has(oldNodes, d.parentIndex)){
+          var oldXStart =
+            config.layout.width - oldNode.position * (gap + bandWidth);
+          var oldTextYPos = y(oldNode.midpoint);
 
-            oldNode = oldNodes[d.parentIndex];
-
-            var oldXStart = config.layout.width - oldNode.position * (gap+bandWidth);
-            var oldTextYPos = y(oldNode.midpoint);
-
-            d3.select(this).attr({
-              transform:
-                "translate(" + (oldXStart + 0.5*bandWidth) + "," + oldTextYPos + ")"
-            });
-          }
-          else {
-            d3.select(this).attr({
-              transform: function(d) {
-                if (d) {
-                  return "translate(" + (xStart(d) + 0.5 * bandWidth) + "," + textYPos(d) + ")"
-                } else {
-                  return "translate(0,0)"
-                }
+          d3.select(this).attr({
+            transform:
+              "translate(" +
+              (oldXStart + 0.5 * bandWidth) +
+              "," +
+              oldTextYPos +
+              ")",
+          });
+        } else {
+          d3.select(this).attr({
+            transform: function (d) {
+              if (d) {
+                return (
+                  "translate(" +
+                  (xStart(d) + 0.5 * bandWidth) +
+                  "," +
+                  textYPos(d) +
+                  ")"
+                );
+              } else {
+                return "translate(0,0)";
               }
-            });
-          }
+            },
+          });
         }
-      });
+      }
+    });
 
     //Apply transform to group containing text and circular background
     //Then we can easily center text and circle
-    qtlAnnotations.select( 'g.qtl-count-group')
-      .transition().duration(tranSpeed)
+    qtlAnnotations
+      .select("g.qtl-count-group")
+      .transition()
+      .duration(tranSpeed)
       .attr({
-      transform: function(d){
-        if (d){
-          return "translate(" + (xStart(d) + 0.5*bandWidth) + "," + textYPos(d) + ")"
-        } else {
-          return "translate(0,0)"
-        }
-      }});
+        transform: function (d) {
+          if (d) {
+            return (
+              "translate(" +
+              (xStart(d) + 0.5 * bandWidth) +
+              "," +
+              textYPos(d) +
+              ")"
+            );
+          } else {
+            return "translate(0,0)";
+          }
+        },
+      });
 
-
-    qtlAnnotations.select( 'circle.qtl-count')
+    qtlAnnotations
+      .select("circle.qtl-count")
       .attr({
         cx: 0,
         cy: 0,
-        r: bandWidth + 'px' ,
-      }).style({
-        visibility: 'visible',
-        fill: function (d) { return d.color; },
+        r: bandWidth + "px",
       })
-      .attr( {'id' : function(d){ return d.id} })
-    ;
+      .style({
+        visibility: "visible",
+        fill: function (d) {
+          return d.color;
+        },
+      })
+      .attr({
+        id: function (d) {
+          return d.id;
+        },
+      });
 
-    var circleFontSize = Math.min( Math.max( 10 / config.scale,bandWidth ), 14 / config.scale )
+    var circleFontSize = Math.min(
+      Math.max(10 / config.scale, bandWidth),
+      14 / config.scale
+    );
 
-    qtlAnnotations.select('text.qtl-count').attr({
-      x: 0,
-      y: 0,
-      dy: "0.3em",
-      "text-anchor": "middle"
-    }).style({
-        'fill': "white",
-        'font-size': circleFontSize + 'px',
-        'visibility': (circleFontSize < 2 * bandWidth) ? 'visible' : 'hidden',
+    qtlAnnotations
+      .select("text.qtl-count")
+      .attr({
+        x: 0,
+        y: 0,
+        dy: "0.3em",
+        "text-anchor": "middle",
+      })
+      .style({
+        fill: "white",
+        "font-size": circleFontSize + "px",
+        visibility: circleFontSize < 2 * bandWidth ? "visible" : "hidden",
       })
       .text(function (d) {
         return d.count;
       });
-
 
     qtlCountAnnotations.exit().remove();
 
     //--LABELS--------------------
     //The labels shown vertically along the qtl
 
-     qtlAnnotationsEnterGroup.append('g').classed('qtl-label-group', true);
+    qtlAnnotationsEnterGroup.append("g").classed("qtl-label-group", true);
 
     var qtlLabelAnnotations = qtlAnnotations
-      .select('g.qtl-label-group').selectAll('g.qtl').data( function(d){
-      //Only join the data if displayLabel is true
-      var data =   (d.displayLabel ? [d] : []);
-      return data
-    }, function (d){ return 'label_' + d.id });
+      .select("g.qtl-label-group")
+      .selectAll("g.qtl")
+      .data(
+        function (d) {
+          //Only join the data if displayLabel is true
+          var data = d.displayLabel ? [d] : [];
+          return data;
+        },
+        function (d) {
+          return "label_" + d.id;
+        }
+      );
+
+    qtlLabelAnnotations.exit().remove();
 
     qtlLabelAnnotations
-      .exit().remove();
-
-    qtlLabelAnnotations
-      .transition().duration(tranSpeed)
+      .transition()
+      .duration(tranSpeed)
       .attr({
-        transform: function(d){
-          return "translate(" + (xLabel(d) + 0.5*bandWidth) + "," + textYPos(d) + ")";
-        }});
+        transform: function (d) {
+          return (
+            "translate(" +
+            (xLabel(d) + 0.5 * bandWidth) +
+            "," +
+            textYPos(d) +
+            ")"
+          );
+        },
+      });
 
     var qtlLabelAnnotationsEnterGroup = qtlLabelAnnotations.enter();
 
     var qtlLabelGroup = qtlLabelAnnotationsEnterGroup
-      .append('g').classed( 'qtl', true)
+      .append("g")
+      .classed("qtl", true)
       .attr({
-        transform: function(d){
-          return "translate(" + (xLabel(d) + 0.5*bandWidth) + "," + textYPos(d) + ")";
-        }});
+        transform: function (d) {
+          return (
+            "translate(" +
+            (xLabel(d) + 0.5 * bandWidth) +
+            "," +
+            textYPos(d) +
+            ")"
+          );
+        },
+      });
 
-    qtlLabelGroup
-      .append('text')
-      .classed('qtl-label', true);
+    qtlLabelGroup.append("text").classed("qtl-label", true);
 
-    qtlAnnotations.select('text.qtl-label')
+    qtlAnnotations
+      .select("text.qtl-label")
       .attr({
         x: 0,
         y: 0,
         dy: "0.3em",
-        "text-anchor": "middle"
+        "text-anchor": "middle",
       })
       .style({
-        'font-size':  function(d){ return d.fontSize + 'px';}
+        "font-size": function (d) {
+          return d.fontSize + "px";
+        },
       })
-      .attr( {
-        'transform' : 'rotate(270)',
+      .attr({
+        transform: "rotate(270)",
         visibility: labelVisibility,
       })
       .text(function (d) {
         return d.screenLabel;
       });
 
-
     //MOUSEOVER HANDLING
 
-    var attachMouseOver = function(selection){
+    var attachMouseOver = function (selection) {
       selection
-        .on('mouseenter', function(d) {
+        .on("mouseenter", function (d) {
           d.hover = true;
           setupQTLAnnotations(annotationsGroup, chromosome, nSnpsTraits);
         })
-        .on('mouseout', function(d) {
+        .on("mouseout", function (d) {
           d.hover = false;
           setupQTLAnnotations(annotationsGroup, chromosome, nSnpsTraits);
         })
-        .on('click', function(d){
+        .on("click", function (d) {
           d.hover = !d.hover;
           setupQTLAnnotations(annotationsGroup, chromosome, nSnpsTraits);
         });
     };
 
-    attachMouseOver( qtlAnnotations.select('rect.qtl-selector'));
-    attachMouseOver( qtlAnnotations.select('circle.qtl-count'));
-    attachMouseOver( qtlAnnotations.select('text.qtl-count'));
+    attachMouseOver(qtlAnnotations.select("rect.qtl-selector"));
+    attachMouseOver(qtlAnnotations.select("circle.qtl-count"));
+    attachMouseOver(qtlAnnotations.select("text.qtl-count"));
 
     //POPOVER HANDLING
 
-    qtlAnnotations
-      .on('contextmenu', function(d){
-        log.trace('Gene Annotation Context Menu');
+    qtlAnnotations.on("contextmenu", function (d) {
+      log.trace("Gene Annotation Context Menu");
 
+      var popover = d3.select("#clusterPopover");
+      popover.attr("class", "popover");
 
-        var popover = d3.select( '#clusterPopover');
-        popover.attr( 'class', 'popover');
+      //POPOVER TITLE
+      var popoverTitle = popover.select(".popover-title");
 
-        //POPOVER TITLE
-        var popoverTitle = popover.select('.popover-title');
+      //Clear existing content
+      popoverTitle.selectAll("*").remove();
 
-        //Clear existing content
-        popoverTitle.selectAll('*')
-          .remove();
+      popoverTitle.text("");
 
-        popoverTitle
-          .text("");
+      popoverTitle.text(
+        "Chromosome " + d.chromosome + ": " + d.start + "-" + d.end
+      );
 
-        popoverTitle
-          .text( 'Chromosome ' + d.chromosome + ': '
-            + d.start + '-' + d.end);
+      //Repaint the div so that the popover
+      // code gets the correct dimensions
+      $.fn.redraw = function () {
+        return $(this).each(function () {
+          var redraw = this.offsetHeight;
+        });
+      };
 
-        //Repaint the div so that the popover
-        // code gets the correct dimensions
-        $.fn.redraw = function(){
-          return $(this).each(function(){
-            var redraw = this.offsetHeight;
+      //POPOVER CONTENT
+      popoverContent = popover.select(".popover-content");
+
+      //Clear existing content
+      popoverContent.selectAll("*").remove();
+
+      popoverContent.text("");
+
+      var popoverContent = popover
+        .select(".popover-content")
+        .selectAll("p")
+        .data(
+          //Either bind a single qtl or a list of qtls
+          d.type == "qtllist" ? d.qtlList : [d]
+        );
+
+      var popoverContentEnter = popoverContent.enter();
+
+      popoverContentEnter.append("p").classed("popover-annotation", true);
+
+      var label = popoverContent
+        .append("div")
+        .attr({ class: "checkbox" })
+        .append("label");
+
+      //Labels in the popover can be clicked to toggle selection
+      label
+        .append("input")
+        .attr({
+          type: "checkbox",
+          value: "",
+        })
+        .property("checked", function (d) {
+          return d.selected;
+        })
+        .on("click", function (d) {
+          d.selected = !d.selected;
+          popoverContent.classed("selected", function (d) {
+            return d.selected;
           });
-        };
-
-        //POPOVER CONTENT
-        popoverContent = popover.select('.popover-content');
-
-        //Clear existing content
-        popoverContent .selectAll('*')
-          .remove();
-
-        popoverContent.text("");
-
-        var popoverContent = popover.select('.popover-content')
-          .selectAll('p').data(
-            //Either bind a single qtl or a list of qtls
-            (d.type == 'qtllist' ? d.qtlList :[d] )
-          );
-
-        var popoverContentEnter = popoverContent.enter();
-
-        popoverContentEnter
-          .append('p')
-          .classed( 'popover-annotation', true)
-
-        var label = popoverContent
-          .append('div')
-          .attr( {'class' : 'checkbox'})
-          .append('label');
-
-        //Labels in the popover can be clicked to toggle selection
-        label
-          .append('input')
-          .attr({
-            'type' : 'checkbox',
-            'value' : '',
-          })
-          .property(
-            'checked', function(d){
-              return d.selected })
-          .on(
-            'click', function(d){
-            d.selected = !d.selected;
-            popoverContent.classed(
-              'selected', function(d){return d.selected});
-              config.onAnnotationSelectFunction();
-          })
-        ;
-
-        label
-          .append('a')
-          .attr(
-            {"href": function(d){
-              return d.link;},"target": "_blank"
-            })
-          .text(function(d){return d.label;} );
-
-        popoverContent
-          .classed( 'selected', function(d){
-            return d.selected});
-
-
-        //Apply the boostrap popover function
-
-        $clusterPopover = $('#clusterPopover');
-
-        $clusterPopover
-          .modalPopover( {
-          target: $(this),
-          $parent: $(this).find('rect'),
-          'modal-position': 'body',
-          placement: "left",
-          boundingSize: config.drawing,
+          config.onAnnotationSelectFunction();
         });
 
-        $clusterPopover
-          .modalPopover('show');
-
-        $clusterPopover
-          .on('mousedown mousewheel', function(event){
-          log.info('popover click');
-          event.stopPropagation();
+      label
+        .append("a")
+        .attr({
+          href: function (d) {
+            return d.link;
+          },
+          target: "_blank",
+        })
+        .text(function (d) {
+          return d.label;
         });
+
+      popoverContent.classed("selected", function (d) {
+        return d.selected;
       });
 
+      //Apply the boostrap popover function
+
+      $clusterPopover = $("#clusterPopover");
+
+      $clusterPopover.modalPopover({
+        target: $(this),
+        $parent: $(this).find("rect"),
+        "modal-position": "body",
+        placement: "left",
+        boundingSize: config.drawing,
+      });
+
+      $clusterPopover.modalPopover("show");
+
+      $clusterPopover.on("mousedown mousewheel", function (event) {
+        log.info("popover click");
+        event.stopPropagation();
+      });
+    });
   };
 
   // draw a border around the annotation target element
   var drawBorder = function (group) {
-
     // create the border element if it doesn't exist
-    if (group.select('rect.border').empty()) {
-      group.append('rect').classed('border', true);
+    if (group.select("rect.border").empty()) {
+      group.append("rect").classed("border", true);
     }
 
-    group.select('rect.border')
-      .attr({
-        width: config.layout.width,
-        height: config.layout.height,
-      });
+    group.select("rect.border").attr({
+      width: config.layout.width,
+      height: config.layout.height,
+    });
   };
 
-  var getSnpsTraits = function (snps){
+  var getSnpsTraits = function (snps) {
     // Get list of unique traits
-    var traitSet  = new Set();
-    snps.map( function(snp){
+    var traitSet = new Set();
+    snps.map(function (snp) {
       traitSet.add(snp.trait);
     });
 
     var traits = Array.from(traitSet).sort();
     return traits;
-  }
-
+  };
 
   // An SVG representation of a chromosome with banding data. This won't create an SVG
   // element, it expects that to already have been created.
   function my(selection) {
     selection.each(function (d) {
-
       //Do some processing of the SNPs to work out how much space we need
-      var snps = d.annotations.snps.filter( function(d){
-        return !( d.pvalue > config.maxSnpPValue);
+      var snps = d.annotations.snps.filter(function (d) {
+        return !(d.pvalue > config.maxSnpPValue);
       });
 
       var snpsTraits = getSnpsTraits(snps);
 
       //QTLs
-      var qtlAnnotationGroup = d3.select(this).selectAll('.qtl-annotations').data([d]);
+      var qtlAnnotationGroup = d3
+        .select(this)
+        .selectAll(".qtl-annotations")
+        .data([d]);
 
-      qtlAnnotationGroup.enter()
-        .append('g').attr('class', 'qtl-annotations');
+      qtlAnnotationGroup.enter().append("g").attr("class", "qtl-annotations");
 
       qtlAnnotationGroup.attr({
-        transform: 'translate(' + config.layout.x + ',' + config.layout.y + ')',
+        transform: "translate(" + config.layout.x + "," + config.layout.y + ")",
       });
 
       setupQTLAnnotations(qtlAnnotationGroup, d, snpsTraits.length);
@@ -5515,13 +5649,15 @@ GENEMAP.QtlAnnotations = function (userConfig) {
       //SNPs
       qtlAnnotationGroup.exit().remove();
 
-      var snpAnnotationGroup = d3.select(this).selectAll('.snp-annotations').data([d]);
+      var snpAnnotationGroup = d3
+        .select(this)
+        .selectAll(".snp-annotations")
+        .data([d]);
 
-      snpAnnotationGroup.enter()
-        .append('g').attr('class', 'snp-annotations');
+      snpAnnotationGroup.enter().append("g").attr("class", "snp-annotations");
 
       snpAnnotationGroup.attr({
-        transform: 'translate(' + config.layout.x + ',' + config.layout.y + ')',
+        transform: "translate(" + config.layout.x + "," + config.layout.y + ")",
       });
 
       setupSNPAnnotations(snpAnnotationGroup, d, snps, snpsTraits);
@@ -5635,7 +5771,6 @@ GENEMAP.QtlAnnotations = function (userConfig) {
 var GENEMAP = GENEMAP || {};
 
 GENEMAP.QTLAnnotationLayout = function (userConfig) {
-
   var defaultConfig = {
     scale: 1,
     longestChromosome: 1000,
@@ -5650,35 +5785,35 @@ GENEMAP.QTLAnnotationLayout = function (userConfig) {
   var positioner = GENEMAP.QtlPositioner();
 
   var buildYScale = function () {
-    return d3.scale.linear()
+    return d3.scale
+      .linear()
       .range([0, config.layout.height])
       .domain([0, config.longestChromosome]);
   };
 
-  var generateNodesFromClusters = function(clusters) {
-    return clusters.map( function(c){
+  var generateNodesFromClusters = function (clusters) {
+    return clusters.map(function (c) {
       var qtlList = flattenCluster(c);
-      var start = qtlList.reduce( function(min, c){
-        return Math.min( min, c.start);
+      var start = qtlList.reduce(function (min, c) {
+        return Math.min(min, c.start);
       }, Infinity);
 
-      var end = qtlList.reduce( function(max, c){
-        return Math.max( max, c.end);
-      },0 );
+      var end = qtlList.reduce(function (max, c) {
+        return Math.max(max, c.end);
+      }, 0);
 
-      var id = qtlList.reduce( function(id, c){
-        return id + (id ?  '|' : '')  + c.start + '-' + c.end;
+      var id = qtlList.reduce(function (id, c) {
+        return id + (id ? "|" : "") + c.start + "-" + c.end;
       }, "");
 
-      var midpoint = (start + end ) / 2;
+      var midpoint = (start + end) / 2;
 
-      if ( qtlList.length == 1){
-        var result =  qtlList[0];
-        result.type = 'qtl'
-        result.index =  c.index;
-        result.parentIndex =  c.parentIndex;
-      }
-      else {
+      if (qtlList.length == 1) {
+        var result = qtlList[0];
+        result.type = "qtl";
+        result.index = c.index;
+        result.parentIndex = c.parentIndex;
+      } else {
         var result = {
           cluster: c,
           index: c.index,
@@ -5691,100 +5826,104 @@ GENEMAP.QTLAnnotationLayout = function (userConfig) {
           midpoint: midpoint,
           chromosome: qtlList[0].chromosome,
           type: "qtllist",
-          id: id
-        }
+          id: id,
+        };
       }
       return result;
     });
+  };
 
-  }
+  var clusterQTLs = function (chromosome) {
+    var nodes = [];
 
-  var clusterQTLs = function(chromosome){
-
-    var nodes = []
-
-    if (config.showAllQTLs ) {
-
-      chromosome.layout.qtlDisplayClusters = chromosome.layout.qtlClusters.slice();
+    if (config.showAllQTLs) {
+      chromosome.layout.qtlDisplayClusters =
+        chromosome.layout.qtlClusters.slice();
       var clusters = chromosome.layout.qtlDisplayClusters;
 
       var nLevels = Math.ceil(Math.floor(config.scale - 0.1) / 2);
 
-      while ( nLevels -- ) {
-        clusters  = openClusters( clusters);
+      while (nLevels--) {
+        clusters = openClusters(clusters);
       }
 
       var nClusters = clusters.length;
 
       while (true) {
-        nodes = generateNodesFromClusters( clusters);
+        nodes = generateNodesFromClusters(clusters);
         nodes = positioner.sortQTLAnnotations(nodes);
-        var maxPosition = nodes.reduce( function(cur, node){
-          return Math.max(cur, node.position);}, 0);
+        var maxPosition = nodes.reduce(function (cur, node) {
+          return Math.max(cur, node.position);
+        }, 0);
 
-        if ( maxPosition < 2 ){
+        if (maxPosition < 2) {
           clusters = openClusters(clusters);
-          if ( nClusters == clusters.length){
+          if (nClusters == clusters.length) {
             break;
           }
           nClusters = clusters.length;
-        }
-        else{
+        } else {
           break;
         }
       }
-    }
-
-    else if ( config.showSelectedQTLs) {
-      chromosome.layout.qtlDisplayClusters = chromosome.annotations.qtls
-        .filter( function(d){return d.selected});
+    } else if (config.showSelectedQTLs) {
+      chromosome.layout.qtlDisplayClusters = chromosome.annotations.qtls.filter(
+        function (d) {
+          return d.selected;
+        }
+      );
 
       var clusters = chromosome.layout.qtlDisplayClusters;
 
-      var nodes = clusters.map( function(d){
+      var nodes = clusters.map(function (d) {
         result = d;
-        result.type = 'qtl';
+        result.type = "qtl";
         return result;
       });
     }
 
     return nodes;
-  }
+  };
 
-  var autoDisplayLabels = function(nodes){
-
-    log.trace('Do label layout');
+  var autoDisplayLabels = function (nodes) {
+    log.trace("Do label layout");
     //Layout qtl labels
 
     //look at each line of labels separately
-    var columns = _.groupBy(nodes, 'position' );
-    _.forOwn( columns,  function ( column, key){
+    var columns = _.groupBy(nodes, "position");
+    _.forOwn(columns, function (column, key) {
+      log.trace("-Col ", key);
+      log.trace(
+        "positions ",
+        column.map(function (node) {
+          return node.position;
+        })
+      );
 
-      log.trace( '-Col ', key);
-      log.trace('positions ', column.map(function(node){return node.position }));
-
-      var fontsize =  14 / config.scale;
+      var fontsize = 14 / config.scale;
       var yscale = buildYScale();
 
       //Position the QTL labels
       column = positioner.sortQTLLabels(column, yscale, fontsize);
 
-      var maxLabelPosition = column.reduce( function(cur, node){
+      var maxLabelPosition = column.reduce(function (cur, node) {
         return Math.max(node.labelPosition, cur);
-      }, 0 );
+      }, 0);
 
-      log.trace('labelPositions ', column.map(function(node){return node.labelPosition }));
-      log.trace('maxLabelPosition', maxLabelPosition);
-
-
+      log.trace(
+        "labelPositions ",
+        column.map(function (node) {
+          return node.labelPosition;
+        })
+      );
+      log.trace("maxLabelPosition", maxLabelPosition);
 
       //STRATEGY 1 - if there is more than one lane of labels,
       //show only the first lane
-      column.forEach( function(node){
-        if( node.labelPosition > 1){
+      column.forEach(function (node) {
+        if (node.labelPosition > 1) {
           node.displayLabel = false;
-       }
-        else{
+        } else {
           node.displayLabel = true;
           node.labelPosition = node.position + 0.4;
         }
@@ -5805,44 +5944,46 @@ GENEMAP.QTLAnnotationLayout = function (userConfig) {
       //  });
       //}
 
-      log.trace('labelPositions', column.map(function(node){return node.labelPosition }));
+      log.trace(
+        "labelPositions",
+        column.map(function (node) {
+          return node.labelPosition;
+        })
+      );
     });
 
     return nodes;
-  }
+  };
 
-
-  var generateChromosomeLayout = function(chromosome){
-
-    log.trace('---START---')
+  var generateChromosomeLayout = function (chromosome) {
+    log.trace("---START---");
 
     //Get clustered QTLs
     var nodes = clusterQTLs(chromosome);
 
-    nodes.forEach( function(node){
+    nodes.forEach(function (node) {
       node.displayLabel = false;
     });
 
     //qtllist nodes never display labels
-    var qtlNodes = nodes.filter( function(node){
-      return node.type == 'qtl'
+    var qtlNodes = nodes.filter(function (node) {
+      return node.type == "qtl";
     });
 
-    if ( config.showAutoQTLLabels ){
-
+    if (config.showAutoQTLLabels) {
       //Position QTL annotations ignoring labels
-      nodes =  positioner.sortQTLAnnotations(nodes);
+      nodes = positioner.sortQTLAnnotations(nodes);
 
-      var maxPosition = nodes.reduce( function(cur, node){
-        return Math.max(cur, node.position);}, 0);
+      var maxPosition = nodes.reduce(function (cur, node) {
+        return Math.max(cur, node.position);
+      }, 0);
 
-      log.trace('maxPosition', maxPosition);
+      log.trace("maxPosition", maxPosition);
 
-      qtlNodes.forEach( function(node){
-        if ( node.label.length > 15 ){
-        node.screenLabel = node.label.substring(0, 12) + '...'
-        }
-        else{
+      qtlNodes.forEach(function (node) {
+        if (node.label.length > 15) {
+          node.screenLabel = node.label.substring(0, 12) + "...";
+        } else {
           node.screenLabel = node.label;
         }
       });
@@ -5854,58 +5995,56 @@ GENEMAP.QTLAnnotationLayout = function (userConfig) {
       var fontTooBig = fontSize > 0.6 * config.layout.chromosomeWidth;
       var tooManyLanes = maxPosition > 3;
 
-      if ( (!tooManyLanes) && (!fontTooBig)) {
+      if (!tooManyLanes && !fontTooBig) {
         autoDisplayLabels(qtlNodes);
-        qtlNodes.forEach( function(node){
+        qtlNodes.forEach(function (node) {
           node.fontSize = fontSize;
         });
-      }
-      else {
-        qtlNodes.forEach( function(node){
+      } else {
+        qtlNodes.forEach(function (node) {
           node.displayLabel = false;
-        })
+        });
       }
-
     }
 
-    if (config.showSelectedQTLLabels && !config.showAutoQTLLabels ){
-      var displayNodes = nodes.filter( function(node){
+    if (config.showSelectedQTLLabels && !config.showAutoQTLLabels) {
+      var displayNodes = nodes.filter(function (node) {
         return node.selected;
       });
 
       var fontSize = 14 / config.scale;
-      var bandWidth =  0.3 * config.layout.chromosomeWidth ;
+      var bandWidth = 0.3 * config.layout.chromosomeWidth;
 
-      displayNodes.forEach( function(node){
+      displayNodes.forEach(function (node) {
         node.displayLabel = true;
         node.screenLabel = node.label;
-        node.fontSize = Math.min(fontSize, 2 * bandWidth) ;
+        node.fontSize = Math.min(fontSize, 2 * bandWidth);
       });
 
       displayNodes = positioner.sortQTLAnnotationsWithLabels(
-        displayNodes, buildYScale(), config.annotationLabelSize);
+        displayNodes,
+        buildYScale(),
+        config.annotationLabelSize
+      );
 
-      displayNodes.forEach( function(node){
+      displayNodes.forEach(function (node) {
         node.position = node.comboPosition;
         node.labelPosition = node.comboPosition + 0.4;
-      })
+      });
     }
 
     return nodes;
   };
 
-
-  var annotateCluster = function(cluster,indexObj){
+  var annotateCluster = function (cluster, indexObj) {
     cluster.index = indexObj.index;
     indexObj.index = indexObj.index + 1;
 
-    if (cluster.value){
+    if (cluster.value) {
       cluster.unit = true;
       cluster.start = cluster.value.start;
       cluster.end = cluster.value.end;
-    }
-    else {
-
+    } else {
       var l = cluster.left;
       var r = cluster.right;
 
@@ -5915,25 +6054,22 @@ GENEMAP.QTLAnnotationLayout = function (userConfig) {
       annotateCluster(l, indexObj);
       annotateCluster(r, indexObj);
 
-      cluster.unit = (l.unit && r.unit
-      && (l.start == r.start ) && ( l.end == r.end));
+      cluster.unit = l.unit && r.unit && l.start == r.start && l.end == r.end;
 
       cluster.start = Math.min(cluster.left.start, cluster.right.start);
       cluster.end = Math.max(cluster.left.end, cluster.right.end);
     }
+  };
 
-  }
-
-  var generateChromosomeClusters = function(chromosome){
-
-    var hClusters = hcluster.hcluster(chromosome.annotations.qtls,
-      function( a, b ){
-
-        if ( (a.end == b.end) && (a.start == b.start ) ) {
+  var generateChromosomeClusters = function (chromosome) {
+    var hClusters = hcluster.hcluster(
+      chromosome.annotations.qtls,
+      function (a, b) {
+        if (a.end == b.end && a.start == b.start) {
           return 0;
         }
 
-        var overlap =  Math.min(a.end, b.end) - Math.max(a.start, b.start);
+        var overlap = Math.min(a.end, b.end) - Math.max(a.start, b.start);
         var aLength = a.end - a.start;
         var bLength = b.end - b.start;
 
@@ -5942,29 +6078,30 @@ GENEMAP.QTLAnnotationLayout = function (userConfig) {
         //return lengthDifference + Math.exp( - normedOverlap ) ;
 
         var normedOverlap = overlap;
-        var lengthDifference = Math.abs( aLength - bLength);
+        var lengthDifference = Math.abs(aLength - bLength);
 
         return Math.max(0.1, lengthDifference - normedOverlap);
+      },
+      "single",
+      null
+    );
 
-      },"single", null );
+    var indexObj = { index: 0 };
 
-    var indexObj = {index : 0};
-
-    hClusters.forEach(function(cluster) {
-      annotateCluster(cluster,indexObj);
+    hClusters.forEach(function (cluster) {
+      annotateCluster(cluster, indexObj);
     });
 
-    return hClusters
+    return hClusters;
   };
 
-  var openClusters = function(clusters){
+  var openClusters = function (clusters) {
     var result = [];
 
-    clusters.forEach( function (cluster ){
-      if (cluster.value || cluster.unit ) {
-        result.push(cluster)
-      }
-      else {
+    clusters.forEach(function (cluster) {
+      if (cluster.value || cluster.unit) {
+        result.push(cluster);
+      } else {
         var l = cluster.left;
         var r = cluster.right;
 
@@ -5976,41 +6113,39 @@ GENEMAP.QTLAnnotationLayout = function (userConfig) {
     return result;
   };
 
-  var flattenCluster = function(cluster){
-    if (cluster.size == 1){
-      return [cluster.value]
+  var flattenCluster = function (cluster) {
+    if (cluster.size == 1) {
+      return [cluster.value];
     } else {
-      return flattenCluster(cluster.left).concat(flattenCluster(cluster.right))
+      return flattenCluster(cluster.left).concat(flattenCluster(cluster.right));
     }
   };
 
   my = {};
 
-  my.layoutChromosome = function(chromosome){
-    chromosome.layout.qtlNodes = (
-    generateChromosomeLayout(chromosome) || chromosome.layout.qtlNodes);
+  my.layoutChromosome = function (chromosome) {
+    chromosome.layout.qtlNodes =
+      generateChromosomeLayout(chromosome) || chromosome.layout.qtlNodes;
   };
 
-  my.computeChromosomeClusters = function(chromosome){
+  my.computeChromosomeClusters = function (chromosome) {
     chromosome.layout.qtlClusters = generateChromosomeClusters(chromosome);
   };
 
   return my;
-}
+};
 var GENEMAP = GENEMAP || {};
 
 // takes a list of qtl annotations and combines annotations with the same start and
 // end points
 GENEMAP.QTLAnnotationCombiner = function () {
-
   return {
     combineSimilarQTLAnnotations: function (qtlAnnotations) {
-
       var result = [];
       var hash = {};
 
       qtlAnnotations.forEach(function (qtl) {
-        var key = qtl.start + '-' + qtl.end;
+        var key = qtl.start + "-" + qtl.end;
 
         if (!hash.hasOwnProperty(key)) {
           hash[key] = [];
@@ -6020,10 +6155,9 @@ GENEMAP.QTLAnnotationCombiner = function () {
       });
 
       _.forEach(hash, function (value, key) {
-
         var qtlCollection = {
           qtlList: value,
-          count : value.length,
+          count: value.length,
           start: value[0].start,
           midpoint: value[0].midpoint,
           end: value[0].end,
@@ -6041,74 +6175,86 @@ GENEMAP.QTLAnnotationCombiner = function () {
 var GENEMAP = GENEMAP || {};
 
 GENEMAP.QtlPositioner = function () {
-
   var regionsOverlap = function (regionA, regionB) {
     return regionA.start < regionB.end && regionB.start < regionA.end;
   };
 
   var my = {};
 
-  my.positionAnnotations = function( annotations, getPosition, setPosition,
-                                     startFunction, midFunction, endFunction){
-
+  my.positionAnnotations = function (
+    annotations,
+    getPosition,
+    setPosition,
+    startFunction,
+    midFunction,
+    endFunction
+  ) {
     var start = startFunction;
     var end = endFunction;
     var mid = midFunction;
 
-    var checkOverlap = function( a, b){
-      return (start(a) < end(b)) && (start(b) < end(a));
+    var checkOverlap = function (a, b) {
+      return start(a) < end(b) && start(b) < end(a);
     };
 
-    var input = annotations.sort(function(a,b){
+    var input = annotations.sort(function (a, b) {
       return mid(a) - mid(b);
     });
 
-    var stack = []
+    var stack = [];
 
-    for ( var i = 0;  i < input.length ; i++ ){
-
+    for (var i = 0; i < input.length; i++) {
       var iAn = annotations[i];
       var remove = [];
 
-      for ( var j = 0 ; j < stack.length; j++){
-
+      for (var j = 0; j < stack.length; j++) {
         var jAn = input[stack[j]];
 
         // check the current region still overlaps the regions in the stack
-        if (!checkOverlap( iAn, jAn)){
+        if (!checkOverlap(iAn, jAn)) {
           remove.push(stack[j]);
         }
       }
 
       var overlap = _.difference(stack, remove);
-      var usedPositions = overlap.map(function(k){
+      var usedPositions = overlap.map(function (k) {
         return getPosition(input[k]);
       });
 
       var pos = 0;
-      for (pos = 1; pos < usedPositions.length + 1 ; pos ++){
-        if ( usedPositions.indexOf(pos) === -1){
+      for (pos = 1; pos < usedPositions.length + 1; pos++) {
+        if (usedPositions.indexOf(pos) === -1) {
           break;
         }
       }
 
-      setPosition(iAn,pos);
+      setPosition(iAn, pos);
       stack.push(i);
     }
 
     return input;
- }
+  };
 
-  my.sortQTLAnnotations =  function( annotations ){
+  my.sortQTLAnnotations = function (annotations) {
     return my.positionAnnotations(
       annotations,
-      function(node){return node.position},
-      function(node, pos){ node.position = pos},
-      function(node){return node.start},
-      function(node){return node.midpoint},
-      function(node){return node.end}
+      function (node) {
+        return node.position;
+      },
+      function (node, pos) {
+        node.position = pos;
+      },
+      function (node) {
+        return node.start;
+      },
+      function (node) {
+        return node.midpoint;
+      },
+      function (node) {
+        return node.end;
+      }
     );
-  }
+  };
 
   my.sortQTLLabels = function (nodes, yscale, fontsize) {
     var annotations = nodes;
@@ -6118,27 +6264,56 @@ GENEMAP.QtlPositioner = function () {
 
     return my.positionAnnotations(
       annotations,
-      function(node){return node.labelPosition },
-      function(node, pos){node.labelPosition = pos },
-      function(node){ return yscale(node.midpoint) -fontScale * node.screenLabel.length / 2},
-      function(node){return node.midpoint},
-      function(node){ return yscale(node.midpoint) + fontScale * node.screenLabel.length / 2}
+      function (node) {
+        return node.labelPosition;
+      },
+      function (node, pos) {
+        node.labelPosition = pos;
+      },
+      function (node) {
+        return (
+          yscale(node.midpoint) - (fontScale * node.screenLabel.length) / 2
+        );
+      },
+      function (node) {
+        return node.midpoint;
+      },
+      function (node) {
+        return (
+          yscale(node.midpoint) + (fontScale * node.screenLabel.length) / 2
+        );
+      }
     );
-  }
+  };
 
-  my.sortQTLAnnotationsWithLabels = function( nodes, yscale, fontsize){
+  my.sortQTLAnnotationsWithLabels = function (nodes, yscale, fontsize) {
     var annotations = nodes;
 
     return my.positionAnnotations(
       annotations,
-      function(node){return node.comboPosition },
-      function(node, pos){node.comboPosition = pos },
-      function(node){ return Math.min(yscale(node.midpoint) - node.label.length * fontsize  / 2, node.start)},
-      function(node){return node.midpoint},
-      function(node){ return Math.max(yscale(node.midpoint) + node.label.length * fontsize  / 2, node.end)}
+      function (node) {
+        return node.comboPosition;
+      },
+      function (node, pos) {
+        node.comboPosition = pos;
+      },
+      function (node) {
+        return Math.min(
+          yscale(node.midpoint) - (node.label.length * fontsize) / 2,
+          node.start
+        );
+      },
+      function (node) {
+        return node.midpoint;
+      },
+      function (node) {
+        return Math.max(
+          yscale(node.midpoint) + (node.label.length * fontsize) / 2,
+          node.end
+        );
+      }
     );
-  }
-
+  };
 
   return my;
 };

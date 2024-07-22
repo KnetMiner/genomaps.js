@@ -8,10 +8,10 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
   var defaultConfig = {
     width: 900,
     height: 600,
-    numberPerRow: 7/*10*/,
-    margin: { top: 0.1, left: 0.1, bottom: 0.1, right: 0.1 },
-    cellMargin: { top: 0.05, left: 0.05, bottom: 0.10, right: 0.05 },
-    labelHeight: 0.02,
+    numberPerRow: 7 /*10*/,
+    margin: { top: 0.05, left: 0.05, bottom: 0.05, right: 0.05 },
+    cellMargin: { top: 0.15, left: 0.05, bottom: 0.1, right: 0.05 },
+    labelHeight: 0.09,
     chromosomeAspectRatio: 0.04,
     scale: 1,
     annotations: {
@@ -52,11 +52,9 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
   };
 
   return {
-
     decorateGenome: function (inputGenome) {
-
       //var genome = _.cloneDeep(inputGenome);
-      var genome =  inputGenome;
+      var genome = inputGenome;
 
       var sizeLessMargin = {
         width: config.width * (1 - config.margin.left - config.margin.right),
@@ -65,8 +63,13 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
 
       var cols = Math.min(config.numberPerRow, genome.chromosomes.length);
       var rows = Math.ceil(genome.chromosomes.length / cols);
-      log.trace("numberPerRow= "+ config.numberPerRow +", chromosomes.length= "+ genome.chromosomes.length);
-      log.trace("Cols= "+ cols +", rows= "+ rows);
+      log.trace(
+        "numberPerRow= " +
+          config.numberPerRow +
+          ", chromosomes.length= " +
+          genome.chromosomes.length
+      );
+      log.trace("Cols= " + cols + ", rows= " + rows);
 
       var cellDimensions = {
         width: sizeLessMargin.width / cols,
@@ -86,27 +89,50 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
       var sizeLabelHeight = config.labelHeight * cellDimensions.height;
 
       // calculate the chromosome heightRatio
-      var chromosomeHeight = cellDimensions.height - labelHeight - sizeLabelHeight - cellMargins.top - cellMargins.bottom;
+      var chromosomeHeight =
+        cellDimensions.height -
+        labelHeight -
+        sizeLabelHeight -
+        cellMargins.top -
+        cellMargins.bottom;
 
       // calculate the chromosome width
       //maintain aspect ratio until the chromosome starts looking really wide, then start growing the width more slowly
-      var chromosomeWidth = Math.min( 65 / config.scale, chromosomeHeight * config.chromosomeAspectRatio);
+      var chromosomeWidth = Math.min(
+        65 / config.scale,
+        chromosomeHeight * config.chromosomeAspectRatio
+      );
 
       // calculate the total annotations widthRatio
-      var totalAnnotations = cellDimensions.width - chromosomeWidth - cellMargins.left - cellMargins.right;
+      var totalAnnotations =
+        cellDimensions.width -
+        chromosomeWidth -
+        cellMargins.left -
+        cellMargins.right;
 
       // spit this between the two regions
       var annotationWidth = totalAnnotations / 2;
 
-      var longest = Math.max.apply(null, genome.chromosomes.map(function (c) { return c.length; }));
+      var longest = Math.max.apply(
+        null,
+        genome.chromosomes.map(function (c) {
+          return c.length;
+        })
+      );
 
       var annotationsConfig = {
-        label: _.pick(config.annotations.label, ['size', 'show']),
-        marker:  _.pick(config.annotations.marker, ['size', 'show']),
+        label: _.pick(config.annotations.label, ["size", "show"]),
+        marker: _.pick(config.annotations.marker, ["size", "show"]),
       };
 
-      annotationsConfig.label = applyMaxSizeAndThreshold(annotationsConfig.label, config.annotations.label);
-      annotationsConfig.marker = applyMaxSizeAndThreshold(annotationsConfig.marker, config.annotations.marker);
+      annotationsConfig.label = applyMaxSizeAndThreshold(
+        annotationsConfig.label,
+        config.annotations.label
+      );
+      annotationsConfig.marker = applyMaxSizeAndThreshold(
+        annotationsConfig.marker,
+        config.annotations.marker
+      );
 
       var cellLayout = {
         chromosomePosition: {
@@ -122,8 +148,8 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
           x: cellMargins.left,
           y: cellMargins.top,
         },
-        sizeLabelPosition:{
-          cellHeight:  chromosomeHeight,
+        sizeLabelPosition: {
+          cellHeight: chromosomeHeight,
           height: sizeLabelHeight,
           width: cellDimensions.width - cellMargins.left - cellMargins.right,
           x: cellMargins.left,
@@ -144,24 +170,26 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
         },
         longestChromosome: longest,
         annotations: annotationsConfig,
-        scale : config.scale,
+        scale: config.scale,
       };
 
       //special case where we only have 1 chromosome
-      if ( genome.chromosomes.length == 1 )
-      {
-        cellLayout.chromosomePosition.x = cellMargins.left + 0.5 * annotationWidth;
-        cellLayout.geneAnnotationPosition.x = cellMargins.left + 0.5 * annotationWidth + chromosomeWidth;
+      if (genome.chromosomes.length == 1) {
+        cellLayout.chromosomePosition.x =
+          cellMargins.left + 0.5 * annotationWidth;
+        cellLayout.geneAnnotationPosition.x =
+          cellMargins.left + 0.5 * annotationWidth + chromosomeWidth;
         cellLayout.qtlAnnotationPosition.width = annotationWidth * 0.5;
         cellLayout.geneAnnotationPosition.width = annotationWidth * 1.5;
         cellLayout.labelPosition.x = cellMargins.left + 0.5 * annotationWidth;
         cellLayout.labelPosition.width = chromosomeWidth;
-        cellLayout.sizeLabelPosition.x = cellMargins.left + 0.5 * annotationWidth;
+        cellLayout.sizeLabelPosition.x =
+          cellMargins.left + 0.5 * annotationWidth;
         cellLayout.sizeLabelPosition.width = chromosomeWidth;
       }
 
       // decorate the genome with the layout information
-      genome.drawing = _.pick(config, ['width', 'height']);
+      genome.drawing = _.pick(config, ["width", "height"]);
       genome.drawing.margin = {
         top: config.margin.top * genome.drawing.height,
         left: config.margin.left * genome.drawing.width,
@@ -173,9 +201,9 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
         var col = i % config.numberPerRow;
         var row = Math.floor(i / config.numberPerRow);
 
-        chromosome.cell =  {
-          y: (row * cellDimensions.height) + (config.margin.top * config.height),
-          x: (col * cellDimensions.width) + (config.margin.left * config.width),
+        chromosome.cell = {
+          y: row * cellDimensions.height + config.margin.top * config.height,
+          x: col * cellDimensions.width + config.margin.left * config.width,
           width: cellDimensions.width,
           height: cellDimensions.height,
         };

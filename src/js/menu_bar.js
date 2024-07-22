@@ -108,12 +108,7 @@ GENEMAP.MenuBar = function (userConfig) {
       .selectAll("span")
       .data([
         ["label-btn", "ngenes-dropdown"],
-        [
-          "help-btn",
-          "expand-btn",
-          "reset-btn",
-          "export-btn",
-        ],
+        ["help-btn", "reset-btn", "export-btn"],
       ])
       .enter()
       .append("span")

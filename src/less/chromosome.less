@@ -1,9 +1,9 @@
-
 .chromosome {
   font-family: sans-serif;
   text-anchor: middle;
   vector-effect: non-scaling-stroke;
   font-weight: bold;
+  border-radius: 50px;
 }
 
 .chromosome .mask_rect {
@@ -14,7 +14,7 @@
 .chromosome rect.outline {
   fill: none;
   stroke-width: 0.5;
-  stroke: #000;
+  stroke: #bdc5ce;
   vector-effect: non-scaling-stroke;
 }
 
@@ -30,6 +30,7 @@
 
 .chromosome rect.background {
   fill: #fff;
+  border-radius: 50px;
 }
 
 .chromosome-label {
@@ -44,15 +45,17 @@
   text-anchor: middle;
   font-weight: bold;
   cursor: pointer;
-  color: gray;
-  fill: gray;
+  color: #121212;
 }
 
 .qtl-hoverbox {
   opacity: 0.1;
 }
 
-
 .chromosome rect.band.geneline:hover {
   fill: gray;
+}
+
+.bands_container {
+  border-radius: 50px;
 }

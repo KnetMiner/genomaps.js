@@ -19,6 +19,7 @@ GENEMAP.XmlDataReader = function () {
 
   var _processBasemapData = function (genome) {
     genome.chromosomes.forEach(function (chromosome) {
+      // console.log("chromosome", chromosome);
       // include empty lists incase there is no annotation data
       chromosome.annotations = {
         allGenes: [],
@@ -26,6 +27,9 @@ GENEMAP.XmlDataReader = function () {
         qtls: [],
         snps: [],
       };
+      if (!chromosome.bands) {
+        chromosome.bands = [];
+      }
 
       chromosome.bands.forEach(function (band) {
         band.color = getColor(band.color);
@@ -119,19 +123,20 @@ GENEMAP.XmlDataReader = function () {
     readXMLData: function (basemapPath, annotationPath, isString) {
       var basemapReader = GENEMAP.BasemapXmlReader();
       let basemapPromise;
-      if(!isString){
+      if (!isString) {
         basemapPromise = basemapReader.readBasemapXML(basemapPath);
-      }
-      else {
+      } else {
         basemapPromise = basemapReader.readBasemapXMLFromRawXML(basemapPath);
       }
       if (annotationPath) {
         var annotationReader = GENEMAP.AnnotationXMLReader();
         let annotationPromise;
-        if(isString){
-          annotationPromise = annotationReader.readAnnotationXMLFromRawXML(annotationPath);
+        if (isString) {
+          annotationPromise =
+            annotationReader.readAnnotationXMLFromRawXML(annotationPath);
         } else {
-          annotationPromise = annotationReader.readAnnotationXML(annotationPath);
+          annotationPromise =
+            annotationReader.readAnnotationXML(annotationPath);
         }
 
         var promise = Promise.all([basemapPromise, annotationPromise]).then(

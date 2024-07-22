@@ -17,7 +17,7 @@ GENEMAP.Listener = function (val) {
     value = val;
     listeners.forEach(function (listener) {
       listener(value);
-    })
+    });
   };
 
   my.addListener = function (listener) {
@@ -30,20 +30,18 @@ GENEMAP.Listener = function (val) {
     return my;
   };
 
-
   return my;
 };
 
 GENEMAP.GeneMap = function (userConfig) {
-  
   var defaultConfig = {
-    apiUrl: '/',
-    width: '800',
-    height: '500',
-    svgDefsFile: './assets/sprite-defs.svg',
+    apiUrl: "/",
+    width: "800",
+    height: "500",
+    svgDefsFile: "./assets/sprite-defs.svg",
     layout: {
       margin: { top: 0.05, right: 0.05, bottom: 0.05, left: 0.05 },
-      numberPerRow: /*6*/7,
+      numberPerRow: /*6*/ 7,
       maxAnnotationLayers: 3,
     },
     pngScale: 2,
@@ -80,6 +78,7 @@ GENEMAP.GeneMap = function (userConfig) {
   var singleGenomeView; //bool
 
   var menuManager; //holds a GENEMAP.MenuBar
+  var colorPicker;
   var autoLabels; //bool
   var manualLabels; //bool
 
@@ -89,35 +88,30 @@ GENEMAP.GeneMap = function (userConfig) {
   var expanded = false;
   var originalLayout = {};
 
-
   //--------------------------------------------------
   //SVG and ZOOM FUNCTIONS
   //--------------------------------------------------
-
 
   var updateDimensions = function () {
     if (expanded) {
       var height = $(target).height();
       config.height = height - 80; //Allow space for menu bar
-      config.width = '100%';
+      config.width = "100%";
     }
-  }
+  };
 
   var toggleFullScreen = function () {
-
     var d3target = d3.select(target);
 
     if (!expanded) {
-
       originalLayout.height = config.height;
       originalLayout.width = config.width;
-      d3.select(target).classed('fullscreen', true);
+      d3.select(target).classed("fullscreen", true);
       expanded = true;
-    }
-    else {
+    } else {
       config.height = originalLayout.height;
       config.width = originalLayout.width;
-      d3.select(target).classed('fullscreen', false);
+      d3.select(target).classed("fullscreen", false);
       expanded = false;
     }
 
@@ -133,14 +127,17 @@ GENEMAP.GeneMap = function (userConfig) {
   var getSvgSize = function () {
     var size = { width: config.width, height: config.height };
 
-    if (size.width.toString().indexOf('%') >= 0 || size.height.toString().indexOf('%') >= 0) {
-      var bbox = d3.select(target).select('svg').node().getBoundingClientRect();
+    if (
+      size.width.toString().indexOf("%") >= 0 ||
+      size.height.toString().indexOf("%") >= 0
+    ) {
+      var bbox = d3.select(target).select("svg").node().getBoundingClientRect();
 
-      if (size.width.toString().indexOf('%') >= 0) {
+      if (size.width.toString().indexOf("%") >= 0) {
         size.width = bbox.width;
       }
 
-      if (size.height.toString().indexOf('%') >= 0) {
+      if (size.height.toString().indexOf("%") >= 0) {
         size.height = bbox.height;
       }
     }
@@ -153,8 +150,8 @@ GENEMAP.GeneMap = function (userConfig) {
     var moved = false;
 
     if (zoom) {
-      moved = (zoom.translate()[0] !== 0 || zoom.translate()[1] !== 0) || moved;
-      moved = (zoom.scale() !== 1) || moved;
+      moved = zoom.translate()[0] !== 0 || zoom.translate()[1] !== 0 || moved;
+      moved = zoom.scale() !== 1 || moved;
     }
 
     return moved;
@@ -169,7 +166,10 @@ GENEMAP.GeneMap = function (userConfig) {
 
     zoom.translate([0, 0]);
     zoom.scale(1);
-    container.attr('transform', 'translate(' + zoom.translate() + ')scale(' + zoom.scale() + ')');
+    container.attr(
+      "transform",
+      "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")"
+    );
     menuManager.setFitButtonEnabled(hasMapMoved());
 
     // need to redraw the map so that label fonts/visibility is recalculated
@@ -179,7 +179,7 @@ GENEMAP.GeneMap = function (userConfig) {
 
   // Sets the attributes on the .drawing_outline rectangle for the outline
   var drawDocumentOutline = function () {
-    container.select('.drawing_outline').attr({
+    container.select(".drawing_outline").attr({
       width: genome.drawing.width,
       height: genome.drawing.height,
     });
@@ -189,7 +189,7 @@ GENEMAP.GeneMap = function (userConfig) {
   var drawContentOutline = function () {
     var drawing = genome.drawing;
     var margin = genome.margin;
-    container.select('.drawing_margin').attr({
+    container.select(".drawing_margin").attr({
       x: margin.left,
       y: margin.top,
       width: drawing.width - margin.left - margin.right,
@@ -202,8 +202,7 @@ GENEMAP.GeneMap = function (userConfig) {
     log.info("Exporting whole canvas to png, scale is " + zoom.scale());
 
     //Un-transform the svg for saving
-    container.attr('transform',
-      'translate(0,0)scale(1)');
+    container.attr("transform", "translate(0,0)scale(1)");
 
     //Save as png
     saveSvgAsPng(container[0][0], "genemap.png", {
@@ -211,9 +210,11 @@ GENEMAP.GeneMap = function (userConfig) {
     });
 
     //Re-transform the svg to how it was before
-    container.attr('transform',
-      'translate(' + zoom.translate() + ')scale(' + zoom.scale() + ')');
-  }
+    container.attr(
+      "transform",
+      "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")"
+    );
+  };
 
   var exportViewToPng = function () {
     //Export the current view
@@ -221,9 +222,9 @@ GENEMAP.GeneMap = function (userConfig) {
 
     //Save as png
     saveSvgAsPng(svg[0][0], "genemap.png", {
-      scale: config.pngScale
+      scale: config.pngScale,
     });
-  }
+  };
 
   // called whenever a zoom event occurss
   onZoom = function () {
@@ -235,16 +236,24 @@ GENEMAP.GeneMap = function (userConfig) {
       // padding the size of the drawing with by a factor of config.extraPanArea * the bbox.
       // Setting this value to 0.5 will allow you to center on any point of the drawing at every zoom level.
       // Margins aren't taken into account when calcuating the pannable padding.
-      var minx = -genome.drawing.width * d3.event.scale + bbox.width * (1 - config.extraPanArea) +
+      var minx =
+        -genome.drawing.width * d3.event.scale +
+        bbox.width * (1 - config.extraPanArea) +
         genome.drawing.margin.right * d3.event.scale;
 
-      var maxx = bbox.width * config.extraPanArea - (genome.drawing.margin.left * d3.event.scale);
+      var maxx =
+        bbox.width * config.extraPanArea -
+        genome.drawing.margin.left * d3.event.scale;
       translate[0] = _.clamp(translate[0], minx, maxx);
 
-      var miny = -genome.drawing.height * d3.event.scale + bbox.height * (1 - config.extraPanArea) +
+      var miny =
+        -genome.drawing.height * d3.event.scale +
+        bbox.height * (1 - config.extraPanArea) +
         genome.drawing.margin.bottom * d3.event.scale;
 
-      var maxy = bbox.height * config.extraPanArea - (genome.drawing.margin.top * d3.event.scale);
+      var maxy =
+        bbox.height * config.extraPanArea -
+        genome.drawing.margin.top * d3.event.scale;
       translate[1] = _.clamp(translate[1], miny, maxy);
     }
 
@@ -259,10 +268,19 @@ GENEMAP.GeneMap = function (userConfig) {
     lastZoomScale = zoom.scale();
 
     menuManager.setFitButtonEnabled(hasMapMoved());
-    container.attr('transform', 'translate(' + zoom.translate() + ')scale(' + d3.event.scale + ')');
+    container.attr(
+      "transform",
+      "translate(" + zoom.translate() + ")scale(" + d3.event.scale + ")"
+    );
 
-    logSpan.text('translate: [ ' + zoom.translate()[0].toFixed(1) + ',' + zoom.translate()[1].toFixed(1)
-      + ']  zoom:' + zoom.scale().toFixed(2));
+    logSpan.text(
+      "translate: [ " +
+        zoom.translate()[0].toFixed(1) +
+        "," +
+        zoom.translate()[1].toFixed(1) +
+        "]  zoom:" +
+        zoom.scale().toFixed(2)
+    );
   };
 
   //--------------------------------------------------
@@ -270,60 +288,60 @@ GENEMAP.GeneMap = function (userConfig) {
   //--------------------------------------------------
 
   var onMouseDown = function () {
-    log.trace('mouse down');
-    svg.classed('dragging', true);
+    log.trace("mouse down");
+    svg.classed("dragging", true);
   };
 
   var onMouseUp = function () {
-    log.trace('mouse up');
-    svg.classed('dragging', false);
+    log.trace("mouse up");
+    svg.classed("dragging", false);
   };
 
   var onContext = function () {
-    log.trace('context click');
+    log.trace("context click");
     d3.event.preventDefault();
   };
 
   // close all open popovers
   var closeAllPopovers = function (event) {
-    $('#clusterPopover').modalPopover('hide');
+    $("#clusterPopover").modalPopover("hide");
 
-    $('.genemap-advanced-menu').modalPopover('hide');
-  }
+    $(".genemap-advanced-menu").modalPopover("hide");
+    $(".color-picker-modal").modalPopover("hide");
+  };
   //Intercept mouse events
 
   var attachClickHandler = function () {
-
     var closeFunction = function (event) {
       //Exceptions - don't close the popopver we are trying to interact with
-      if (event.target !== 'undefined') {
-        if (event.target.tagName.toLowerCase() === 'a') {
+      if (event.target !== "undefined") {
+        if (event.target.tagName.toLowerCase() === "a") {
           return;
         }
       }
 
-      if ($(event.target).closest('.genemap-advanced-menu').length > 0) {
+      if ($(event.target).closest(".genemap-advanced-menu").length > 0) {
+        return;
+      }
+      if ($(event.target).closest(".color-picker-modal").length > 0) {
         return;
       }
       //all other cases
       closeAllPopovers(event);
-    }
+    };
 
-    var events = 'mousedown mousewheel DOMMouseScroll touchstart '
+    var events = "mousedown mousewheel DOMMouseScroll touchstart ";
 
+    $(target).off(events).on(events, closeFunction);
 
-    $(target).off(events)
-      .on(events, closeFunction);
-
-
-    $('body').on('click', function (e) {
+    $("body").on("click", function (e) {
       if ($(e.target).closest(target).length < 1) {
         if (expanded == true) {
           toggleFullScreen();
         }
       }
     });
-  }
+  };
 
   //--------------------------------------------------
   //SELECTION AND LABELLING FUNCTIONS
@@ -342,34 +360,33 @@ GENEMAP.GeneMap = function (userConfig) {
     });
 
     return gene;
-  }
+  };
 
   // sets the 'showLabel' property on each of the gene annotations, should be either
   // 'show', 'hide' or 'auto'. If 'auto' is selected the 'showLabel' property is remove
   // instead the layout configuration will be used to determine if the text is shown
   var setGeneLabelState = function (value) {
-
     if (value == "auto") {
       autoLabels = true;
       manualLabels = true;
       genome.chromosomes.forEach(function (chromosome) {
         chromosome.annotations.genes.forEach(function (gene) {
-          if (gene.selected == true) { gene.visible = true; }
-        })
+          if (gene.selected == true) {
+            gene.visible = true;
+          }
+        });
       });
-    }
-    else if (value == "show") {
+    } else if (value == "show") {
       autoLabels = false;
       manualLabels = true;
-    }
-    else if (value == "hide") {
+    } else if (value == "hide") {
       autoLabels = false;
       manualLabels = false;
     }
 
     genome.chromosomes.forEach(function (chromosome) {
       chromosome.annotations.genes.forEach(function (geneAnnotation) {
-        if (value === 'auto') {
+        if (value === "auto") {
           delete geneAnnotation.showLabel;
         } else {
           geneAnnotation.showLabel = value;
@@ -384,72 +401,104 @@ GENEMAP.GeneMap = function (userConfig) {
   // sets the map to the 'manual' label state, this hides all the labels (so selected ones can be show)
   // and sets the button to the 'manual' icon.
   var setManualLabelState = function () {
-
     // if all the labels aren't already hidden
-    if (!d3.select(target).select('.tag-btn').classed('manual-label')) {
-      setGeneLabelState('hide');
-      menuManager.setTabButtonState('manual');
+    if (!d3.select(target).select(".tag-btn").classed("manual-label")) {
+      setGeneLabelState("hide");
+      menuManager.setTabButtonState("manual");
       drawMap();
     }
   };
-
 
   // called when a gene annotation is selected or deselected, decides if the
   // network button should be enabled or not
   var onAnnotationSelectionChanged = function () {
     //find out if any of the genes in any of the chromosomes are currently selected
-
     var anyGenesSelected = genome.chromosomes.some(function (chromosome) {
       return chromosome.annotations.genes.some(function (gene) {
         return gene.selected;
       });
     });
+    if (my.onAnonationLabelSelectFunction) {
+      my.onAnonationLabelSelectFunction(my.getSelectedGenes());
+    }
 
     computeGeneLayout();
     drawMap();
 
-    d3.select('.network-btn').classed('disabled', !anyGenesSelected);
+    d3.select(".network-btn").classed("disabled", !anyGenesSelected);
   };
 
   var onToggleLabelSelect = function (chromosome) {
     if (singleGenomeView) {
       genome = fullGenome;
-      singleGenomeView = false
-    }
-    else {
+      singleGenomeView = false;
+    } else {
       genome = { chromosomes: [chromosome] };
-      singleGenomeView = true
+      singleGenomeView = true;
     }
+
+    my.onAnonationLabelSelectFunction(my.getSelectedGenes());
 
     resetMapZoom();
     computeGeneLayout();
     drawMap();
-
   };
 
   // click handler for the network view button
   var openNetworkView = function () {
-
     //extract labels for all selected genes on all chromosomes
-    var selectedLabels = _.flatMap(genome.chromosomes.map(function (chromosome) {
-      return chromosome.annotations.genes.filter(function (gene) {
-        return gene.selected
-      }).map(function (gene) {
-        // Use list='' from url (link) instead of gene label.
-        var geneURI = gene.link;
-        var geneLink = geneURI.substring(geneURI.indexOf("list="), geneURI.length).split("=")[1];
-        return /*gene.label*/decodeURIComponent(geneLink.replace(/\+/g, ' '));
-      });
-    }
-    ));
+    var selectedLabels = _.flatMap(
+      genome.chromosomes.map(function (chromosome) {
+        return chromosome.annotations.genes
+          .filter(function (gene) {
+            return gene.selected;
+          })
+          .map(function (gene) {
+            // Use list='' from url (link) instead of gene label.
+            var geneURI = gene.link;
+            var geneLink = geneURI
+              .substring(geneURI.indexOf("list="), geneURI.length)
+              .split("=")[1];
+            return /*gene.label*/ decodeURIComponent(
+              geneLink.replace(/\+/g, " ")
+            );
+          });
+      })
+    );
 
-    var url = config.apiUrl + '/network';
+    var url = config.apiUrl + "/network";
     //console.log("GeneMap: Launch Network for url: "+ url);
     //console.log("selectedLabels: "+ selectedLabels);
 
-    log.info('selected labels: ' + selectedLabels);
-    generateCyJSNetwork(url, { list: selectedLabels, keyword: $('#keywords').val() });
+    log.info("selected labels: " + selectedLabels);
+    generateCyJSNetwork(url, {
+      list: selectedLabels,
+      keyword: $("#keywords").val(),
+    });
   };
+
+  //REMOVE IF NOT NEEDED
+
+  // const onSubmitColorClick = function () {
+  //   d3.select('.color-picker-btn').style('background-color', d3.select('.color-picker-modal__selected').style('background-color'));
+  //   $(".color-picker-modal").modalPopover("toggle");
+  //   for(let chromosome of genome.chromosomes) {
+  //     for(let gene of chromosome.annotations.genes) {
+  //       if(gene.selected) {
+  //         gene.color = d3.select('.color-picker-modal__selected').style('background-color')
+  //       }
+  //     }
+  //   }
+  //   const anyGenesSelected = genome.chromosomes.some(function (chromosome) {
+  //     return chromosome.annotations.genes.some(function (gene) {
+  //       return gene.selected;
+  //     });
+  //   });
+  //   if(anyGenesSelected) {
+  //     computeGeneLayout();
+  //     drawMap();
+  //   }
+  // }
 
   // toggle the global label visibility, from 'auto', to 'show' and to 'hide'
   var toggleLableVisibility = function () {
@@ -457,12 +506,12 @@ GENEMAP.GeneMap = function (userConfig) {
     var newState;
 
     // iterate over the 3 states when the button is clicked
-    if (oldState === 'auto') {
-      newState = 'show';
-    } else if (oldState === 'show') {
-      newState = 'hide';
+    if (oldState === "auto") {
+      newState = "show";
+    } else if (oldState === "show") {
+      newState = "hide";
     } else {
-      newState = 'auto';
+      newState = "auto";
     }
 
     menuManager.setTabButtonState(newState);
@@ -472,45 +521,42 @@ GENEMAP.GeneMap = function (userConfig) {
   };
 
   var resetLabels = function () {
-    log.info('Reset Labels');
+    log.info("Reset Labels");
     genome.chromosomes.forEach(function (chromosome) {
       chromosome.annotations.allGenes.forEach(function (gene) {
-        gene.selected = false
+        gene.selected = false;
         gene.visible = false;
         gene.hidden = false;
       });
     });
     computeGeneLayout();
     drawMap();
-  }
-
+  };
 
   var onSetNumberPerRow = function (numberPerRow) {
-    log.trace('Number per row:', numberPerRow);
+    log.trace("Number per row:", numberPerRow);
     config.layout.numberPerRow = numberPerRow;
     resetClusters();
     computeGeneLayout();
     drawMap();
-  }
+  };
 
   var onToggleQTLDisplay = function (state) {
-    log.info('onToggleQTLDisplay');
-    if (state == 'all') {
+    log.info("onToggleQTLDisplay");
+    if (state == "all") {
       showAllQTLs = true;
       showSelectedQTLs = true;
-    }
-    else if (state == 'selected') {
+    } else if (state == "selected") {
       showAllQTLs = false;
-      showSelectedQTLs = 'true';
-    }
-    else {
+      showSelectedQTLs = "true";
+    } else {
       showAllQTLs = false;
       showSelectedQTLs = false;
     }
     resetQtls();
     computeGeneLayout();
     drawMap();
-  }
+  };
 
   //--------------------------------------------------
   //LAYOUT FUNCTIONS
@@ -525,7 +571,7 @@ GENEMAP.GeneMap = function (userConfig) {
 
     // set the layout on the genome and set it as the data source
     genome = layoutDecorator.decorateGenome(genome);
-  }
+  };
 
   var resetClusters = function () {
     genome.chromosomes.forEach(function (chromosome) {
@@ -556,17 +602,15 @@ GENEMAP.GeneMap = function (userConfig) {
       manualLabels: manualLabels,
       nGenesToDisplay: config.nGenesToDisplay,
       displayedFontSize: config.annotationLabelSize,
-    }
-    );
+    });
 
     var geneBandLayout = GENEMAP.GeneBandsLayout({
       longestChromosome: genome.cellLayout.longestChromosome,
       layout: genome.cellLayout.geneAnnotationPosition,
       nClusters: 50,
       scale: zoom.scale(),
-      nGenesToDisplay: config.nGenesToDisplay
-    }
-    );
+      nGenesToDisplay: config.nGenesToDisplay,
+    });
 
     var qtlAnnotationLayout = GENEMAP.QTLAnnotationLayout({
       longestChromosome: genome.cellLayout.longestChromosome,
@@ -599,14 +643,13 @@ GENEMAP.GeneMap = function (userConfig) {
     });
 
     geneAnnotationLayout.computeNormalisedGeneScores(genome.chromosomes);
-  }
+  };
 
   var updateLegend = function (keyTarget, genome) {
     var traitSet = new Set();
     var traitColors = [];
     genome.chromosomes.forEach(function (chromosome) {
       chromosome.annotations.snps.forEach(function (snp) {
-
         if (!traitSet.has(snp.trait)) {
           if (snp.trait != null) {
             traitColors.push({ trait: snp.trait, color: snp.color });
@@ -614,124 +657,145 @@ GENEMAP.GeneMap = function (userConfig) {
         }
 
         traitSet.add(snp.trait);
-
       });
     });
 
     if (traitColors.length > 0) {
-
-      keyTarget.text('SNP legend: ');
-    }
-    else {
-      keyTarget.text('');
+      keyTarget.text("SNP legend: ");
+    } else {
+      keyTarget.text("");
     }
 
-    var keyGroup = keyTarget.selectAll('span').data(traitColors);
+    var keyGroup = keyTarget.selectAll("span").data(traitColors);
 
-    var keyGroupSpan = keyGroup.enter()
-      .append('span')
-      .classed('key-item', true);
+    var keyGroupSpan = keyGroup
+      .enter()
+      .append("span")
+      .classed("key-item", true);
 
     keyGroupSpan
-      .append('span')
-      .style('background-color', function (d) { return d.color })
-      .classed('colorbox', true)
-      .append('svg');
+      .append("span")
+      .style("background-color", function (d) {
+        return d.color;
+      })
+      .classed("colorbox", true)
+      .append("svg");
 
-    keyGroupSpan.append('span')
-      .text(function (d) { return d.trait });
+    keyGroupSpan.append("span").text(function (d) {
+      return d.trait;
+    });
 
     keyGroup.exit().remove();
   };
 
   // builds the basic chart components, should only be called once
   var constructSkeletonChart = function (mapContainer) {
-
-    var svg = mapContainer.append('svg').attr({
+    var svgWrapper = mapContainer.append("div").attr({
+      class: "mapview-wrapper",
+    });
+    var svg = svgWrapper.append("svg").attr({
       width: config.width,
       height: config.height,
-      class: 'mapview',
+      flex: config.flex,
+      class: "mapview",
     });
 
-    logSpan = mapContainer.append('div').append('span')
-      .attr({
-        'class': 'logger',
-        'id': 'logbar'
-      });
+    logSpan = mapContainer.append("div").append("span").attr({
+      class: "logger",
+      id: "logbar",
+    });
 
-    legendSpan = mapContainer.append('div')
-      .attr({
-        'class': 'key',
-        'id': 'keybar'
-      });
+    legendSpan = mapContainer.append("div").attr({
+      class: "key",
+      id: "keybar",
+    });
 
-
-    GENEMAP.vectorEffectSupport = 'vectorEffect' in svg[0][0].style;
+    GENEMAP.vectorEffectSupport = "vectorEffect" in svg[0][0].style;
 
     //Click handles
     attachClickHandler();
 
-    svg.on('mousedown', onMouseDown)
-      .on('mouseup', onMouseUp)
-      .on('contextmenu', onContext);
+    svg
+      .on("mousedown", onMouseDown)
+      .on("mouseup", onMouseUp)
+      .on("contextmenu", onContext);
 
-    svg.append('g').classed('zoom_window', true)
-      .append('rect').classed('drawing_outline', true);
+    svg
+      .append("g")
+      .classed("zoom_window", true)
+      .append("rect")
+      .classed("drawing_outline", true);
 
     if (config.contentBorder) {
-      mapContainer.select('.zoom_window').append('rect').classed('drawing_margin', true);
+      mapContainer
+        .select(".zoom_window")
+        .append("rect")
+        .classed("drawing_margin", true);
     }
 
     // basic zooming functionality
     lastZoomScale = 1;
-    zoom = d3.behavior.zoom().scaleExtent([1, 50]);
-    zoom.on('zoom', onZoom);
-    mapContainer.select('svg').call(zoom);
+    zoom = d3.behavior.zoom().scaleExtent([0.5, 60]);
+    zoom.on("zoom", onZoom);
+    mapContainer.select("svg").call(zoom);
 
     //Popover element to be the source for modal popovers
-    var popoverDiv = mapContainer.append('div')
-      .attr({ 'id': 'clusterPopover', class: 'popover' });
+    var popoverDiv = mapContainer
+      .append("div")
+      .attr({ id: "clusterPopover", class: "popover" });
 
-    popoverDiv.append('div')
-      .attr({ 'class': 'arrow' })
+    popoverDiv.append("div").attr({ class: "arrow" });
 
-    popoverDiv.append('h3')
-      .attr({ 'class': 'popover-title' }).text('Cluster');
+    popoverDiv.append("h3").attr({ class: "popover-title" }).text("Cluster");
 
-    popoverDiv.append('div')
-      .attr({ 'class': 'popover-content' });
+    popoverDiv.append("div").attr({ class: "popover-content" });
 
     return svg;
-
   };
 
   // draw the genemap into the target element.
   var drawMap = function () {
-
     //Create svg if necessary
-    if (!d3.select(target).select('svg').node()) {
+    if (!d3.select(target).select("svg").node()) {
       svg = constructSkeletonChart(d3.select(target));
     } else {
-      svg = d3.select(target).select('svg');
+      svg = d3.select(target).select("svg");
       svg.attr({
         width: config.width,
         height: config.height,
       });
     }
 
-    logSpan.text('translate: [ ' + zoom.translate()[0].toFixed(1) + ',' + zoom.translate()[1].toFixed(1)
-      + ']  zoom:' + zoom.scale().toFixed(2));
+    logSpan.text(
+      "translate: [ " +
+        zoom.translate()[0].toFixed(1) +
+        "," +
+        zoom.translate()[1].toFixed(1) +
+        "]  zoom:" +
+        zoom.scale().toFixed(2)
+    );
 
     //Update layout parameters
     decorateGenomeLayout();
 
-    //Compute gene layout if necessary
-    var layoutExists = genome.chromosomes.every(function (chromosome) { return chromosome.layout; });
+    // if(!colorPicker) {
+    //   colorPicker = GENEMAP.ColorPicker().chromosomes(genome.chromosomes);
+    //   d3.select(target).call(colorPicker);
+    // }
+    //
+    // colorPicker.onSubmitColorClick(onSubmitColorClick)
 
-    if (!layoutExists) { computeGeneLayout(); }
+    //Compute gene layout if necessary
+    var layoutExists = genome.chromosomes.every(function (chromosome) {
+      return chromosome.layout;
+    });
+
+    if (!layoutExists) {
+      computeGeneLayout();
+    }
 
     svg.datum(genome);
-    container = svg.select('.zoom_window');
+    container = svg.select(".zoom_window");
 
     // draw the outlines
     drawDocumentOutline();
@@ -747,13 +811,12 @@ GENEMAP.GeneMap = function (userConfig) {
       .maxAnnotationLayers(config.layout.maxAnnotationLayers)
       .maxSnpPValue(config.maxSnpPValue)
       .svg(svg);
-
     container.call(cellDrawer);
-
   };
 
   // An SVG representation of a chromosome with banding data. This won't create an SVG
   // element, it expects that to already have been created.
+
   function my(selection) {
     selection.each(function (d) {
       var _this = this;
@@ -761,8 +824,8 @@ GENEMAP.GeneMap = function (userConfig) {
       fullGenome = d;
 
       //To start with, we'll display all chromosomes, i.e. the fullGenome
-      genome = fullGenome
-      singleGenomeView = false
+      genome = fullGenome;
+      singleGenomeView = false;
 
       if (!menuManager) {
         menuManager = GENEMAP.MenuBar()
@@ -780,15 +843,13 @@ GENEMAP.GeneMap = function (userConfig) {
           .onExpandBtnClick(toggleFullScreen)
           .maxSnpPValueProperty(my.maxSnpPValue)
           .nGenesToDisplayProperty(my.nGenesToDisplay)
-          .annotationLabelSizeProperty(my.annotationLabelSize)
-          ;
+          .annotationLabelSizeProperty(my.annotationLabelSize);
       }
 
       d3.select(target).call(menuManager);
-
       menuManager.setNetworkButtonEnabled(false);
       menuManager.setFitButtonEnabled(false);
-      menuManager.setTabButtonState('auto');
+      menuManager.setTabButtonState("auto");
 
       drawMap();
     });
@@ -823,39 +884,70 @@ GENEMAP.GeneMap = function (userConfig) {
     return my;
   };
 
-  my.draw = function (outerTargetId, basemapPath, annotationPath) {
+  my.draw = function (
+    outerTargetId,
+    basemapPath,
+    annotationPath,
+    isString = false
+  ) {
     var reader = GENEMAP.XmlDataReader();
 
-    reader.readXMLData(basemapPath, annotationPath).then(function (data) {
-      my._draw(outerTargetId, data);
-    });
-  };
-
-  my.drawFromRawAnnotationXML = function (outerTargetId, basemapPath, annotationXMLString) {
-    var reader = GENEMAP.XmlDataReader();
-
-    reader.readXMLDataFromRawAnnotationXML(basemapPath, annotationXMLString).then(function (data) {
-      my._draw(outerTargetId, data);
-    });
+    if (annotationPath) {
+      reader
+        .readXMLData(basemapPath, annotationPath, isString)
+        .then(function (data) {
+          my._draw(outerTargetId, data, isString);
+        });
+    } else {
+      const data = reader.readXMLData(basemapPath, annotationPath, isString);
+      my._draw(outerTargetId, data, isString);
+    }
   };
 
   my._draw = function (outerTargetId, data) {
-    var outerTarget = d3.select(outerTargetId).selectAll('div').data(['genemap-target']);
+    var outerTarget = d3
+      .select(outerTargetId)
+      .selectAll("div")
+      .data(["genemap-target"]);
 
-    outerTarget.enter()
-      .append('div').attr('id', function (d) { return d; });
+    outerTarget
+      .enter()
+      .append("div")
+      .attr("id", function (d) {
+        return d;
+      });
 
-    target = d3.select(outerTargetId).select('#genemap-target')[0][0];
+    target = d3.select(outerTargetId).select("#genemap-target")[0][0];
 
-    log.info('drawing genome to target');
+    log.info("drawing genome to target");
     d3.select(target).datum(data).call(my);
+
     my.nGenesToDisplay(config.initialMaxGenes);
     resetMapZoom();
     updateLegend(legendSpan, genome);
   };
 
+  my.changeQtlColor = function (chromosomeId, color, label) {
+    genome.chromosomes.forEach(function (chromosome) {
+      chromosome.layout.qtlNodes.forEach(function (qtlNode) {
+        if (qtlNode.id === chromosomeId) {
+          qtlNode.color = color;
+          qtlNode.label = label;
+        }
+      });
+    });
+    computeGeneLayout();
+    drawMap();
+  };
+
+  my.changeColor = function (color) {
+    d3.select("#map").style("background-color", color);
+    computeGeneLayout();
+    drawMap();
+  };
+
   my.redraw = function (outerTarget) {
-    target = d3.select(outerTarget).select('#genemap-target')[0][0];
+    target = d3.select(outerTarget).select("#genemap-target")[0][0];
     updateDimensions();
     d3.select(target).call(my);
     closeAllPopovers();
@@ -873,22 +965,23 @@ GENEMAP.GeneMap = function (userConfig) {
   //Attach listeners to be notified whenever the value changes e.g:
   //my.maxSnpPValue.AddListener(function(pvalue){log.info(pvalue)});
 
-  my.maxSnpPValue = GENEMAP.Listener(config.maxSnpPValue)
-    .addListener(function (val) {
-      var num = Number(val);
-      log.info('Setting max PValue for SNPs to', val, '(', num, ')');
-      if (isNaN(num)) {
-        log.info("Can't parse max PValue")
-        my.maxSnpPValue(config.maxSnpPValue);
-      }
-      config.maxSnpPValue = Number(val);
-      computeGeneLayout();
-      drawMap();
-    });
+  my.maxSnpPValue = GENEMAP.Listener(config.maxSnpPValue).addListener(function (
+    val
+  ) {
+    var num = Number(val);
+    log.info("Setting max PValue for SNPs to", val, "(", num, ")");
+    if (isNaN(num)) {
+      log.info("Can't parse max PValue");
+      my.maxSnpPValue(config.maxSnpPValue);
+    }
+    config.maxSnpPValue = Number(val);
+    computeGeneLayout();
+    drawMap();
+  });
 
-  my.nGenesToDisplay = GENEMAP.Listener(config.nGenesToDisplay)
-    .addListener(function (nGenes) {
-      log.info('Setting nGenes to ', nGenes);
+  my.nGenesToDisplay = GENEMAP.Listener(config.nGenesToDisplay).addListener(
+    function (nGenes) {
+      log.info("Setting nGenes to ", nGenes);
       var oldValue = config.nGenesToDisplay;
       config.nGenesToDisplay = nGenes;
       if (nGenes != oldValue) {
@@ -896,16 +989,18 @@ GENEMAP.GeneMap = function (userConfig) {
         computeGeneLayout();
         drawMap();
       }
-    });
+    }
+  );
 
-  my.annotationLabelSize = GENEMAP.Listener(config.annotationLabelSize)
-    .addListener(function (labelSize) {
-      log.info('Setting annotation label size to', labelSize);
-      config.annotationLabelSize = labelSize;
-      resetClusters();
-      computeGeneLayout();
-      drawMap();
-    })
+  my.annotationLabelSize = GENEMAP.Listener(
+    config.annotationLabelSize
+  ).addListener(function (labelSize) {
+    log.info("Setting annotation label size to", labelSize);
+    config.annotationLabelSize = labelSize;
+    resetClusters();
+    computeGeneLayout();
+    drawMap();
+  });
 
   my.setQtlLabels = function (value) {
     if (target) {
@@ -913,7 +1008,7 @@ GENEMAP.GeneMap = function (userConfig) {
 
       data.chromosomes.forEach(function (chromosome) {
         chromosome.annotations.qtls.forEach(function (qtlAnnotation) {
-          if (value === 'auto') {
+          if (value === "auto") {
             delete qtlAnnotation.showLabel;
           } else {
             qtlAnnotation.showLabel = value;
@@ -923,13 +1018,31 @@ GENEMAP.GeneMap = function (userConfig) {
     }
   };
 
+  my.onAnonationLabelSelectFunction = function () {};
+
   my.loggingOn = function () {
-    logSpan.style('display', 'initial');
-  }
+    logSpan.style("display", "initial");
+  };
 
   my.loggingOff = function () {
-    logSpan.style('display', 'none');
-  }
+    logSpan.style("display", "none");
+  };
+
+  my.getSelectedGenes = function () {
+    var selectedGenes = [];
+    genome.chromosomes.forEach(function (chromosome) {
+      chromosome.annotations.genes.forEach(function (gene) {
+        if (gene.selected) {
+          selectedGenes.push(gene);
+        }
+      });
+    });
+    return selectedGenes;
+  };
+
+  my.getGenome = function () {
+    return genome;
+  };
 
   return my;
 };
