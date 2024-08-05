@@ -1,11 +1,12 @@
-var GENEMAP = GENEMAP || {};
-
 //Group genes into clusters for display
 //y is the yscale
-GENEMAP.GeneClusterer = function (userConfig) {
+import _ from "lodash";
+import * as ss from "simple-statistics";
+
+export const GeneClusterer = function (userConfig) {
   var my = {};
 
-  var defaultConfig = {nClusters: 6};
+  var defaultConfig = { nClusters: 6 };
 
   var config = _.merge({}, defaultConfig, userConfig);
 
@@ -21,11 +22,11 @@ GENEMAP.GeneClusterer = function (userConfig) {
     //It return list of lists of midpoints
 
     var nClusters = Math.min(config.nClusters, genes.length);
-    var midpoints = genes.map(function(d){
+    var midpoints = genes.map(function (d) {
       return d.midpoint;
     });
 
-    clusterPointsList = ss.ckmeans( midpoints, nClusters);
+    let clusterPointsList = ss.ckmeans(midpoints, nClusters);
 
     //Start with all the clusters empty
     var clusterList = [];
@@ -35,10 +36,9 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
     //Now we append each gene to the correct cluster
     genes.map(function (gene) {
-
       //which cluster contains this gene's midpoint?
-      iCluster = clusterPointsList.findIndex(function (clusterPoints) {
-        return clusterPoints.includes(gene.midpoint)
+      let iCluster = clusterPointsList.findIndex(function (clusterPoints) {
+        return clusterPoints.includes(gene.midpoint);
       });
 
       clusterList[iCluster].push(gene);
@@ -46,7 +46,6 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
     //loop over clusters and add nodes to the result
     clusterList.map(function (genes) {
-
       //for small clusters, add individual genes
       if (genes.length < 2) {
         result.push.apply(result, genes);
@@ -54,7 +53,8 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
       //for large clusters, add 1 node to hold all of them
       else {
-        var averageMidpoint = genes.reduce(function (sum, current) {
+        var averageMidpoint =
+          genes.reduce(function (sum, current) {
             return sum + current.midpoint;
           }, 0) / genes.length;
 
@@ -67,7 +67,7 @@ GENEMAP.GeneClusterer = function (userConfig) {
           genesList: genes,
           midpoint: averageMidpoint,
           type: "geneslist",
-          id: id.toString()
+          id: id.toString(),
         };
 
         result.push(genesCollection);
@@ -84,7 +84,7 @@ GENEMAP.GeneClusterer = function (userConfig) {
 
     config.nClusters = value;
     return my;
-  }
+  };
 
   return my;
 };

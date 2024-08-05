@@ -1,6 +1,9 @@
-var GENEMAP = GENEMAP || {};
+import $ from "jquery";
+import * as d3 from "d3";
+import _ from "lodash";
+import { Popover } from "bootstrap";
 
-GENEMAP.MenuBar = function (userConfig) {
+export const MenuBar = function (userConfig) {
   var defaultConfig = {
     onNetworkBtnClick: $.noop,
     onFitBtnClick: $.noop,
@@ -54,8 +57,13 @@ GENEMAP.MenuBar = function (userConfig) {
       return;
     }
 
-    $("#select-label-btn").selectpicker("val", "Auto labels").change();
-    $("#select-qtl-btn").selectpicker("val", "All QTLs").change();
+    const event = new Event("change");
+    const labelSelect = document.getElementById("select-label-btn");
+    labelSelect.value = "auto";
+    labelSelect.dispatchEvent(event);
+    const genesSelect = document.getElementById("select-ngenes-dropdown");
+    genesSelect.value = "50";
+    genesSelect.dispatchEvent(event);
     config.onResetBtnClick();
   };
 
@@ -68,34 +76,38 @@ GENEMAP.MenuBar = function (userConfig) {
 
     var selectElement = selection.selectAll("select").data([null]);
 
-    selectElement.enter().append("select").attr({
-      id: name,
-      name: name,
-      class: "menu-dropdown",
-    });
-
-    var options = selectElement.selectAll("option").data(data);
-
-    options
+    selectElement
       .enter()
-      .append("option")
-      .attr("data-token", function (d) {
-        return d[1];
-      })
-      .text(function (d) {
-        return d[0];
-      });
+      .append("select")
+      .attr("id", name)
+      .attr("name", name)
+      .attr("class", "menu-dropdown form-select");
 
-    var mySelectPicker = $("#" + name).selectpicker({
-      width: "158px",
+    const element = document.getElementById(name);
+
+    if (!element) {
+      console.log("Failed to find the select element.");
+      return;
+    }
+
+    // Remove existing options
+    element.innerHTML = "";
+
+    // Add new options
+    data.forEach(function (d) {
+      var option = document.createElement("option");
+      option.value = d[1];
+      option.textContent = d[0];
+      if (d[1] === initialValue) {
+        option.selected = true; // Set the initial value as selected
+      }
+      element.appendChild(option);
     });
 
-    mySelectPicker.selectpicker("val", initialValue);
-    mySelectPicker.selectpicker("refresh");
-
-    mySelectPicker.on("change", function (e) {
-      var selectedOption = mySelectPicker.find("option:selected");
-      var selectedToken = selectedOption.data().token;
+    // Add change event listener
+    element.addEventListener("change", function () {
+      var selectedOption = element.options[element.selectedIndex];
+      var selectedToken = selectedOption.value;
       callback(selectedToken);
     });
   };
@@ -118,10 +130,8 @@ GENEMAP.MenuBar = function (userConfig) {
       return d;
     });
     menuItems.enter().append("span");
-    menuItems.attr({
-      class: function (d) {
-        return d;
-      },
+    menuRows.selectAll("span").attr("class", function (d) {
+      return d;
     });
 
     menu
@@ -179,20 +189,20 @@ GENEMAP.MenuBar = function (userConfig) {
 
     menu
       .select(".export-btn")
-      .attr({ title: "Export view to png" })
+      .attr("title", "Export to PNG")
       .on("click", config.onExportBtnClick);
 
     menu
       .select(".expand-btn")
       .attr("title", "Toggle full screen")
       .on("click", myOnExpandBtnClick);
-
-    menu
-      .select(".advanced-toggle")
-      .attr("title", "Show advanced options")
-      .on("click", function () {
-        $(".genemap-advanced-menu").modalPopover("toggle");
-      });
+    // TODO: Fix this
+    // menu
+    //   .select(".advanced-toggle")
+    //   .attr("title", "Show advanced options")
+    //   .on("click", function () {
+    //     $(".genemap-advanced-menu").modalPopover("toggle");
+    //   });
 
     var helpURL =
       "https://github.com/francis-newson-tessella/QTLNetMiner/" +
@@ -201,7 +211,7 @@ GENEMAP.MenuBar = function (userConfig) {
 
     menu
       .select(".help-btn")
-      .attr({ title: "help" })
+      .attr("title", "help")
       .text("Help")
       .on("click", function () {
         window.open(helpURL, "_blank");
@@ -211,27 +221,27 @@ GENEMAP.MenuBar = function (userConfig) {
       .select(target)
       .selectAll(".genemap-advanced-menu")
       .data([null]);
-    popoverDiv = advancedMenu
-      .enter()
-      .append("div")
-      .classed("genemap-advanced-menu", true)
-      .classed("popover", true);
+    // let popoverDiv = advancedMenu
+    //   .enter()
+    //   .append("div")
+    //   .classed("genemap-advanced-menu", true)
+    //   .classed("popover", true);
 
-    popoverHeading = popoverDiv
-      .append("h3")
-      .attr({ class: "popover-title" })
-      .text("Advanced options");
+    // let popoverHeading = popoverDiv
+    //   .append("h3")
+    //   .attr("class", "popover-title")
+    //   .text("Advanced options");
+    // TODO: Fix this
+    // popoverHeading
+    //   .append("button")
+    //   .attr({ class: "close" })
+    //   .on("click", function () {
+    //     $(".genemap-advanced-menu").modalPopover("toggle");
+    //   })
+    //   .append("span")
+    //   .html("&times");
 
-    popoverHeading
-      .append("button")
-      .attr({ class: "close" })
-      .on("click", function () {
-        $(".genemap-advanced-menu").modalPopover("toggle");
-      })
-      .append("span")
-      .html("&times");
-
-    popoverDiv.append("div").classed("popover-content", true);
+    // popoverDiv.append("div").classed("popover-content", true);
 
     var advancedMenuItems = advancedMenu
       .select(".popover-content")
@@ -277,32 +287,26 @@ GENEMAP.MenuBar = function (userConfig) {
     var pvalueForm = pvalueSpans
       .append("form")
       .classed("bootstrap", true)
-      .attr({
-        id: "snp-pvalue-form",
-        class: "bootstrap form-inline",
-      });
+      .attr("id", "snp-pvalue-form")
+      .attr("class", "bootstrap form-inline");
 
     pvalueForm
       .append("label")
-      .attr({
-        id: "max-snp-pvalue-text",
-        for: "max-snp-pvalue-input",
-      })
+      .attr("id", "max-snp-pvalue-label")
+      .attr("for", "max-snp-pvalue-input")
       .html("Max SNP p-value:&nbsp");
 
-    pvalueForm.append("input").attr({
-      class: "form-control",
-      id: "max-snp-pvalue-input",
-      type: "text",
-      value: config.maxSnpPValueProperty(),
-    });
+    pvalueForm
+      .append("input")
+      .attr("class", "form-control")
+      .attr("id", "max-snp-pvalue-input")
+      .attr("type", "text")
+      .attr("value", config.maxSnpPValueProperty());
 
     pvalueForm
       .append("button")
-      .attr({
-        class: "btn btn-default",
-        type: "submit",
-      })
+      .attr("type", "submit")
+      .attr("class", "btn btn-default")
       .text("Set");
 
     $("#snp-pvalue-form").submit(function (e) {
@@ -325,40 +329,31 @@ GENEMAP.MenuBar = function (userConfig) {
       .append("span")
       .append("label")
       .classed("bootstrap", true)
-      .attr({
-        for: function (d) {
-          return d;
-        },
-      })
+      .attr("for", (d) => d)
       .html("Num per row:&nbsp;");
 
     enterSpinner
       .append("span")
       .append("input")
-      .attr({
-        id: function (d) {
-          return d;
-        },
-        type: "text",
-        value: config.initialNPerRow,
-        name: function (d) {
-          return d;
-        },
-      });
+      .attr("id", (d) => d)
+      .attr("type", "text")
+      .attr("value", config.initialNPerRow)
+      .attr("name", (d) => d);
 
-    var spinner = spinnerSpan.select("input");
-    var $spinner = $(spinner);
+    // TODO: Fix this
+    // var spinner = spinnerSpan.select("input");
+    // var $spinner = $(spinner);
 
-    $spinner.TouchSpin({
-      min: 1,
-      max: 20,
-      step: 1,
-    });
+    // $spinner.TouchSpin({
+    //   min: 1,
+    //   max: 20,
+    //   step: 1,
+    // });
 
-    d3.select(".nperrow-spinner").select(".input-group").style({
-      width: "8em",
-      display: "inline-table",
-    });
+    d3.select(".nperrow-spinner")
+      .select(".input-group")
+      .style("width", "8em")
+      .style("display", "inline-table");
 
     $("#nPerRowSpinner").on("change", function (event) {
       config.onSetNumberPerRowClick($("#nPerRowSpinner").val());
@@ -366,7 +361,7 @@ GENEMAP.MenuBar = function (userConfig) {
 
     advancedMenu
       .select(".export-all-btn")
-      .attr({ title: "export all to png" })
+      .attr("title", "export all to PNG")
       .on("click", config.onExportAllBtnClick);
 
     advancedMenu
@@ -375,10 +370,8 @@ GENEMAP.MenuBar = function (userConfig) {
       .data(["labelsize-label", "labelsize-dropdown"])
       .enter()
       .append("span")
-      .attr({
-        class: function (d) {
-          return d;
-        },
+      .attr("class", function (d) {
+        return d;
       });
 
     advancedMenu.select(".labelsize-label").classed("bootstrap", true);
@@ -414,13 +407,14 @@ GENEMAP.MenuBar = function (userConfig) {
     });
 
     //ACTIVATE POPOVER
-    $(".genemap-advanced-menu").modalPopover({
-      target: $(".advanced-toggle"),
-      parent: $(".advanced-toggle"),
-      "modal-position": "relative",
-      placement: "left",
-      boundingSize: config.drawing,
-    });
+    // TODO: Fix this
+    // $(".genemap-advanced-menu").modalPopover({
+    //   target: $(".advanced-toggle"),
+    //   parent: $(".advanced-toggle"),
+    //   "modal-position": "relative",
+    //   placement: "left",
+    //   boundingSize: config.drawing,
+    // });
   };
 
   // attach the menu bar to the target element

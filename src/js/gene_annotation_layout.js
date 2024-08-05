@@ -1,10 +1,12 @@
-var GENEMAP = GENEMAP || {};
-
 //Produce layout for gene annotations
 //GENEMAP.GeneClusterer is used to cluster genes if necessary
 //Labella is used to generate layout of nodes
+import * as d3 from "d3";
+import _ from "lodash";
+import { GeneClusterer } from "./gene_clusterer";
+var labella = require("labella");
 
-GENEMAP.GeneAnnotationLayout = function (userConfig) {
+export const GeneAnnotationLayout = function (userConfig) {
   var defaultConfig = {
     longestChromosome: 100,
     layout: {
@@ -28,8 +30,8 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
   var config = _.merge({}, defaultConfig, userConfig);
 
   var buildYScale = function () {
-    return d3.scale
-      .linear()
+    return d3
+      .scaleLinear()
       .range([0, config.layout.height])
       .domain([0, config.longestChromosome]);
   };
@@ -84,7 +86,7 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
   ) {
     var fontCoordRatio = 3.5;
 
-    par = {};
+    let par = {};
 
     par.scale = scale;
     par.availableHeight = availableHeight;
@@ -161,7 +163,7 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
   //Use labella to generate layout nodes for each gene
   //or cluster of genes
   var generateChromosomeLayout = function (chromosome) {
-    allGenes = chromosome.annotations.allGenes.filter(function (gene) {
+    let allGenes = chromosome.annotations.allGenes.filter(function (gene) {
       return gene.globalIndex < config.nGenesToDisplay;
     });
 
@@ -219,7 +221,7 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
 
     var y = buildYScale();
 
-    forceConfig = {
+    let forceConfig = {
       nodeSpacing: par.nodeSpacing,
       lineSpacing: par.lineSpacing,
       algorithm: "overlap",
@@ -237,6 +239,10 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
       gene.displayed = false;
     });
 
+    console.log("allGenes", allGenes);
+
+    console.log("config.manualLabels", config.manualLabels);
+
     //Include all genes set to visible
     var nodeSet = config.manualLabels
       ? new Set(
@@ -245,6 +251,10 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
           })
         )
       : new Set();
+
+    console.log("nodeSet", nodeSet);
+
+    console.log("config.autoLabels", config.autoLabels);
 
     //Automatically show some additional labels
     if (config.autoLabels) {
@@ -263,14 +273,16 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
 
     //If the layout algorithm fails (stack limit exceeded),
     //try again using the 'simple' algorithm.
-    if (!nodes) {
+    if (!nodes || nodes.length == 0) {
+      console.log("if false");
       force.options({ algorithm: "simple" });
       nodes = generateNodes(force, y, par, nodeSource);
     }
 
     //How many layers did we end up with?
     var maxLayer;
-    if (nodes) {
+    if (nodes && nodes.length > 0) {
+      console.log("if true");
       var layers = nodes.map(function (d) {
         return d.getLayerIndex();
       });
@@ -279,38 +291,36 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
 
     //If the algorithm sill fails or there are too many layers,
     //we need to reduce the number of nodes by clustering
-    if (!nodes || maxLayer > 3) {
-      log.trace("Too many lables to display - clustering instead");
-
-      var geneClusterer = GENEMAP.GeneClusterer().nClusters(
-        Math.max(par.nLabels, 1)
-      );
+    if (!nodes || nodes.length === 0 || maxLayer > 3) {
+      var geneClusterer = GeneClusterer().nClusters(Math.max(par.nLabels, 1));
 
       try {
         var clusterSource = geneClusterer.createClustersFromGenes(nodeSource);
       } catch (e) {
-        log.info(nodeSource);
         clusterSource = [];
       }
       nodes = generateNodes(force, y, par, clusterSource);
     }
 
     //Compute paths
-    renderConfig = {
+    let renderConfig = {
       direction: "right",
       layerGap: par.layerGap,
       nodeHeight: par.spaceForLabel,
     };
 
     var renderer = new labella.Renderer(renderConfig);
+    console.log("nodes", nodes);
     renderer.layout(nodes);
 
     nodes.forEach(function (node) {
       node.data.path = renderer.generatePath(node);
     });
 
-    if (false && chromosome.number == "2B") {
-      log.info(nodes);
+    console.log("nodes", nodes);
+
+    if (!config.manualLabels) {
+      d3.select(".gene-annotation").remove();
     }
 
     return nodes;
@@ -319,14 +329,14 @@ GENEMAP.GeneAnnotationLayout = function (userConfig) {
   //Produce list of clusters (which could be single genes)
   //for a given chromosome
   var generateChromosomeClusters = function (chromosome) {
-    var geneClusterer = GENEMAP.GeneClusterer();
+    var geneClusterer = GeneClusterer();
     //Run clustering algorithm so we can use the clusters later when drawing
     var genes = chromosome.annotations.genes;
     var geneClusters = geneClusterer.createClustersFromGenes(genes);
     return geneClusters;
   };
 
-  my = {};
+  let my = {};
 
   my.layoutChromosome = function (chromosome) {
     chromosome.layout.annotationNodes =

@@ -1,7 +1,7 @@
-var GENEMAP = GENEMAP || {};
-
+import * as d3 from "d3";
+import _ from "lodash";
 // draws the chromosome labels on the map in the correct position
-GENEMAP.ChromosomeLabel = function (userConfig) {
+export const ChromosomeLabel = function (userConfig) {
   var defaultConfig = {
     border: false,
     layout: {
@@ -53,29 +53,30 @@ GENEMAP.ChromosomeLabel = function (userConfig) {
         enterGroup.append("rect").classed("border", true);
       }
 
-      labelGroup.attr({
-        transform: "translate(" + config.layout.x + "," + config.layout.y + ")",
-      });
+      d3.select(this)
+        .selectAll(".chromosome-label")
+        .attr("transform", function (d) {
+          return "translate(" + config.layout.x + "," + config.layout.y + ")";
+        });
 
-      labelGroup
-        .select("text")
-        .attr({
-          x: config.layout.width * 0.5,
-          y: config.layout.height * 0.5,
-        })
-        .style({
-          "font-size":
-            Math.max(14 / config.scale, config.layout.chromosomeWidth * 1.2) +
-            "px",
-        })
+      d3.select(this)
+        .selectAll(".chromosome-label")
+        .selectAll("text")
+        .attr("x", config.layout.width * 0.5)
+        .attr("y", config.layout.height * 0.5)
+        .style(
+          "font-size",
+          Math.max(14 / config.scale, config.layout.chromosomeWidth * 1.2) +
+            "px"
+        )
         .text(d.number)
         .on("click", config.onLabelSelectFunction);
 
       if (config.border) {
-        labelGroup.select("rect").attr({
-          width: config.layout.width,
-          height: config.layout.height,
-        });
+        labelGroup
+          .select("rect")
+          .attr("width", config.layout.width)
+          .attr("height", config.layout.height);
       }
 
       // remove any missing elements
@@ -89,7 +90,7 @@ GENEMAP.ChromosomeLabel = function (userConfig) {
         .data([d]);
 
       // setup a basic element structure for any new chromosomes
-      var enterGroup = sizeLabelGroup
+      enterGroup = sizeLabelGroup
         .enter()
         .append("g")
         .attr("class", "chromosome-size-label");
@@ -103,21 +104,21 @@ GENEMAP.ChromosomeLabel = function (userConfig) {
       var fontSize =
         (1.2 * config.labelSize) / Math.min(5, config.scale) + "px";
 
-      sizeLabelGroup.attr({
-        transform: "translate(" + config.sizeLayout.x + "," + yPosition + ")",
-      });
+      d3.select(this)
+        .selectAll(".chromosome-size-label")
+        .attr(
+          "transform",
+          "translate(" + config.sizeLayout.x + "," + yPosition + ")"
+        );
 
-      sizeLabelGroup
+      sizeLabelGroup = d3
+        .select(this)
+        .selectAll(".chromosome-size-label")
         .select("text")
-        .attr({
-          x: config.sizeLayout.width * 0.5,
-          //y:   4 / Math.max(config.scale, 2 ) *config.sizeLayout.height,
-          y: 0,
-          dy: "1em",
-        })
-        .style({
-          "font-size": fontSize,
-        })
+        .attr("x", config.sizeLayout.width * 0.5)
+        .attr("y", 0)
+        .attr("dy", "1em")
+        .style("font-size", fontSize)
         .text(formatSize(d.length));
 
       // remove any missing elements

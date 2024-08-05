@@ -1,0 +1,31 @@
+ [
+    {
+        "index": 1,
+        "length": 30427671,
+        "number": 1,
+        "bands": [{
+        "index": 1,
+        "start": 0,
+        "end": 30427671,
+        "color": "0xFFFFFF"
+        }]
+    },
+    {
+        "index": 2,
+        "length": 19698289,
+        "number": 2,
+        "bands": [{
+        "index": 1,
+        "start": 0,
+        "end": 19698289,
+        "color": "0xFFFFFF"
+        }]
+    },
+    {
+        "index": 3,
+        "length": 23459830,
+        "number": 3,
+        "bands": []
+    }
+]
+  

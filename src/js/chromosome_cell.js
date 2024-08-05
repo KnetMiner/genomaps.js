@@ -1,6 +1,11 @@
-var GENEMAP = GENEMAP || {};
-
-GENEMAP.ChromosomeCell = function (userConfig) {
+import _ from "lodash";
+import * as d3 from "d3";
+import $ from "jquery";
+import { ChromosomeLabel } from "./chromosome_label";
+import { Chromosome } from "./chromosome";
+import { GeneAnnotations } from "./gene_annotations";
+import { QtlAnnotations } from "./qtl_annotations";
+export const ChromosomeCell = function (userConfig) {
   var defaultConfig = {
     border: false,
     onAnnotationSelectFunction: $.noop(),
@@ -36,35 +41,30 @@ GENEMAP.ChromosomeCell = function (userConfig) {
         enterGroup.append("rect").classed("border", true);
       }
 
-      // update each of the cells
-      cells.attr({
-        transform: function (d) {
+      d3.select(this)
+        .selectAll(".chromosome-cell")
+        .attr("transform", function (d) {
           return "translate(" + d.cell.x + "," + d.cell.y + ")";
-        },
-      });
+        });
 
       if (config.border) {
-        cells.select("rect").attr({
-          x: 0,
-          y: 0,
-          width: function (d) {
+        cells
+          .select("rect")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("width", function (d) {
             return d.cell.width;
-          },
-          height: function (d) {
+          })
+          .attr("height", function (d) {
             return d.cell.height;
-          },
-        });
+          });
       }
 
       // draw the annotations
       // should be drawn before the chormosomes as some of the lines need to be
       // underneath the chormosome drawings.
 
-      //If there's only one chromosome we have space for more clusters
-      var nChromosomes = d.chromosomes.length;
-      var doClustering = nChromosomes > 1;
-
-      var geneDrawer = GENEMAP.GeneAnnotations()
+      var geneDrawer = GeneAnnotations()
         .onAnnotationSelectFunction(config.onAnnotationSelectFunction)
         .onExpandClusterFunction(config.onExpandClusterFunction)
         .layout(layout.geneAnnotationPosition)
@@ -74,10 +74,10 @@ GENEMAP.ChromosomeCell = function (userConfig) {
         .annotationMarkerSize(layout.annotations.marker.size)
         .drawing(config.svg)
         .scale(layout.scale);
-      cells.call(geneDrawer);
+      d3.selectAll(".chromosome-cell").call(geneDrawer);
 
       // draw the chromosomes in the cells
-      var chromosomeDrawer = GENEMAP.Chromosome()
+      var chromosomeDrawer = Chromosome()
         .layout(layout.chromosomePosition)
         .longestChromosome(layout.longestChromosome)
         .onAnnotationSelectFunction(config.onAnnotationSelectFunction)
@@ -85,10 +85,12 @@ GENEMAP.ChromosomeCell = function (userConfig) {
         .bands("genes")
         .drawing(config.svg);
 
-      cells.call(chromosomeDrawer);
+      // cells.call(chromosomeDrawer);
+
+      d3.selectAll(".chromosome-cell").call(chromosomeDrawer);
 
       // draw the labels for the chromosomes
-      var chromosomeLabelDrawer = GENEMAP.ChromosomeLabel()
+      var chromosomeLabelDrawer = ChromosomeLabel()
         .layout(layout.labelPosition)
         .sizeLayout(layout.sizeLabelPosition)
         .onLabelSelectFunction(config.onLabelSelectFunction)
@@ -96,7 +98,7 @@ GENEMAP.ChromosomeCell = function (userConfig) {
         .scale(layout.scale);
       cells.call(chromosomeLabelDrawer);
 
-      var qtlDrawer = GENEMAP.QtlAnnotations()
+      var qtlDrawer = QtlAnnotations()
         .onAnnotationSelectFunction(config.onAnnotationSelectFunction)
         .layout(layout.qtlAnnotationPosition)
         .longestChromosome(layout.longestChromosome)

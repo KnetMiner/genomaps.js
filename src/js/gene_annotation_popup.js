@@ -1,6 +1,8 @@
-var GENEMAP = GENEMAP || {};
-
-GENEMAP.GeneAnnotationPopup = function (userConfig) {
+import $ from "jquery";
+import * as d3 from "d3";
+import _ from "lodash";
+import { Popover } from "bootstrap";
+export const GeneAnnotationPopup = function (userConfig) {
   var defaultConfig = {
     onAnnotationSelectFunction: $.noop(),
     drawing: null,
@@ -47,7 +49,7 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
 
     var footer = row.select("div.btn-group");
 
-    footerLinks = footer.selectAll("a").data(["show", "hide", "auto"]);
+    let footerLinks = footer.selectAll("a").data(["show", "hide", "auto"]);
 
     footerLinks.classed("disabled", function (l) {
       return (
@@ -66,7 +68,7 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
 
     popoverTitle.append("span").text("Cluster");
 
-    links = popoverTitle
+    let links = popoverTitle
       .append("div.btn-group")
       .selectAll("a")
       .data(["show", "hide", "auto"]);
@@ -88,7 +90,6 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
           updateRow(row, gene);
         });
 
-        d3.event.preventDefault();
         config.onAnnotationSelectFunction();
       });
 
@@ -101,7 +102,7 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
       var row = d3.select(this);
       var footer = row.select("div.btn-group");
 
-      footerLinks = footer.selectAll("a").data(["show", "hide", "auto"]);
+      let footerLinks = footer.selectAll("a").data(["show", "hide", "auto"]);
 
       footerLinks
         .enter()
@@ -115,7 +116,6 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
           var statusFunction = statusMap[l];
           statusFunction(gene);
           config.onAnnotationSelectFunction();
-          d3.event.preventDefault();
           updateRow(row, gene);
         });
     });
@@ -130,7 +130,7 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
     var gene = node.data;
 
     //POPOVER TITLE
-    popoverTitle.append("a").attr({ href: gene.link }).text(gene.label);
+    popoverTitle.append("a").attr("href", gene.link).text(gene.label);
 
     //POPOVER CONTENT
 
@@ -151,7 +151,7 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
 
     var footer = popoverContent.append("p").style("float", "right");
     var updateFooter = function () {
-      footerLinks = footer.selectAll("a").data(["show", "hide", "auto"]);
+      let footerLinks = footer.selectAll("a").data(["show", "hide", "auto"]);
 
       footerLinks
         .enter()
@@ -165,7 +165,6 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
           var statusFunction = statusMap[l];
           statusFunction(gene);
           config.onAnnotationSelectFunction();
-          d3.event.preventDefault();
           updateFooter();
         });
 
@@ -184,16 +183,14 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
 
   var my = {};
 
-  my.geneAnnotationsPopoverFunction = function (d) {
+  my.geneAnnotationsPopoverFunction = function (d, e) {
     var isCluster = d.data.type == "geneslist";
-    console.log("popover");
 
-    log.trace("Gene Annotation Context Menu");
     d3.select(config.popoverId).attr("class", "popover");
 
-    popoverTitle = d3.select(config.popoverId).select(".popover-title");
+    let popoverTitle = d3.select(config.popoverId).select(".popover-title");
 
-    popoverContent = d3.select(config.popoverId).select(".popover-content");
+    let popoverContent = d3.select(config.popoverId).select(".popover-content");
 
     //clear
     popoverTitle.selectAll("*").remove();
@@ -213,21 +210,47 @@ GENEMAP.GeneAnnotationPopup = function (userConfig) {
     //To line up the popover correctly,
     // we need to use the text as the target,
     //not the whole group
-    var target = d3.select(this).select("text");
-    console.log("target", target);
+    var target = e.target;
+
+    // remove previous popovers
+    $(".gene-annotation-popover").remove();
+
+    const popover = new Popover(target, {
+      container: "#genemap-target",
+      // container: "body",
+      content: $(config.popoverId).html(),
+      html: true,
+      sanitize: false,
+      trigger: "manual",
+      placement: "right",
+      customClass: "gene-annotation-popover",
+    });
+
+    popover.show();
+
+    // Add event listener to document to close popover when clicking outside
+    $(document).on("click", function (event) {
+      if (
+        !$(event.target).closest(
+          '.gene-annotation-popover, [data-toggle="popover"]'
+        ).length
+      ) {
+        $(".gene-annotation-popover").remove();
+      }
+    });
 
     //ACTIVATE POPOVER
-    $(config.popoverId).modalPopover({
-      target: $(target[0]),
-      parent: $(target[0]),
-      // "modal-position": "relative",
-      // placement: "right",
-      // boundingSize: config.drawing,
-    });
-    $(config.popoverId).modalPopover("show");
+    // TODO: Fix this
+    // $(config.popoverId).modalPopover({
+    //   target: $(target[0]),
+    //   parent: $(target[0]),
+    //   // "modal-position": "relative",
+    //   // placement: "right",
+    //   // boundingSize: config.drawing,
+    // });
+    // $(config.popoverId).modalPopover("show");
 
     $(config.popoverId).on("mousedown mousewheel", function (event) {
-      log.trace("popover click");
       event.stopPropagation();
     });
   };

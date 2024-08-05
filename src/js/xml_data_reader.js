@@ -1,13 +1,13 @@
-var GENEMAP = GENEMAP || {};
-
+import { AnnotationXMLReader } from "./annotation_xml_reader";
+import { BasemapXmlReader } from "./basemap_xml_reader";
 // reads from the basemap and (optinally) annotation XML files
-GENEMAP.XmlDataReader = function () {
+export const XmlDataReader = function () {
   /// returns the color property of the data formatted as an HTML color (#ffffff)
   var getColor = function (d) {
     // transform 0xffffff into #ffffff
     // if any letters are missing i.e. #ffff append 0s at the start => #00ffff
     var zeros = new Array(8 - d.length + 1).join("0");
-    color = "#" + zeros + d.substring(2, d.length);
+    let color = "#" + zeros + d.substring(2, d.length);
 
     //modify colours
     if (color == "#00FF00") {
@@ -120,16 +120,16 @@ GENEMAP.XmlDataReader = function () {
   };
 
   return {
-    readXMLData: function (basemapPath, annotationPath, isString) {
-      var basemapReader = GENEMAP.BasemapXmlReader();
-      let basemapPromise;
+    readXMLData: async function (basemapPath, annotationPath, isString) {
+      var basemapReader = BasemapXmlReader();
+      let basemapData;
       if (!isString) {
-        basemapPromise = basemapReader.readBasemapXML(basemapPath);
+        basemapData = await basemapReader.readBasemapXML(basemapPath);
       } else {
-        basemapPromise = basemapReader.readBasemapXMLFromRawXML(basemapPath);
+        basemapData = basemapReader.readBasemapXMLFromRawXML(basemapPath);
       }
       if (annotationPath) {
-        var annotationReader = GENEMAP.AnnotationXMLReader();
+        var annotationReader = AnnotationXMLReader();
         let annotationPromise;
         if (isString) {
           annotationPromise =
@@ -139,20 +139,18 @@ GENEMAP.XmlDataReader = function () {
             annotationReader.readAnnotationXML(annotationPath);
         }
 
-        var promise = Promise.all([basemapPromise, annotationPromise]).then(
+        var promise = Promise.all([basemapData, annotationPromise]).then(
           _processJoinedData,
           function (error) {
-            log.error("error while reading XML files: " + error);
-
             // try and process the basemap file
-            return basemapPromise.then(_processBasemapData);
+            return basemapData.then(_processBasemapData);
           }
         );
 
         return promise;
       }
 
-      return basemapPromise.then(_processBasemapData);
+      return _processBasemapData(basemapData);
     },
   };
 };

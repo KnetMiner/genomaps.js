@@ -1,7 +1,5 @@
-var GENEMAP = GENEMAP || {};
-
 // reads the chromosome data from the basemap file
-GENEMAP.BasemapXmlReader = function () {
+export const BasemapXmlReader = function () {
   var _readBasemapJSON = function (json) {
     console.log("json", json);
     var genome = {};
@@ -12,12 +10,11 @@ GENEMAP.BasemapXmlReader = function () {
   };
 
   return {
-    readBasemapXML: function (path) {
-      log.info("reading basemap file: ", path);
-      return d3.promise.json(path).then(_readBasemapJSON);
+    readBasemapXML: async function (path) {
+      const data = await import("../test/data/basemap/arabidopsis.json");
+      return _readBasemapJSON(data.default);
     },
     readBasemapXMLFromRawXML: function (json) {
-      log.info("reading basemap json");
       return _readBasemapJSON(json);
     },
   };

@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "genome": {
+      "type": "object",
+      "properties": {
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chromosome": {
+                "type": "number"
+              },
+              "start": {
+                "type": "number"
+              },
+              "end": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "id": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "chromosome",
+              "start",
+              "end",
+              "type",
+              "color",
+              "label",
+              "link",
+              "id"
+            ]
+          }
+        }
+      },
+      "required": [
+        "features"
+      ]
+    }
+  },
+  "required": [
+    "genome"
+  ]
+}

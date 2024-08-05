@@ -1,9 +1,0 @@
-node_modules/*
-.tmp/
-assets/
-dev/
-images/
-src/
-stylesheets/
-javascripts/
-test/

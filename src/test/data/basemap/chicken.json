@@ -1,0 +1,380 @@
+{
+	"genome": {
+		"chromosomes": [
+			{
+				"bands": [{
+					"start": "0",
+					"end": "200994015",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "1",
+				"length": "200994015",
+				"number": "1"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "154873767",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "2",
+				"length": "154873767",
+				"number": "2"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "113657789",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "3",
+				"length": "113657789",
+				"number": "3"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "94230402",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "4",
+				"length": "94230402",
+				"number": "4"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "62238931",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "5",
+				"length": "62238931",
+				"number": "5"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "37400442",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "6",
+				"length": "37400442",
+				"number": "6"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "38384769",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "7",
+				"length": "38384769",
+				"number": "7"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "30671729",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "8",
+				"length": "30671729",
+				"number": "8"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "25554352",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "9",
+				"length": "25554352",
+				"number": "9"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "22556432",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "10",
+				"length": "22556432",
+				"number": "10"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "21928095",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "11",
+				"length": "21928095",
+				"number": "11"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "20536687",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "12",
+				"length": "20536687",
+				"number": "12"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "18911934",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "13",
+				"length": "18911934",
+				"number": "13"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "15819469",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "14",
+				"length": "15819469",
+				"number": "14"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "12968165",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "15",
+				"length": "12968165",
+				"number": "15"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "432983",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "16",
+				"length": "432983",
+				"number": "16"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "11182526",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "17",
+				"length": "11182526",
+				"number": "17"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "10925261",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "18",
+				"length": "10925261",
+				"number": "18"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "9939723",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "19",
+				"length": "9939723",
+				"number": "19"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "13986235",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "20",
+				"length": "13986235",
+				"number": "20"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "6959642",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "21",
+				"length": "6959642",
+				"number": "21"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "3936574",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "22",
+				"length": "3936574",
+				"number": "22"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "6042217",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "23",
+				"length": "6042217",
+				"number": "23"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "6400109",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "24",
+				"length": "6400109",
+				"number": "24"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "2031799",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "25",
+				"length": "2031799",
+				"number": "25"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "5102438",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "26",
+				"length": "5102438",
+				"number": "26"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "4841970",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "27",
+				"length": "4841970",
+				"number": "27"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "4512026",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "28",
+				"length": "4512026",
+				"number": "28"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "1028",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "29",
+				"length": "1028",
+				"number": "32"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "259642",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "30",
+				"length": "259642",
+				"number": "W"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "74602320",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "31",
+				"length": "74602320",
+				"number": "Z"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "49846",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "32",
+				"length": "49846",
+				"number": "E64"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "895237",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "33",
+				"length": "895237",
+				"number": "E22"
+			},
+			{
+				"bands": [{
+					"start": "0",
+					"end": "16775",
+					"color": "0xFFFFFF",
+					"index": "1"
+				}],
+				"index": "34",
+				"length": "16775",
+				"number": "MT"
+			}
+		]
+	}
+}

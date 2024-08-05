@@ -1,0 +1,3191 @@
+{
+	"genome": {
+		"features": [
+			{
+				"chromosome": "1",
+				"start": "23874855",
+				"end": "23880232",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000008761",
+				"id": "0"
+			},
+			{
+				"chromosome": "20",
+				"start": "6677874",
+				"end": "6684677",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000004837",
+				"id": "1"
+			},
+			{
+				"chromosome": "1",
+				"start": "76732793",
+				"end": "76756536",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000017274",
+				"id": "2"
+			},
+			{
+				"chromosome": "15",
+				"start": "6293502",
+				"end": "6296443",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000021341",
+				"id": "3"
+			},
+			{
+				"chromosome": "5",
+				"start": "59054124",
+				"end": "59060339",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000012213",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000012213",
+				"id": "4"
+			},
+			{
+				"chromosome": "2",
+				"start": "32656482",
+				"end": "32659744",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000011077",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000011077",
+				"id": "5"
+			},
+			{
+				"chromosome": "4",
+				"start": "1832440",
+				"end": "1835869",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000004742",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004742",
+				"id": "6"
+			},
+			{
+				"chromosome": "1",
+				"start": "104925",
+				"end": "107028",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000023986",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000023986",
+				"id": "7"
+			},
+			{
+				"chromosome": "21",
+				"start": "4535470",
+				"end": "4543511",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000003804",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003804",
+				"id": "8"
+			},
+			{
+				"chromosome": "6",
+				"start": "25248720",
+				"end": "25307553",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000008293",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000008293",
+				"id": "9"
+			},
+			{
+				"chromosome": "6",
+				"start": "25327383",
+				"end": "25472905",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000023561",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000023561",
+				"id": "10"
+			},
+			{
+				"chromosome": "19",
+				"start": "8358942",
+				"end": "8400911",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000005420",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000005420",
+				"id": "11"
+			},
+			{
+				"chromosome": "9",
+				"start": "9472551",
+				"end": "9516460",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000005108",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000005108",
+				"id": "12"
+			},
+			{
+				"chromosome": "8",
+				"start": "17290640",
+				"end": "17291672",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000008788",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000008788",
+				"id": "13"
+			},
+			{
+				"chromosome": "5",
+				"start": "25316286",
+				"end": "25337468",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000008231",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000008231",
+				"id": "14"
+			},
+			{
+				"chromosome": "3",
+				"start": "59493840",
+				"end": "59496215",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000002736",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000002736",
+				"id": "15"
+			},
+			{
+				"chromosome": "3",
+				"start": "13621844",
+				"end": "13640531",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000009042",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000009042",
+				"id": "16"
+			},
+			{
+				"chromosome": "12",
+				"start": "20464",
+				"end": "28594",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000014148",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000014148",
+				"id": "17"
+			},
+			{
+				"chromosome": "5",
+				"start": "14722996",
+				"end": "14745258",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000006546",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000006546",
+				"id": "18"
+			},
+			{
+				"chromosome": "1",
+				"start": "80401456",
+				"end": "80410938",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000014499",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000014499",
+				"id": "19"
+			},
+			{
+				"chromosome": "1",
+				"start": "140494229",
+				"end": "140593771",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000016807",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000016807",
+				"id": "20"
+			},
+			{
+				"chromosome": "11",
+				"start": "20489988",
+				"end": "20491466",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000006242",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000006242",
+				"id": "21"
+			},
+			{
+				"chromosome": "3",
+				"start": "18773948",
+				"end": "18796994",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000009339",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000009339",
+				"id": "22"
+			},
+			{
+				"chromosome": "5",
+				"start": "60664179",
+				"end": "60667673",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000012375",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000012375",
+				"id": "23"
+			},
+			{
+				"chromosome": "9",
+				"start": "6456218",
+				"end": "6472510",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000005532",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000005532",
+				"id": "24"
+			},
+			{
+				"chromosome": "5",
+				"start": "35889862",
+				"end": "35891082",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000009853",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000009853",
+				"id": "25"
+			},
+			{
+				"chromosome": "13",
+				"start": "17758099",
+				"end": "17763032",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000007312",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000007312",
+				"id": "26"
+			},
+			{
+				"chromosome": "28",
+				"start": "3548767",
+				"end": "3549790",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000003389",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003389",
+				"id": "27"
+			},
+			{
+				"chromosome": "11",
+				"start": "1049566",
+				"end": "1061478",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000001817",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000001817",
+				"id": "28"
+			},
+			{
+				"chromosome": "4",
+				"start": "53118026",
+				"end": "53126729",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000011684",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000011684",
+				"id": "29"
+			},
+			{
+				"chromosome": "7",
+				"start": "27821328",
+				"end": "27825032",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000011650",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000011650",
+				"id": "30"
+			},
+			{
+				"chromosome": "2",
+				"start": "99708840",
+				"end": "99837428",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000013785",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000013785",
+				"id": "31"
+			},
+			{
+				"chromosome": "21",
+				"start": "5037519",
+				"end": "5054002",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000013642",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000013642",
+				"id": "32"
+			},
+			{
+				"chromosome": "4",
+				"start": "30773100",
+				"end": "30784331",
+				"type": "gene",
+				"color": "0x00FF00",
+				"label": "ENSGALG00000009826",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000009826",
+				"id": "33"
+			},
+			{
+				"chromosome": "9",
+				"start": "10558346",
+				"end": "10585608",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000003052",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003052",
+				"id": "34"
+			},
+			{
+				"chromosome": "8",
+				"start": "25398748",
+				"end": "25400444",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000010689",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000010689",
+				"id": "35"
+			},
+			{
+				"chromosome": "1",
+				"start": "133142878",
+				"end": "133149435",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000016686",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000016686",
+				"id": "36"
+			},
+			{
+				"chromosome": "20",
+				"start": "9604187",
+				"end": "9613476",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000006101",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000006101",
+				"id": "37"
+			},
+			{
+				"chromosome": "13",
+				"start": "11389341",
+				"end": "11415042",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000003744",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003744",
+				"id": "38"
+			},
+			{
+				"chromosome": "1",
+				"start": "37298007",
+				"end": "37301735",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000009963",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000009963",
+				"id": "39"
+			},
+			{
+				"chromosome": "21",
+				"start": "1363898",
+				"end": "1384819",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000001115",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000001115",
+				"id": "40"
+			},
+			{
+				"chromosome": "4",
+				"start": "22432910",
+				"end": "22476302",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000009395",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000009395",
+				"id": "41"
+			},
+			{
+				"chromosome": "22",
+				"start": "2470625",
+				"end": "2484671",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000003398",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003398",
+				"id": "42"
+			},
+			{
+				"chromosome": "14",
+				"start": "5085494",
+				"end": "5094197",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000004997",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004997",
+				"id": "43"
+			},
+			{
+				"chromosome": "4",
+				"start": "67140610",
+				"end": "67193203",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000013925",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000013925",
+				"id": "44"
+			},
+			{
+				"chromosome": "11",
+				"start": "3680958",
+				"end": "3716263",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000003580",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003580",
+				"id": "45"
+			},
+			{
+				"chromosome": "13",
+				"start": "12919530",
+				"end": "12940509",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000004134",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004134",
+				"id": "46"
+			},
+			{
+				"chromosome": "18",
+				"start": "7728156",
+				"end": "7759891",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000004060",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004060",
+				"id": "47"
+			},
+			{
+				"chromosome": "1",
+				"start": "52188005",
+				"end": "52229317",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000012056",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000012056",
+				"id": "48"
+			},
+			{
+				"chromosome": "17",
+				"start": "8610999",
+				"end": "8662145",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000001797",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000001797",
+				"id": "49"
+			},
+			{
+				"chromosome": "10",
+				"start": "1806785",
+				"end": "1807555",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000001320",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000001320",
+				"id": "50"
+			},
+			{
+				"chromosome": "14",
+				"start": "4762550",
+				"end": "4773290",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000004834",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004834",
+				"id": "51"
+			},
+			{
+				"chromosome": "10",
+				"start": "1822785",
+				"end": "1826206",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000001325",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000001325",
+				"id": "52"
+			},
+			{
+				"chromosome": "1",
+				"start": "170792265",
+				"end": "170805727",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000016961",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000016961",
+				"id": "53"
+			},
+			{
+				"chromosome": "7",
+				"start": "23643750",
+				"end": "23645964",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000011234",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000011234",
+				"id": "54"
+			},
+			{
+				"chromosome": "1",
+				"start": "186769987",
+				"end": "186776583",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000019063",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000019063",
+				"id": "55"
+			},
+			{
+				"chromosome": "6",
+				"start": "17803492",
+				"end": "17845376",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000005547",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000005547",
+				"id": "56"
+			},
+			{
+				"chromosome": "1",
+				"start": "12179602",
+				"end": "12204886",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000008427",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000008427",
+				"id": "57"
+			},
+			{
+				"chromosome": "2",
+				"start": "107239101",
+				"end": "107282251",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000015119",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000015119",
+				"id": "58"
+			},
+			{
+				"chromosome": "27",
+				"start": "4789423",
+				"end": "4810155",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000002781",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000002781",
+				"id": "59"
+			},
+			{
+				"chromosome": "1",
+				"start": "109687",
+				"end": "114770",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000009746",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000009746",
+				"id": "60"
+			},
+			{
+				"chromosome": "27",
+				"start": "2567679",
+				"end": "2583866",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000000498",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000000498",
+				"id": "61"
+			},
+			{
+				"chromosome": "1",
+				"start": "178837309",
+				"end": "178873973",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000017073",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000017073",
+				"id": "62"
+			},
+			{
+				"chromosome": "4",
+				"start": "13036123",
+				"end": "13047321",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000007936",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000007936",
+				"id": "63"
+			},
+			{
+				"chromosome": "20",
+				"start": "4864010",
+				"end": "4881766",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000003750",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003750",
+				"id": "64"
+			},
+			{
+				"chromosome": "21",
+				"start": "1907993",
+				"end": "1941798",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000001334",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000001334",
+				"id": "65"
+			},
+			{
+				"chromosome": "20",
+				"start": "5036245",
+				"end": "5043585",
+				"type": "gene",
+				"color": "0xFFA500",
+				"label": "ENSGALG00000003855",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003855",
+				"id": "66"
+			},
+			{
+				"chromosome": "10",
+				"start": "7788375",
+				"end": "7795457",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000004161",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004161",
+				"id": "67"
+			},
+			{
+				"chromosome": "9",
+				"start": "16370177",
+				"end": "16377738",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000007705",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000007705",
+				"id": "68"
+			},
+			{
+				"chromosome": "13",
+				"start": "13271379",
+				"end": "13292374",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000005621",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000005621",
+				"id": "69"
+			},
+			{
+				"chromosome": "6",
+				"start": "34381893",
+				"end": "34473478",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000012740",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000012740",
+				"id": "70"
+			},
+			{
+				"chromosome": "2",
+				"start": "125009330",
+				"end": "125045655",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000015732",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000015732",
+				"id": "71"
+			},
+			{
+				"chromosome": "13",
+				"start": "14072186",
+				"end": "14088650",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000013760",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000013760",
+				"id": "72"
+			},
+			{
+				"chromosome": "23",
+				"start": "2484337",
+				"end": "2489358",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000010966",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000010966",
+				"id": "73"
+			},
+			{
+				"chromosome": "12",
+				"start": "2278866",
+				"end": "2279090",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000021305",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000021305",
+				"id": "74"
+			},
+			{
+				"chromosome": "1",
+				"start": "176872354",
+				"end": "176877873",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000017052",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000017052",
+				"id": "75"
+			},
+			{
+				"chromosome": "13",
+				"start": "11592037",
+				"end": "11784664",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000003886",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003886",
+				"id": "76"
+			},
+			{
+				"chromosome": "5",
+				"start": "46575363",
+				"end": "46638246",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000010698",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000010698",
+				"id": "77"
+			},
+			{
+				"chromosome": "19",
+				"start": "8652531",
+				"end": "8657898",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000005522",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000005522",
+				"id": "78"
+			},
+			{
+				"chromosome": "4",
+				"start": "85307327",
+				"end": "85365225",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000015664",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000015664",
+				"id": "79"
+			},
+			{
+				"chromosome": "1",
+				"start": "49992147",
+				"end": "49992557",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000023220",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000023220",
+				"id": "80"
+			},
+			{
+				"chromosome": "2",
+				"start": "50699096",
+				"end": "50714032",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000012327",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000012327",
+				"id": "81"
+			},
+			{
+				"chromosome": "4",
+				"start": "55473209",
+				"end": "55479373",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000011881",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000011881",
+				"id": "82"
+			},
+			{
+				"chromosome": "2",
+				"start": "5662097",
+				"end": "5681578",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000006158",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000006158",
+				"id": "83"
+			},
+			{
+				"chromosome": "11",
+				"start": "9086731",
+				"end": "9102670",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000004494",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004494",
+				"id": "84"
+			},
+			{
+				"chromosome": "1",
+				"start": "50010649",
+				"end": "50010960",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000023217",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000023217",
+				"id": "85"
+			},
+			{
+				"chromosome": "1",
+				"start": "49997877",
+				"end": "49998203",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000023218",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000023218",
+				"id": "86"
+			},
+			{
+				"chromosome": "18",
+				"start": "7869231",
+				"end": "7886083",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000004237",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004237",
+				"id": "87"
+			},
+			{
+				"chromosome": "5",
+				"start": "21187503",
+				"end": "21198201",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000007932",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000007932",
+				"id": "88"
+			},
+			{
+				"chromosome": "1",
+				"start": "123229204",
+				"end": "123262319",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000016406",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000016406",
+				"id": "89"
+			},
+			{
+				"chromosome": "6",
+				"start": "9821486",
+				"end": "9829491",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000003085",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000003085",
+				"id": "90"
+			},
+			{
+				"chromosome": "1",
+				"start": "66925111",
+				"end": "67276074",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000013143",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000013143",
+				"id": "91"
+			},
+			{
+				"chromosome": "1",
+				"start": "52501045",
+				"end": "52503978",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000012135",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000012135",
+				"id": "92"
+			},
+			{
+				"chromosome": "1",
+				"start": "76856978",
+				"end": "76857397",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000014241",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000014241",
+				"id": "93"
+			},
+			{
+				"chromosome": "7",
+				"start": "12933358",
+				"end": "12979052",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000008459",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000008459",
+				"id": "94"
+			},
+			{
+				"chromosome": "19",
+				"start": "4218185",
+				"end": "4220558",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "HSPB1",
+				"link": "OndexServlet?mode=network&keyword=egg&list=HSPB1",
+				"id": "95"
+			},
+			{
+				"chromosome": "1",
+				"start": "179284286",
+				"end": "179306712",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000017077",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000017077",
+				"id": "96"
+			},
+			{
+				"chromosome": "17",
+				"start": "1395005",
+				"end": "1422716",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000008898",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000008898",
+				"id": "97"
+			},
+			{
+				"chromosome": "15",
+				"start": "6050258",
+				"end": "6065466",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000004571",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004571",
+				"id": "98"
+			},
+			{
+				"chromosome": "24",
+				"start": "3111051",
+				"end": "3116667",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000006512",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000006512",
+				"id": "99"
+			},
+			{
+				"chromosome": "20",
+				"start": "5206921",
+				"end": "5219910",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000004143",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000004143",
+				"id": "100"
+			},
+			{
+				"chromosome": "18",
+				"start": "10708247",
+				"end": "10747271",
+				"type": "gene",
+				"color": "0xFF0000",
+				"label": "ENSGALG00000008016",
+				"link": "OndexServlet?mode=network&keyword=egg&list=ENSGALG00000008016",
+				"id": "101"
+			},
+			{
+				"chromosome": "1",
+				"start": "41528842",
+				"end": "41599026",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "1",
+				"start": "194350708",
+				"end": "194420892",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "1",
+				"start": "35516552",
+				"end": "185093904",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "1",
+				"start": "124102121",
+				"end": "124172305",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "3",
+				"start": "61030026",
+				"end": "79756000",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "7396880",
+				"end": "7456171",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell percentage",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell percentage"
+			},
+			{
+				"chromosome": "3",
+				"start": "54356239",
+				"end": "54423491",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell color",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell color"
+			},
+			{
+				"chromosome": "7",
+				"start": "31174392",
+				"end": "35514724",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "5",
+				"start": "7396880",
+				"end": "7456171",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "7",
+				"start": "23951659",
+				"end": "23993159",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "4",
+				"start": "68974034",
+				"end": "69042942",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "68974034",
+				"end": "69042942",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "41706121",
+				"end": "41765412",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "7",
+				"start": "22727415",
+				"end": "29721899",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Long length of egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Long length of egg"
+			},
+			{
+				"chromosome": "5",
+				"start": "48770852",
+				"end": "57557723",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "9",
+				"start": "4003504",
+				"end": "19926040",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "41646831",
+				"end": "41706121",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "3",
+				"start": "103155836",
+				"end": "103223088",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "2",
+				"start": "1169625",
+				"end": "1232096",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "1169625",
+				"end": "1232096",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "5",
+				"start": "41706121",
+				"end": "41765412",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "11",
+				"start": "19400079",
+				"end": "19401079",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "8",
+				"start": "22669473",
+				"end": "22717555",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell color",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell color"
+			},
+			{
+				"chromosome": "8",
+				"start": "22669473",
+				"end": "22717555",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "4",
+				"start": "46229607",
+				"end": "46298516",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "4",
+				"start": "46229607",
+				"end": "46298516",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell shape",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell shape"
+			},
+			{
+				"chromosome": "4",
+				"start": "46229607",
+				"end": "46298516",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "5",
+				"start": "41723908",
+				"end": "41783199",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "65506296",
+				"end": "65568767",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "7",
+				"start": "22727415",
+				"end": "29721899",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "4",
+				"start": "46229607",
+				"end": "46298516",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell shape",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell shape"
+			},
+			{
+				"chromosome": "2",
+				"start": "101496370",
+				"end": "109431680",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "27",
+				"start": "5045085",
+				"end": "5056686",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "8",
+				"start": "22669473",
+				"end": "22717555",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell shape",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell shape"
+			},
+			{
+				"chromosome": "2",
+				"start": "101496370",
+				"end": "109431680",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "3",
+				"start": "3239650",
+				"end": "3306902",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "3",
+				"start": "3239650",
+				"end": "3306902",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "26",
+				"start": "4518642",
+				"end": "4532126",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "4",
+				"start": "19380899",
+				"end": "19449807",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "27",
+				"start": "4523647",
+				"end": "4535248",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "24",
+				"start": "3814428",
+				"end": "3833945",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "15",
+				"start": "3557047",
+				"end": "3591636",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "10",
+				"start": "18279973",
+				"end": "18309974",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "20",
+				"start": "8185412",
+				"end": "8225443",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "16802689",
+				"end": "50532657",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "3",
+				"start": "89896863",
+				"end": "89964115",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "9",
+				"start": "3233422",
+				"end": "18848645",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "18412974",
+				"end": "57765239",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "48741207",
+				"end": "48800497",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "9",
+				"start": "6773762",
+				"end": "6812240",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "27121486",
+				"end": "27180776",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "4",
+				"start": "38969092",
+				"end": "77640573",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "124102121",
+				"end": "124172305",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "2",
+				"start": "84944650",
+				"end": "100127095",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell color",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell color"
+			},
+			{
+				"chromosome": "1",
+				"start": "86682561",
+				"end": "86752745",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "4",
+				"start": "38969092",
+				"end": "76675847",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "2",
+				"start": "20100422",
+				"end": "20162894",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Long length of egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Long length of egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "47838560",
+				"end": "47901032",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Short length of egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Short length of egg"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "41704301",
+				"end": "57401572",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "38969092",
+				"end": "77158210",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "25534438",
+				"end": "60385266",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "15",
+				"start": "2768746",
+				"end": "10378345",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "3",
+				"start": "13908200",
+				"end": "23678709",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "16848263",
+				"end": "82220895",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "24225167",
+				"end": "24294075",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell color",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell color"
+			},
+			{
+				"chromosome": "2",
+				"start": "57963348",
+				"end": "58025818",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "41700192",
+				"end": "41759483",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "25913437",
+				"end": "79190141",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "8",
+				"start": "22669473",
+				"end": "22717555",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "2",
+				"start": "65506296",
+				"end": "65568767",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "4",
+				"start": "46229607",
+				"end": "46298516",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "2",
+				"start": "124158480",
+				"end": "124220952",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "2",
+				"start": "65506296",
+				"end": "65568767",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "3",
+				"start": "43776003",
+				"end": "43843254",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Qualifying egg number",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Qualifying egg number"
+			},
+			{
+				"chromosome": "2",
+				"start": "65506296",
+				"end": "65568767",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "3",
+				"start": "43776003",
+				"end": "43843254",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Qualifying egg number",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Qualifying egg number"
+			},
+			{
+				"chromosome": "4",
+				"start": "46229607",
+				"end": "46298516",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "17",
+				"start": "7750724",
+				"end": "7776024",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "6",
+				"start": "2444439",
+				"end": "3285252",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell redness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell redness"
+			},
+			{
+				"chromosome": "5",
+				"start": "41700192",
+				"end": "41759483",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "46229607",
+				"end": "46298516",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "2",
+				"start": "65506296",
+				"end": "65568767",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "4",
+				"start": "5211128",
+				"end": "5280036",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell color",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell color"
+			},
+			{
+				"chromosome": "24",
+				"start": "6234204",
+				"end": "6253721",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "3",
+				"start": "98253808",
+				"end": "98321059",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "669857",
+				"end": "21318607",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "76882574",
+				"end": "77916196",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Long length of egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Long length of egg"
+			},
+			{
+				"chromosome": "16",
+				"start": "120782",
+				"end": "140782",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "18851632",
+				"end": "18914102",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "13",
+				"start": "12221837",
+				"end": "12270843",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "1",
+				"start": "53187445",
+				"end": "61121303",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "13",
+				"start": "623697",
+				"end": "16060614",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "6",
+				"start": "2444439",
+				"end": "3285252",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell yellowness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell yellowness"
+			},
+			{
+				"chromosome": "2",
+				"start": "101495370",
+				"end": "101496370",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "138305680",
+				"end": "138368152",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell shape",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell shape"
+			},
+			{
+				"chromosome": "3",
+				"start": "42598858",
+				"end": "42666110",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "7",
+				"start": "28822881",
+				"end": "28864381",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "10",
+				"start": "18653483",
+				"end": "18683484",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "2",
+				"start": "112023882",
+				"end": "124590341",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "57963348",
+				"end": "58025818",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell percentage",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell percentage"
+			},
+			{
+				"chromosome": "2",
+				"start": "112023882",
+				"end": "124590341",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "8",
+				"start": "21772740",
+				"end": "21820822",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "9",
+				"start": "22008069",
+				"end": "22046548",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell yellowness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell yellowness"
+			},
+			{
+				"chromosome": "2",
+				"start": "57963348",
+				"end": "58025818",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "49948878",
+				"end": "53187445",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "3",
+				"start": "13908200",
+				"end": "23678709",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "6",
+				"start": "2444439",
+				"end": "3285252",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell lightness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell lightness"
+			},
+			{
+				"chromosome": "11",
+				"start": "6638823",
+				"end": "12634552",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell yellowness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell yellowness"
+			},
+			{
+				"chromosome": "13",
+				"start": "623697",
+				"end": "16060614",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "3",
+				"start": "54389865",
+				"end": "59685002",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "27",
+				"start": "3625392",
+				"end": "3636992",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "97037547",
+				"end": "97100018",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "47125424",
+				"end": "48159059",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "66596673",
+				"end": "77916196",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Short length of egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Short length of egg"
+			},
+			{
+				"chromosome": "1",
+				"start": "42581596",
+				"end": "42651780",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "66596673",
+				"end": "77916196",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "27",
+				"start": "3625392",
+				"end": "3636992",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "1",
+				"start": "105237761",
+				"end": "107943948",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "47054221",
+				"end": "47124405",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "11",
+				"start": "10337554",
+				"end": "10381293",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "7",
+				"start": "22084168",
+				"end": "22125668",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell percentage",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell percentage"
+			},
+			{
+				"chromosome": "7",
+				"start": "22084168",
+				"end": "22125668",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "8",
+				"start": "16697948",
+				"end": "27623523",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "4",
+				"start": "23570531",
+				"end": "76882561",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "11",
+				"start": "6638823",
+				"end": "12634552",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell redness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell redness"
+			},
+			{
+				"chromosome": "1",
+				"start": "172381224",
+				"end": "173522903",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "4",
+				"start": "23570531",
+				"end": "76882561",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "6",
+				"start": "0",
+				"end": "1000",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "11",
+				"start": "6638823",
+				"end": "12634552",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell lightness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell lightness"
+			},
+			{
+				"chromosome": "5",
+				"start": "53508202",
+				"end": "53567493",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "7",
+				"start": "12922245",
+				"end": "12963744",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "81679148",
+				"end": "81748057",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "66596673",
+				"end": "77916196",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "105237761",
+				"end": "106290515",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "4",
+				"start": "66596673",
+				"end": "77916196",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell percentage",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell percentage"
+			},
+			{
+				"chromosome": "2",
+				"start": "57963348",
+				"end": "58025818",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "5",
+				"start": "8760555",
+				"end": "9203915",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "11",
+				"start": "14716381",
+				"end": "14760120",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "18570512",
+				"end": "19507577",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "53187445",
+				"end": "61121303",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "101495370",
+				"end": "101496370",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "1",
+				"start": "62517784",
+				"end": "62587968",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "13",
+				"start": "623697",
+				"end": "16060614",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "11",
+				"start": "15136277",
+				"end": "15180017",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "27",
+				"start": "3625392",
+				"end": "3636992",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "49526642",
+				"end": "50560277",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "1111042",
+				"end": "17054990",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "8",
+				"start": "9112798",
+				"end": "9353209",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "84007585",
+				"end": "84944650",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell color",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell color"
+			},
+			{
+				"chromosome": "13",
+				"start": "3693923",
+				"end": "3742929",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "27",
+				"start": "4503927",
+				"end": "4515527",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "59730630",
+				"end": "66596673",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "28",
+				"start": "1956780",
+				"end": "1959263",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "1",
+				"start": "41879760",
+				"end": "41949944",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "1",
+				"start": "105237761",
+				"end": "106290515",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "27",
+				"start": "4503927",
+				"end": "4515527",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "27",
+				"start": "4503927",
+				"end": "4515527",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "23570531",
+				"end": "76882561",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "13",
+				"start": "11775902",
+				"end": "11824908",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "11",
+				"start": "10337554",
+				"end": "10381293",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "14",
+				"start": "7014101",
+				"end": "7047506",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "3",
+				"start": "79756000",
+				"end": "80910987",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "3",
+				"start": "73855044",
+				"end": "80910987",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "6",
+				"start": "18478743",
+				"end": "26572468",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "12",
+				"start": "19896011",
+				"end": "19897011",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "5",
+				"start": "52812224",
+				"end": "52871514",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "12",
+				"start": "11678861",
+				"end": "12299696",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "12",
+				"start": "11678861",
+				"end": "12299696",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "14",
+				"start": "11341577",
+				"end": "13932255",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "6",
+				"start": "18478743",
+				"end": "26572468",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "24",
+				"start": "2223496",
+				"end": "4655678",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "78098805",
+				"end": "78167714",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "14",
+				"start": "11341577",
+				"end": "13932255",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "2",
+				"start": "101496370",
+				"end": "109431680",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "10",
+				"start": "9027330",
+				"end": "17623338",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "8",
+				"start": "15801561",
+				"end": "27254444",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell shape",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell shape"
+			},
+			{
+				"chromosome": "1",
+				"start": "124137213",
+				"end": "138052520",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "2",
+				"start": "97090648",
+				"end": "97153119",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "6",
+				"start": "18478743",
+				"end": "26572468",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "10",
+				"start": "9027330",
+				"end": "17623338",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "1",
+				"start": "138052520",
+				"end": "151482075",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "19",
+				"start": "6557766",
+				"end": "6581222",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "17",
+				"start": "9872129",
+				"end": "9897429",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "2",
+				"start": "101496370",
+				"end": "109431680",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "2",
+				"start": "101496370",
+				"end": "109431680",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell stiffness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell stiffness"
+			},
+			{
+				"chromosome": "21",
+				"start": "3330899",
+				"end": "3350899",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "21",
+				"start": "1949899",
+				"end": "1969899",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "1",
+				"start": "23257559",
+				"end": "139476105",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "23257559",
+				"end": "157360082",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "23257559",
+				"end": "159839246",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "26217419",
+				"end": "32186784",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "157430265",
+				"end": "159651804",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "17",
+				"start": "9557144",
+				"end": "9582444",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "3",
+				"start": "106329169",
+				"end": "106396421",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "3",
+				"start": "4618300",
+				"end": "18768244",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "6",
+				"start": "0",
+				"end": "1000",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "4",
+				"start": "59730630",
+				"end": "66596673",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "63956548",
+				"end": "65816624",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "3",
+				"start": "110446801",
+				"end": "110447801",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "3",
+				"start": "109837215",
+				"end": "109904466",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "68964049",
+				"end": "76882561",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "65816624",
+				"end": "66869378",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg production rate",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg production rate"
+			},
+			{
+				"chromosome": "3",
+				"start": "54389865",
+				"end": "59685002",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "18507412",
+				"end": "18569883",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "24",
+				"start": "3855489",
+				"end": "3875006",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "66596673",
+				"end": "77916196",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "4",
+				"start": "81596457",
+				"end": "81665366",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "27",
+				"start": "4503927",
+				"end": "4515527",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "4",
+				"start": "77916196",
+				"end": "82427622",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell color",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell color"
+			},
+			{
+				"chromosome": "6",
+				"start": "0",
+				"end": "1000",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell strength",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell strength"
+			},
+			{
+				"chromosome": "4",
+				"start": "23570531",
+				"end": "76882561",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "105477746",
+				"end": "112023882",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "57963348",
+				"end": "58025818",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell percentage",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell percentage"
+			},
+			{
+				"chromosome": "2",
+				"start": "135226109",
+				"end": "135288580",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "1",
+				"start": "49948878",
+				"end": "53187445",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "2",
+				"start": "57963348",
+				"end": "58025818",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "3",
+				"start": "110446801",
+				"end": "110447801",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "2",
+				"start": "33478508",
+				"end": "33540979",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "1",
+				"start": "35425314",
+				"end": "35495497",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "1",
+				"start": "180438301",
+				"end": "180508484",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "1",
+				"start": "191559431",
+				"end": "191629615",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "11",
+				"start": "10337554",
+				"end": "10381293",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell thickness",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell thickness"
+			},
+			{
+				"chromosome": "11",
+				"start": "7528916",
+				"end": "7572655",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "22",
+				"start": "4080097",
+				"end": "4081097",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "7",
+				"start": "5101562",
+				"end": "5143061",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "11",
+				"start": "8593965",
+				"end": "9760196",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg shell weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg shell weight"
+			},
+			{
+				"chromosome": "2",
+				"start": "5123578",
+				"end": "5186049",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "2",
+				"start": "18507412",
+				"end": "18569883",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Age at first egg",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Age at first egg"
+			},
+			{
+				"chromosome": "8",
+				"start": "16697948",
+				"end": "27623523",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg aftertaste",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg aftertaste"
+			},
+			{
+				"chromosome": "27",
+				"start": "3625392",
+				"end": "3636992",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			},
+			{
+				"chromosome": "1",
+				"start": "23257559",
+				"end": "38185503",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Egg weight",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Egg weight"
+			},
+			{
+				"chromosome": "8",
+				"start": "16697948",
+				"end": "27623523",
+				"type": "qtl",
+				"color": "0xFFA500",
+				"label": "Body weight (day of first egg)",
+				"link": "http://archive.gramene.org/db/qtl/qtl_display?qtl_accessionid=Body weight (day of first egg)"
+			}
+		]
+	}
+}

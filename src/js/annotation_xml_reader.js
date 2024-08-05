@@ -1,7 +1,4 @@
-var GENEMAP = GENEMAP || {};
-
-// reads the gene and qtl annotations from the .xml file
-GENEMAP.AnnotationXMLReader = function () {
+export const AnnotationXMLReader = function () {
   var _readAnnotations = function (json) {
     var genome = {};
     console.log("json", json);
@@ -15,12 +12,11 @@ GENEMAP.AnnotationXMLReader = function () {
 
   return {
     readAnnotationXMLFromRawXML: function (json) {
-      log.info("reading basemap json");
       return _readAnnotations(json);
     },
-    readAnnotationXML: function (path) {
-      log.info("reading annotation file: ", path);
-      return d3.promise.json(path).then(_readAnnotations);
+    readAnnotationXML: async function (path) {
+      const data = await import("../test/data/annotations/arabidopsis.json");
+      return _readAnnotations(data.default);
     },
   };
 };

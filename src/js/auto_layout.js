@@ -1,10 +1,6 @@
-var GENEMAP = GENEMAP || {};
+import _ from "lodash";
 
-GENEMAP.AutoLayoutDecorator = function (userConfig) {
-  if (!(this instanceof arguments.callee)) {
-    return new arguments.callee(userConfig);
-  }
-
+export const AutoLayoutDecorator = function (userConfig) {
   var defaultConfig = {
     width: 900,
     height: 600,
@@ -60,17 +56,8 @@ GENEMAP.AutoLayoutDecorator = function (userConfig) {
         width: config.width * (1 - config.margin.left - config.margin.right),
         height: config.height * (1 - config.margin.top - config.margin.bottom),
       };
-
       var cols = Math.min(config.numberPerRow, genome.chromosomes.length);
       var rows = Math.ceil(genome.chromosomes.length / cols);
-      log.trace(
-        "numberPerRow= " +
-          config.numberPerRow +
-          ", chromosomes.length= " +
-          genome.chromosomes.length
-      );
-      log.trace("Cols= " + cols + ", rows= " + rows);
-
       var cellDimensions = {
         width: sizeLessMargin.width / cols,
         height: sizeLessMargin.height / rows,

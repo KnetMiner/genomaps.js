@@ -1,17 +1,19 @@
 @color_blue: #1171a3;
 
-.lorem-ipsum {
-  color: #eceadf;
-}
-
 .style-test {
-  transform-ordigin: center bottom;
+  transform-origin: center bottom;
   color: @color_blue;
   height: 200px;
 }
 
 svg {
   background-color: none;
+}
+
+#clusterPopover {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
 }
 
 .fullscreen {
@@ -95,45 +97,50 @@ svg {
   background-size: 23.177px 23.177px;
   background-position: center center;
   cursor: pointer;
+  text-align: center;
   transition: all 0.1s ease;
   &:hover {
     background-color: rgba(204, 204, 204, 0.5);
   }
 }
 
+.gene-annotation-popover {
+  z-index: 1050;
+}
+
 .info-btn {
-  background: url(../img/information.png) 0 0 no-repeat;
+  background: url(../assets/img/information.png) 0 0 no-repeat;
   .menu-btn;
 }
 .info-btn:hover {
-  background: url(../img/information_hover.png) 0 0 no-repeat;
+  background: url(../assets/img/information_hover.png) 0 0 no-repeat;
 }
 
 .network-btn {
-  background: url(../img/graph.svg) center center no-repeat;
+  background: url(../assets/img/graph.svg) center center no-repeat;
   .menu-btn;
 }
 
 .reset-btn {
-  background: url(../img/refresh.svg) center center no-repeat;
+  background: url('../assets/img/refresh.svg') center center no-repeat;
   .menu-btn;
 }
 
 .export-btn {
-  background: url(../img/download.svg) center center no-repeat;
+  background: url(../assets/img/download.svg) center center no-repeat;
   .menu-btn;
 }
 
 .expand-btn {
-  background: url(../img/zoomOut.svg) center center no-repeat;
+  background: url(../assets/img/zoomOut.svg) center center no-repeat;
   .menu-btn;
 }
 
 .help-btn {
-  background: url(../img/alert.svg) 75% center no-repeat;
+  background: url(../assets/img/alert.svg) 75% center no-repeat;
   border-radius: 2.5rem;
   border: 1px solid #eef0f3;
-  padding: 0.62rem 2.75rem 0.62rem 1.25rem;
+  padding: 0.75rem 2.75rem 0.62rem 1.25rem;
   background-size: 1rem 1rem;
   cursor: pointer;
   transition: all 0.1s ease;
@@ -147,16 +154,16 @@ svg {
 }
 
 .export-all-btn {
-  background: url(../img/save_all.png) 0 0 no-repeat;
+  background: url(../assets/img/save_all.png) 0 0 no-repeat;
   .menubtn;
 }
 
 .export-all-btn:hover {
-  background: url(../img/save_all_hover.png) 0 0 no-repeat;
+  background: url(../assets/img/save_all_hover.png) 0 0 no-repeat;
 }
 
 .advanced-toggle {
-  background: url(../img/settings.svg) center center no-repeat;
+  background: url(../assets/img/settings.svg) center center no-repeat;
   .menu-btn;
 }
 
@@ -170,29 +177,29 @@ svg {
 }
 
 .tag-btn.auto-label {
-  background: url(../img/tag_auto.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_auto.png) 0 0 no-repeat;
 }
 .tag-btn.show-label {
-  background: url(../img/tag_show.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_show.png) 0 0 no-repeat;
 }
 .tag-btn.hide-label {
-  background: url(../img/tag_hide.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_hide.png) 0 0 no-repeat;
 }
 .tag-btn.manual-label {
-  background: url(../img/tag_manual.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_manual.png) 0 0 no-repeat;
 }
 
 .tag-btn.auto-label:hover {
-  background: url(../img/tag_auto_hover.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_auto_hover.png) 0 0 no-repeat;
 }
 .tag-btn.show-label:hover {
-  background: url(../img/tag_show_hover.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_show_hover.png) 0 0 no-repeat;
 }
 .tag-btn.hide-label:hover {
-  background: url(../img/tag_hide_hover.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_hide_hover.png) 0 0 no-repeat;
 }
 .tag-btn.manual-label:hover {
-  background: url(../img/tag_manual_hover.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_manual_hover.png) 0 0 no-repeat;
 }
 
 .qtl-btn {
@@ -204,10 +211,10 @@ svg {
 }
 
 .btn-infobox-label.show-label {
-  background: url(../img/tag_show.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_show.png) 0 0 no-repeat;
 }
 .btn-infobox-label.hide-label {
-  background: url(../img/tag_hide.png) 0 0 no-repeat;
+  background: url(../assets/img/tag_hide.png) 0 0 no-repeat;
 }
 
 .btn-genelist-gene-select {
@@ -218,7 +225,6 @@ svg {
 .menu-dropdown {
   display: inline-block;
   vertical-align: top;
-  height: 2.4143rem;
 }
 
 .genemap-advanced-menu .popover-content > div {
