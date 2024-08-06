@@ -239,10 +239,6 @@ export const GeneAnnotationLayout = function (userConfig) {
       gene.displayed = false;
     });
 
-    console.log("allGenes", allGenes);
-
-    console.log("config.manualLabels", config.manualLabels);
-
     //Include all genes set to visible
     var nodeSet = config.manualLabels
       ? new Set(
@@ -251,10 +247,6 @@ export const GeneAnnotationLayout = function (userConfig) {
           })
         )
       : new Set();
-
-    console.log("nodeSet", nodeSet);
-
-    console.log("config.autoLabels", config.autoLabels);
 
     //Automatically show some additional labels
     if (config.autoLabels) {
@@ -273,8 +265,7 @@ export const GeneAnnotationLayout = function (userConfig) {
 
     //If the layout algorithm fails (stack limit exceeded),
     //try again using the 'simple' algorithm.
-    if (!nodes || nodes.length == 0) {
-      console.log("if false");
+    if (!nodes == 0) {
       force.options({ algorithm: "simple" });
       nodes = generateNodes(force, y, par, nodeSource);
     }
@@ -282,7 +273,6 @@ export const GeneAnnotationLayout = function (userConfig) {
     //How many layers did we end up with?
     var maxLayer;
     if (nodes && nodes.length > 0) {
-      console.log("if true");
       var layers = nodes.map(function (d) {
         return d.getLayerIndex();
       });
@@ -291,7 +281,7 @@ export const GeneAnnotationLayout = function (userConfig) {
 
     //If the algorithm sill fails or there are too many layers,
     //we need to reduce the number of nodes by clustering
-    if (!nodes || nodes.length === 0 || maxLayer > 3) {
+    if (!nodes || maxLayer > 3) {
       var geneClusterer = GeneClusterer().nClusters(Math.max(par.nLabels, 1));
 
       try {
@@ -310,17 +300,14 @@ export const GeneAnnotationLayout = function (userConfig) {
     };
 
     var renderer = new labella.Renderer(renderConfig);
-    console.log("nodes", nodes);
     renderer.layout(nodes);
 
     nodes.forEach(function (node) {
       node.data.path = renderer.generatePath(node);
     });
 
-    console.log("nodes", nodes);
-
     if (!config.manualLabels) {
-      d3.select(".gene-annotation").remove();
+      d3.selectAll(".gene-annotation").remove();
     }
 
     return nodes;

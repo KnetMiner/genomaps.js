@@ -1,4 +1,5 @@
 // chart.js
+import "./style.less";
 import { GENEMAP } from "./genemap.js";
 
 export const chart = GENEMAP.GeneMap().width("100%").height("100%");

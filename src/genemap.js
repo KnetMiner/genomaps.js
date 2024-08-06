@@ -303,6 +303,7 @@ GENEMAP.GeneMap = function (userConfig) {
   };
 
   var onMouseUp = function () {
+    console.log("onMouseUp");
     svg.classed("dragging", false);
   };
 
@@ -722,8 +723,8 @@ GENEMAP.GeneMap = function (userConfig) {
     attachClickHandler();
 
     svg
-      .on("mousedown", onMouseDown)
-      .on("mouseup", onMouseUp)
+      // .on("mousedown", onMouseDown)
+      // .on("mouseup", onMouseUp)
       .on("contextmenu", onContext);
 
     svg

@@ -1,7 +1,6 @@
 import $ from "jquery";
 import * as d3 from "d3";
 import _ from "lodash";
-import { Popover } from "bootstrap";
 
 export const MenuBar = function (userConfig) {
   var defaultConfig = {
@@ -81,7 +80,7 @@ export const MenuBar = function (userConfig) {
       .append("select")
       .attr("id", name)
       .attr("name", name)
-      .attr("class", "menu-dropdown form-select");
+      .attr("class", "menu-dropdown");
 
     const element = document.getElementById(name);
 

@@ -13,12 +13,11 @@ export default defineConfig({
     //   },
     // }),
   ],
-
-  // build: {
-  //   lib: {
-  //     entry: "src/chart.js",
-  //     name: "MyLib",
-  //     fileName: "genomaps",
-  //   },
-  // },
+  build: {
+    lib: {
+      entry: "src/chart.js",
+      name: "genomaps",
+      fileName: "genomaps",
+    },
+  },
 });

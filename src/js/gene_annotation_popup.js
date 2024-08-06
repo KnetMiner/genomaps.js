@@ -1,7 +1,9 @@
 import $ from "jquery";
 import * as d3 from "d3";
 import _ from "lodash";
-import { Popover } from "bootstrap";
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css";
+import s from "../less/geneAnnotationPopup.module.less";
 export const GeneAnnotationPopup = function (userConfig) {
   var defaultConfig = {
     onAnnotationSelectFunction: $.noop(),
@@ -80,18 +82,17 @@ export const GeneAnnotationPopup = function (userConfig) {
       .text(function (l) {
         return l;
       })
-      .classed("btn btn-small", true)
-      .on("click", function (l) {
-        var statusFunction = statusMap[l];
-        genesList.forEach(statusFunction);
+      .classed(`${s.btn}`, true)``.on("click", function (l) {
+      var statusFunction = statusMap[l];
+      genesList.forEach(statusFunction);
 
-        genesGroup.each(function (gene) {
-          var row = d3.select(this);
-          updateRow(row, gene);
-        });
-
-        config.onAnnotationSelectFunction();
+      genesGroup.each(function (gene) {
+        var row = d3.select(this);
+        updateRow(row, gene);
       });
+
+      config.onAnnotationSelectFunction();
+    });
 
     var genesEnterGroup = genesGroup.enter();
     var newRow = genesEnterGroup.append("p");
@@ -111,7 +112,7 @@ export const GeneAnnotationPopup = function (userConfig) {
         .text(function (l) {
           return l;
         })
-        .classed("btn btn-small", true)
+        .classed(`${s.btn}`, true)
         .on("click", function (l) {
           var statusFunction = statusMap[l];
           statusFunction(gene);
@@ -149,7 +150,10 @@ export const GeneAnnotationPopup = function (userConfig) {
 
     popoverContent.append("hr");
 
-    var footer = popoverContent.append("p").style("float", "right");
+    var footer = popoverContent
+      .append("p")
+      .style("float", "right")
+      .classed(s.btnGroup, true);
     var updateFooter = function () {
       let footerLinks = footer.selectAll("a").data(["show", "hide", "auto"]);
 
@@ -160,7 +164,7 @@ export const GeneAnnotationPopup = function (userConfig) {
         .text(function (l) {
           return l;
         })
-        .classed("btn btn-small", true)
+        .classed(`${s.btn}`, true)
         .on("click", function (l) {
           var statusFunction = statusMap[l];
           statusFunction(gene);
@@ -215,18 +219,38 @@ export const GeneAnnotationPopup = function (userConfig) {
     // remove previous popovers
     $(".gene-annotation-popover").remove();
 
-    const popover = new Popover(target, {
-      container: "#genemap-target",
-      // container: "body",
-      content: $(config.popoverId).html(),
-      html: true,
-      sanitize: false,
-      trigger: "manual",
-      placement: "right",
-      customClass: "gene-annotation-popover",
+    // const popover = new Popover(target, {
+    //   container: "#genemap-target",
+    //   // container: "body",
+    //   content: $(config.popoverId).html(),
+    //   html: true,
+    //   sanitize: false,
+    //   trigger: "manual",
+    //   placement: "right",
+    //   customClass: "gene-annotation-popover",
+    // });
+
+    // popover.show();
+
+    const popover = tippy(target, {
+      content: $(config.popoverId).html(), // Change the selector accordingly
+      appendTo: document.body, // Appends the popover to the body
+      allowHTML: true, // Allows HTML content in the popover
+      placement: "right", // Placement of the popover
+      trigger: "manual", // Control when the popover is shown
+      theme: "light", // Custom theme (optional)
+      interactive: true, // Allows interaction with the popover
+      onShow(instance) {
+        // Custom actions when popover is shown
+        console.log("Popover is shown");
+      },
+      onHide(instance) {
+        // Custom actions when popover is hidden
+        console.log("Popover is hidden");
+      },
     });
 
-    popover.show();
+    target._tippy.show();
 
     // Add event listener to document to close popover when clicking outside
     $(document).on("click", function (event) {
