@@ -1,18 +1,10 @@
 import { defineConfig } from "vite";
 import federation from "@originjs/vite-plugin-federation";
 import commonjs from "vite-plugin-commonjs";
+import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 export default defineConfig({
-  plugins: [
-    commonjs(),
-    // federation({
-    //   name: "genomaps",
-    //   filename: "remoteEntry.js",
-    //   exposes: {
-    //     "./genomaps": "./src/chart.js",
-    //   },
-    // }),
-  ],
+  plugins: [commonjs(), libInjectCss()],
   build: {
     lib: {
       entry: "src/chart.js",
