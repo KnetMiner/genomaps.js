@@ -11,7 +11,7 @@ import _ from "lodash";
 import * as d3 from "d3";
 import { zoomTransform } from "d3-zoom";
 import $ from "jquery";
-const d3ToPng = require("d3-svg-to-png");
+import html2canvas from "html2canvas";
 let GENEMAP = {};
 
 GENEMAP.vectorEffectSupport = true;
@@ -227,9 +227,19 @@ GENEMAP.GeneMap = function (userConfig) {
     );
   };
 
-  var exportViewToPng = function () {
-    var svgElement = d3.select(target).select(".mapview").node();
-    d3ToPng.saveSvgAsPng(svgElement, "genemap.png");
+  var exportViewToPng = async function () {
+    const wrapper = document.querySelector(".mapview-wrapper");
+    html2canvas(wrapper)
+      .then((canvas) => {
+        const img = canvas.toDataURL("image/png");
+        const link = document.createElement("a");
+        link.href = img;
+        link.download = "capture.png";
+        link.click();
+      })
+      .catch((err) => {
+        console.error("Error capturing the element:", err);
+      });
   };
 
   // called whenever a zoom event occurss
