@@ -298,15 +298,6 @@ GENEMAP.GeneMap = function (userConfig) {
   //EVENT HANDLERS
   //--------------------------------------------------
 
-  var onMouseDown = function () {
-    svg.classed("dragging", true);
-  };
-
-  var onMouseUp = function () {
-    console.log("onMouseUp");
-    svg.classed("dragging", false);
-  };
-
   var onContext = function (event) {
     event.preventDefault();
   };
@@ -722,10 +713,7 @@ GENEMAP.GeneMap = function (userConfig) {
     //Click handles
     attachClickHandler();
 
-    svg
-      // .on("mousedown", onMouseDown)
-      // .on("mouseup", onMouseUp)
-      .on("contextmenu", onContext);
+    svg.on("contextmenu", onContext);
 
     svg
       .append("g")
@@ -743,7 +731,14 @@ GENEMAP.GeneMap = function (userConfig) {
     // basic zooming functionality
     lastZoomScale = 1;
     zoom = d3.zoom().scaleExtent([0.5, 60]);
-    zoom.on("zoom", onZoom);
+    zoom
+      .on("start", function () {
+        svg.classed("dragging", true);
+      })
+      .on("zoom", onZoom)
+      .on("end", function () {
+        svg.classed("dragging", false);
+      });
     mapContainer.select("svg").call(zoom);
 
     //Popover element to be the source for modal popovers

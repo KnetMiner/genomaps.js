@@ -210,7 +210,7 @@ qs.exports;
       ["partial", U],
       ["partialRight", Q],
       ["rearg", yt]
-    ], ie = "[object Arguments]", de = "[object Array]", oe = "[object AsyncFunction]", Yt = "[object Boolean]", Be = "[object Date]", Je = "[object DOMException]", ye = "[object Error]", Ot = "[object Function]", rt = "[object GeneratorFunction]", dt = "[object Map]", vt = "[object Number]", Jt = "[object Null]", pe = "[object Object]", xe = "[object Promise]", Ve = "[object Proxy]", ke = "[object RegExp]", Oe = "[object Set]", Me = "[object String]", Ae = "[object Symbol]", qn = "[object Undefined]", Ln = "[object WeakMap]", br = "[object WeakSet]", kn = "[object ArrayBuffer]", dn = "[object DataView]", wr = "[object Float32Array]", li = "[object Float64Array]", fi = "[object Int8Array]", Wr = "[object Int16Array]", $r = "[object Int32Array]", it = "[object Uint8Array]", St = "[object Uint8ClampedArray]", Rt = "[object Uint16Array]", ae = "[object Uint32Array]", se = /\b__p \+= '';/g, $e = /\b(__p \+=) '' \+/g, tn = /(__e\(.*?\)|\b__t\)) \+\n'';/g, Hn = /&(?:amp|lt|gt|quot|#39);/g, ci = /[&<>"']/g, Wn = RegExp(Hn.source), hi = RegExp(ci.source), Gr = /<%-([\s\S]+?)%>/g, Pn = /<%([\s\S]+?)%>/g, di = /<%=([\s\S]+?)%>/g, Ur = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, xr = /^\w*$/, wa = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, _o = /[\\^$.*+?()[\]{}|]/g, _r = RegExp(_o.source), Bi = /^\s+/, pi = /\s/, xa = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/, _a = /\{\n\/\* \[wrapped with (.+)\] \*/, Fi = /,? & /, Ca = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g, zi = /[()=,{}\[\]\/\s]/, Co = /\\(\\)?/g, Aa = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g, ir = /\w*$/, or = /^[-+]0x[0-9a-f]+$/i, ou = /^0b[01]+$/i, Ao = /^\[object .+?Constructor\]$/, So = /^0o[0-7]+$/i, au = /^(?:0|[1-9]\d*)$/, su = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, qi = /($^)/, uu = /['\n\r\u2028\u2029\\]/g, gi = "\\ud800-\\udfff", Sa = "\\u0300-\\u036f", Ea = "\\ufe20-\\ufe2f", Ta = "\\u20d0-\\u20ff", Eo = Sa + Ea + Ta, To = "\\u2700-\\u27bf", Lo = "a-z\\xdf-\\xf6\\xf8-\\xff", La = "\\xac\\xb1\\xd7\\xf7", en = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", Vr = "\\u2000-\\u206f", Hi = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", ka = "A-Z\\xc0-\\xd6\\xd8-\\xde", Pa = "\\ufe0e\\ufe0f", ko = La + en + Vr + Hi, Xr = "['’]", Na = "[" + gi + "]", Ma = "[" + ko + "]", Wi = "[" + Eo + "]", pn = "\\d+", lu = "[" + To + "]", Da = "[" + Lo + "]", Cr = "[^" + gi + ko + pn + To + Lo + ka + "]", $i = "\\ud83c[\\udffb-\\udfff]", $n = "(?:" + Wi + "|" + $i + ")", Gi = "[^" + gi + "]", Gn = "(?:\\ud83c[\\udde6-\\uddff]){2}", jr = "[\\ud800-\\udbff][\\udc00-\\udfff]", Yr = "[" + ka + "]", Oa = "\\u200d", Ui = "(?:" + Da + "|" + Cr + ")", Ar = "(?:" + Yr + "|" + Cr + ")", Ra = "(?:" + Xr + "(?:d|ll|m|re|s|t|ve))?", Vi = "(?:" + Xr + "(?:D|LL|M|RE|S|T|VE))?", Xi = $n + "?", Ia = "[" + Pa + "]?", fu = "(?:" + Oa + "(?:" + [Gi, Gn, jr].join("|") + ")" + Ia + Xi + ")*", Ba = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", cu = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", Fa = Ia + Xi + fu, hu = "(?:" + [lu, Gn, jr].join("|") + ")" + Fa, du = "(?:" + [Gi + Wi + "?", Wi, Gn, jr, Na].join("|") + ")", za = RegExp(Xr, "g"), qa = RegExp(Wi, "g"), vi = RegExp($i + "(?=" + $i + ")|" + du + Fa, "g"), Ha = RegExp([
+    ], ie = "[object Arguments]", de = "[object Array]", oe = "[object AsyncFunction]", Yt = "[object Boolean]", Be = "[object Date]", Je = "[object DOMException]", ye = "[object Error]", Ot = "[object Function]", rt = "[object GeneratorFunction]", dt = "[object Map]", gt = "[object Number]", Jt = "[object Null]", pe = "[object Object]", xe = "[object Promise]", Ve = "[object Proxy]", ke = "[object RegExp]", Oe = "[object Set]", Me = "[object String]", Ae = "[object Symbol]", qn = "[object Undefined]", Ln = "[object WeakMap]", br = "[object WeakSet]", kn = "[object ArrayBuffer]", dn = "[object DataView]", wr = "[object Float32Array]", li = "[object Float64Array]", fi = "[object Int8Array]", Wr = "[object Int16Array]", $r = "[object Int32Array]", it = "[object Uint8Array]", St = "[object Uint8ClampedArray]", Rt = "[object Uint16Array]", ae = "[object Uint32Array]", se = /\b__p \+= '';/g, $e = /\b(__p \+=) '' \+/g, tn = /(__e\(.*?\)|\b__t\)) \+\n'';/g, Hn = /&(?:amp|lt|gt|quot|#39);/g, ci = /[&<>"']/g, Wn = RegExp(Hn.source), hi = RegExp(ci.source), Gr = /<%-([\s\S]+?)%>/g, Pn = /<%([\s\S]+?)%>/g, di = /<%=([\s\S]+?)%>/g, Ur = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, xr = /^\w*$/, wa = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, _o = /[\\^$.*+?()[\]{}|]/g, _r = RegExp(_o.source), Bi = /^\s+/, pi = /\s/, xa = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/, _a = /\{\n\/\* \[wrapped with (.+)\] \*/, Fi = /,? & /, Ca = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g, zi = /[()=,{}\[\]\/\s]/, Co = /\\(\\)?/g, Aa = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g, ir = /\w*$/, or = /^[-+]0x[0-9a-f]+$/i, ou = /^0b[01]+$/i, Ao = /^\[object .+?Constructor\]$/, So = /^0o[0-7]+$/i, au = /^(?:0|[1-9]\d*)$/, su = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, qi = /($^)/, uu = /['\n\r\u2028\u2029\\]/g, gi = "\\ud800-\\udfff", Sa = "\\u0300-\\u036f", Ea = "\\ufe20-\\ufe2f", Ta = "\\u20d0-\\u20ff", Eo = Sa + Ea + Ta, To = "\\u2700-\\u27bf", Lo = "a-z\\xdf-\\xf6\\xf8-\\xff", La = "\\xac\\xb1\\xd7\\xf7", en = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", Vr = "\\u2000-\\u206f", Hi = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", ka = "A-Z\\xc0-\\xd6\\xd8-\\xde", Pa = "\\ufe0e\\ufe0f", ko = La + en + Vr + Hi, Xr = "['’]", Na = "[" + gi + "]", Ma = "[" + ko + "]", Wi = "[" + Eo + "]", pn = "\\d+", lu = "[" + To + "]", Da = "[" + Lo + "]", Cr = "[^" + gi + ko + pn + To + Lo + ka + "]", $i = "\\ud83c[\\udffb-\\udfff]", $n = "(?:" + Wi + "|" + $i + ")", Gi = "[^" + gi + "]", Gn = "(?:\\ud83c[\\udde6-\\uddff]){2}", jr = "[\\ud800-\\udbff][\\udc00-\\udfff]", Yr = "[" + ka + "]", Oa = "\\u200d", Ui = "(?:" + Da + "|" + Cr + ")", Ar = "(?:" + Yr + "|" + Cr + ")", Ra = "(?:" + Xr + "(?:d|ll|m|re|s|t|ve))?", Vi = "(?:" + Xr + "(?:D|LL|M|RE|S|T|VE))?", Xi = $n + "?", Ia = "[" + Pa + "]?", fu = "(?:" + Oa + "(?:" + [Gi, Gn, jr].join("|") + ")" + Ia + Xi + ")*", Ba = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", cu = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", Fa = Ia + Xi + fu, hu = "(?:" + [lu, Gn, jr].join("|") + ")" + Fa, du = "(?:" + [Gi + Wi + "?", Wi, Gn, jr, Na].join("|") + ")", za = RegExp(Xr, "g"), qa = RegExp(Wi, "g"), vi = RegExp($i + "(?=" + $i + ")|" + du + Fa, "g"), Ha = RegExp([
       Yr + "?" + Da + "+" + Ra + "(?=" + [Ma, Yr, "$"].join("|") + ")",
       Ar + "+" + Vi + "(?=" + [Ma, Yr + Ui, "$"].join("|") + ")",
       Yr + "?" + Ui + "+" + Ra,
@@ -251,9 +251,9 @@ qs.exports;
       "parseInt",
       "setTimeout"
     ], $a = -1, Se = {};
-    Se[wr] = Se[li] = Se[fi] = Se[Wr] = Se[$r] = Se[it] = Se[St] = Se[Rt] = Se[ae] = !0, Se[ie] = Se[de] = Se[kn] = Se[Yt] = Se[dn] = Se[Be] = Se[ye] = Se[Ot] = Se[dt] = Se[vt] = Se[pe] = Se[ke] = Se[Oe] = Se[Me] = Se[Ln] = !1;
+    Se[wr] = Se[li] = Se[fi] = Se[Wr] = Se[$r] = Se[it] = Se[St] = Se[Rt] = Se[ae] = !0, Se[ie] = Se[de] = Se[kn] = Se[Yt] = Se[dn] = Se[Be] = Se[ye] = Se[Ot] = Se[dt] = Se[gt] = Se[pe] = Se[ke] = Se[Oe] = Se[Me] = Se[Ln] = !1;
     var Ee = {};
-    Ee[ie] = Ee[de] = Ee[kn] = Ee[dn] = Ee[Yt] = Ee[Be] = Ee[wr] = Ee[li] = Ee[fi] = Ee[Wr] = Ee[$r] = Ee[dt] = Ee[vt] = Ee[pe] = Ee[ke] = Ee[Oe] = Ee[Me] = Ee[Ae] = Ee[it] = Ee[St] = Ee[Rt] = Ee[ae] = !0, Ee[ye] = Ee[Ot] = Ee[Ln] = !1;
+    Ee[ie] = Ee[de] = Ee[kn] = Ee[dn] = Ee[Yt] = Ee[Be] = Ee[wr] = Ee[li] = Ee[fi] = Ee[Wr] = Ee[$r] = Ee[dt] = Ee[gt] = Ee[pe] = Ee[ke] = Ee[Oe] = Ee[Me] = Ee[Ae] = Ee[it] = Ee[St] = Ee[Rt] = Ee[ae] = !0, Ee[ye] = Ee[Ot] = Ee[Ln] = !1;
     var pu = {
       // Latin-1 Supplement block.
       À: "A",
@@ -749,7 +749,7 @@ qs.exports;
         return t ? "Symbol(src)_1." + t : "";
       }(), B = ti.toString, W = ei.call(ce), nt = Fe._, K = bi(
         "^" + ei.call(me).replace(_o, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"
-      ), ut = Kr ? tt.Buffer : n, ot = tt.Symbol, gt = tt.Uint8Array, Nt = ut ? ut.allocUnsafe : n, Gt = Ya(ce.getPrototypeOf, ce), Mt = ce.create, Ht = ti.propertyIsEnumerable, te = Jr.splice, be = ot ? ot.isConcatSpreadable : n, It = ot ? ot.iterator : n, Le = ot ? ot.toStringTag : n, qe = function() {
+      ), ut = Kr ? tt.Buffer : n, ot = tt.Symbol, vt = tt.Uint8Array, Nt = ut ? ut.allocUnsafe : n, Gt = Ya(ce.getPrototypeOf, ce), Mt = ce.create, Ht = ti.propertyIsEnumerable, te = Jr.splice, be = ot ? ot.isConcatSpreadable : n, It = ot ? ot.iterator : n, Le = ot ? ot.toStringTag : n, qe = function() {
         try {
           var t = Si(ce, "defineProperty");
           return t({}, "", {}), t;
@@ -1629,7 +1629,7 @@ qs.exports;
       }
       function Gu(t) {
         var r = new t.constructor(t.byteLength);
-        return new gt(r).set(new gt(t)), r;
+        return new vt(r).set(new vt(t)), r;
       }
       function eg(t, r) {
         var u = r ? Gu(t.buffer) : t.buffer;
@@ -2047,10 +2047,10 @@ qs.exports;
               return !1;
             t = t.buffer, r = r.buffer;
           case kn:
-            return !(t.byteLength != r.byteLength || !M(new gt(t), new gt(r)));
+            return !(t.byteLength != r.byteLength || !M(new vt(t), new vt(r)));
           case Yt:
           case Be:
-          case vt:
+          case gt:
             return Zn(+t, +r);
           case ye:
             return t.name == r.name && t.message == r.message;
@@ -2248,7 +2248,7 @@ qs.exports;
             return qf(t, u);
           case dt:
             return new y();
-          case vt:
+          case gt:
           case Me:
             return new y(t);
           case ke:
@@ -3160,7 +3160,7 @@ qs.exports;
         return t == null;
       }
       function Mc(t) {
-        return typeof t == "number" || Ie(t) && ln(t) == vt;
+        return typeof t == "number" || Ie(t) && ln(t) == gt;
       }
       function Zo(t) {
         if (!Ie(t) || ln(t) != pe)
@@ -6875,7 +6875,7 @@ var bd = { exports: {} };
           };
         }
         function ge(D, B, W, nt) {
-          var K, ut, ot, gt, Nt, Gt, Mt, Ht, te = B && B.ownerDocument, be = B ? B.nodeType : 9;
+          var K, ut, ot, vt, Nt, Gt, Mt, Ht, te = B && B.ownerDocument, be = B ? B.nodeType : 9;
           if (W = W || [], typeof D != "string" || !D || be !== 1 && be !== 9 && be !== 11)
             return W;
           if (!nt && ((B ? B.ownerDocument || B : Ge) !== ct && mt(B), B = B || ct, qt)) {
@@ -6899,7 +6899,7 @@ var bd = { exports: {} };
               if (be !== 1)
                 te = B, Ht = D;
               else if (B.nodeName.toLowerCase() !== "object") {
-                for ((gt = B.getAttribute("id")) ? gt = gt.replace(_u, "\\$&") : B.setAttribute("id", gt = Tt), Mt = L(D), ut = Mt.length, Nt = Qa.test(gt) ? "#" + gt : "[id='" + gt + "']"; ut--; )
+                for ((vt = B.getAttribute("id")) ? vt = vt.replace(_u, "\\$&") : B.setAttribute("id", vt = Tt), Mt = L(D), ut = Mt.length, Nt = Qa.test(vt) ? "#" + vt : "[id='" + vt + "']"; ut--; )
                   Mt[ut] = Nt + " " + Ke(Mt[ut]);
                 Ht = Mt.join(","), te = Fo.test(D) && bi(B.parentNode) || B;
               }
@@ -6911,7 +6911,7 @@ var bd = { exports: {} };
                   ), W;
                 } catch {
                 } finally {
-                  gt === Tt && B.removeAttribute("id");
+                  vt === Tt && B.removeAttribute("id");
                 }
             }
           }
@@ -6999,8 +6999,8 @@ var bd = { exports: {} };
           }) : (delete d.find.ID, d.filter.ID = function(K) {
             var ut = K.replace(Yn, Qn);
             return function(ot) {
-              var gt = typeof ot.getAttributeNode < "u" && ot.getAttributeNode("id");
-              return gt && gt.value === ut;
+              var vt = typeof ot.getAttributeNode < "u" && ot.getAttributeNode("id");
+              return vt && vt.value === ut;
             };
           }), d.find.TAG = f.getElementsByTagName ? function(K, ut) {
             if (typeof ut.getElementsByTagName < "u")
@@ -7008,11 +7008,11 @@ var bd = { exports: {} };
             if (f.qsa)
               return ut.querySelectorAll(K);
           } : function(K, ut) {
-            var ot, gt = [], Nt = 0, Gt = ut.getElementsByTagName(K);
+            var ot, vt = [], Nt = 0, Gt = ut.getElementsByTagName(K);
             if (K === "*") {
               for (; ot = Gt[Nt++]; )
-                ot.nodeType === 1 && gt.push(ot);
-              return gt;
+                ot.nodeType === 1 && vt.push(ot);
+              return vt;
             }
             return Gt;
           }, d.find.CLASS = f.getElementsByClassName && function(K, ut) {
@@ -7026,8 +7026,8 @@ var bd = { exports: {} };
           })), (f.matchesSelector = Qe.test(De = Ut.matches || Ut.webkitMatchesSelector || Ut.mozMatchesSelector || Ut.oMatchesSelector || Ut.msMatchesSelector)) && Z(function(K) {
             f.disconnectedMatch = De.call(K, "div"), De.call(K, "[s!='']:x"), Xe.push("!=", ur);
           }), Qt = Qt.length && new RegExp(Qt.join("|")), Xe = Xe.length && new RegExp(Xe.join("|")), B = Qe.test(Ut.compareDocumentPosition), ar = B || Qe.test(Ut.contains) ? function(K, ut) {
-            var ot = K.nodeType === 9 ? K.documentElement : K, gt = ut && ut.parentNode;
-            return K === gt || !!(gt && gt.nodeType === 1 && (ot.contains ? ot.contains(gt) : K.compareDocumentPosition && K.compareDocumentPosition(gt) & 16));
+            var ot = K.nodeType === 9 ? K.documentElement : K, vt = ut && ut.parentNode;
+            return K === vt || !!(vt && vt.nodeType === 1 && (ot.contains ? ot.contains(vt) : K.compareDocumentPosition && K.compareDocumentPosition(vt) & 16));
           } : function(K, ut) {
             if (ut) {
               for (; ut = ut.parentNode; )
@@ -7046,7 +7046,7 @@ var bd = { exports: {} };
           } : function(K, ut) {
             if (K === ut)
               return ft = !0, 0;
-            var ot, gt = 0, Nt = K.parentNode, Gt = ut.parentNode, Mt = [K], Ht = [ut];
+            var ot, vt = 0, Nt = K.parentNode, Gt = ut.parentNode, Mt = [K], Ht = [ut];
             if (!Nt || !Gt)
               return K === ct ? -1 : ut === ct ? 1 : Nt ? -1 : Gt ? 1 : X ? Sr(X, K) - Sr(X, ut) : 0;
             if (Nt === Gt)
@@ -7055,14 +7055,14 @@ var bd = { exports: {} };
               Mt.unshift(ot);
             for (ot = ut; ot = ot.parentNode; )
               Ht.unshift(ot);
-            for (; Mt[gt] === Ht[gt]; )
-              gt++;
-            return gt ? (
+            for (; Mt[vt] === Ht[vt]; )
+              vt++;
+            return vt ? (
               // Do a sibling check if the nodes have a common ancestor
-              Vt(Mt[gt], Ht[gt])
+              Vt(Mt[vt], Ht[vt])
             ) : (
               // Otherwise nodes in our document sort first
-              Mt[gt] === Ge ? -1 : Ht[gt] === Ge ? 1 : 0
+              Mt[vt] === Ge ? -1 : Ht[vt] === Ge ? 1 : 0
             );
           }), ct;
         }, ge.matches = function(D, B) {
@@ -7157,19 +7157,19 @@ var bd = { exports: {} };
               };
             },
             CHILD: function(D, B, W, nt, K) {
-              var ut = D.slice(0, 3) !== "nth", ot = D.slice(-4) !== "last", gt = B === "of-type";
+              var ut = D.slice(0, 3) !== "nth", ot = D.slice(-4) !== "last", vt = B === "of-type";
               return nt === 1 && K === 0 ? (
                 // Shortcut for :nth-*(n)
                 function(Nt) {
                   return !!Nt.parentNode;
                 }
               ) : function(Nt, Gt, Mt) {
-                var Ht, te, be, It, Le, qe, un = ut !== ot ? "nextSibling" : "previousSibling", Pe = Nt.parentNode, wi = gt && Nt.nodeName.toLowerCase(), fr = !Mt && !gt, je = !1;
+                var Ht, te, be, It, Le, qe, un = ut !== ot ? "nextSibling" : "previousSibling", Pe = Nt.parentNode, wi = vt && Nt.nodeName.toLowerCase(), fr = !Mt && !vt, je = !1;
                 if (Pe) {
                   if (ut) {
                     for (; un; ) {
                       for (It = Nt; It = It[un]; )
-                        if (gt ? It.nodeName.toLowerCase() === wi : It.nodeType === 1)
+                        if (vt ? It.nodeName.toLowerCase() === wi : It.nodeType === 1)
                           return !1;
                       qe = un = D === "only" && !qe && "nextSibling";
                     }
@@ -7183,7 +7183,7 @@ var bd = { exports: {} };
                         break;
                       }
                   } else if (fr && (It = Nt, be = It[Tt] || (It[Tt] = {}), te = be[It.uniqueID] || (be[It.uniqueID] = {}), Ht = te[D] || [], Le = Ht[0] === Kt && Ht[1], je = Le), je === !1)
-                    for (; (It = ++Le && It && It[un] || (je = Le = 0) || qe.pop()) && !((gt ? It.nodeName.toLowerCase() === wi : It.nodeType === 1) && ++je && (fr && (be = It[Tt] || (It[Tt] = {}), te = be[It.uniqueID] || (be[It.uniqueID] = {}), te[D] = [Kt, je]), It === Nt)); )
+                    for (; (It = ++Le && It && It[un] || (je = Le = 0) || qe.pop()) && !((vt ? It.nodeName.toLowerCase() === wi : It.nodeType === 1) && ++je && (fr && (be = It[Tt] || (It[Tt] = {}), te = be[It.uniqueID] || (be[It.uniqueID] = {}), te[D] = [Kt, je]), It === Nt)); )
                       ;
                   return je -= K, je === nt || je % nt === 0 && je / nt >= 0;
                 }
@@ -7192,8 +7192,8 @@ var bd = { exports: {} };
             PSEUDO: function(D, B) {
               var W, nt = d.pseudos[D] || d.setFilters[D.toLowerCase()] || ge.error("unsupported pseudo: " + D);
               return nt[Tt] ? nt(B) : nt.length > 1 ? (W = [D, D, "", B], d.setFilters.hasOwnProperty(D.toLowerCase()) ? tt(function(K, ut) {
-                for (var ot, gt = nt(K, B), Nt = gt.length; Nt--; )
-                  ot = Sr(K, gt[Nt]), K[ot] = !(ut[ot] = gt[Nt]);
+                for (var ot, vt = nt(K, B), Nt = vt.length; Nt--; )
+                  ot = Sr(K, vt[Nt]), K[ot] = !(ut[ot] = vt[Nt]);
               }) : function(K) {
                 return nt(K, 0, W);
               }) : nt;
@@ -7203,8 +7203,8 @@ var bd = { exports: {} };
             // Potentially complex pseudos
             not: tt(function(D) {
               var B = [], W = [], nt = R(D.replace(Qi, "$1"));
-              return nt[Tt] ? tt(function(K, ut, ot, gt) {
-                for (var Nt, Gt = nt(K, null, gt, []), Mt = K.length; Mt--; )
+              return nt[Tt] ? tt(function(K, ut, ot, vt) {
+                for (var Nt, Gt = nt(K, null, vt, []), Mt = K.length; Mt--; )
                   (Nt = Gt[Mt]) && (K[Mt] = !(ut[Mt] = Nt));
               }) : function(K, ut, ot) {
                 return B[0] = K, nt(B, null, ot, W), B[0] = null, !W.pop();
@@ -7328,11 +7328,11 @@ var bd = { exports: {} };
         function Ja() {
         }
         Ja.prototype = d.filters = d.pseudos, d.setFilters = new Ja(), L = ge.tokenize = function(D, B) {
-          var W, nt, K, ut, ot, gt, Nt, Gt = Yi[D + " "];
+          var W, nt, K, ut, ot, vt, Nt, Gt = Yi[D + " "];
           if (Gt)
             return B ? 0 : Gt.slice(0);
-          for (ot = D, gt = [], Nt = d.preFilter; ot; ) {
-            (!W || (nt = Bo.exec(ot))) && (nt && (ot = ot.slice(nt[0].length) || ot), gt.push(K = [])), W = !1, (nt = Ya.exec(ot)) && (W = nt.shift(), K.push({
+          for (ot = D, vt = [], Nt = d.preFilter; ot; ) {
+            (!W || (nt = Bo.exec(ot))) && (nt && (ot = ot.slice(nt[0].length) || ot), vt.push(K = [])), W = !1, (nt = Ya.exec(ot)) && (W = nt.shift(), K.push({
               value: W,
               // Cast descendant combinators to space
               type: nt[0].replace(Qi, " ")
@@ -7348,7 +7348,7 @@ var bd = { exports: {} };
           }
           return B ? ot.length : ot ? ge.error(D) : (
             // Cache the tokens
-            Yi(D, gt).slice(0)
+            Yi(D, vt).slice(0)
           );
         };
         function Ke(D) {
@@ -7360,25 +7360,25 @@ var bd = { exports: {} };
           var nt = B.dir, K = W && nt === "parentNode", ut = Ne++;
           return B.first ? (
             // Check against closest ancestor/preceding element
-            function(ot, gt, Nt) {
+            function(ot, vt, Nt) {
               for (; ot = ot[nt]; )
                 if (ot.nodeType === 1 || K)
-                  return D(ot, gt, Nt);
+                  return D(ot, vt, Nt);
             }
           ) : (
             // Check against all ancestor/preceding elements
-            function(ot, gt, Nt) {
+            function(ot, vt, Nt) {
               var Gt, Mt, Ht, te = [Kt, ut];
               if (Nt) {
                 for (; ot = ot[nt]; )
-                  if ((ot.nodeType === 1 || K) && D(ot, gt, Nt))
+                  if ((ot.nodeType === 1 || K) && D(ot, vt, Nt))
                     return !0;
               } else
                 for (; ot = ot[nt]; )
                   if (ot.nodeType === 1 || K) {
                     if (Ht = ot[Tt] || (ot[Tt] = {}), Mt = Ht[ot.uniqueID] || (Ht[ot.uniqueID] = {}), (Gt = Mt[nt]) && Gt[0] === Kt && Gt[1] === ut)
                       return te[2] = Gt[2];
-                    if (Mt[nt] = te, te[2] = D(ot, gt, Nt))
+                    if (Mt[nt] = te, te[2] = D(ot, vt, Nt))
                       return !0;
                   }
             }
@@ -7398,20 +7398,20 @@ var bd = { exports: {} };
           return W;
         }
         function Tr(D, B, W, nt, K) {
-          for (var ut, ot = [], gt = 0, Nt = D.length, Gt = B != null; gt < Nt; gt++)
-            (ut = D[gt]) && (!W || W(ut, nt, K)) && (ot.push(ut), Gt && B.push(gt));
+          for (var ut, ot = [], vt = 0, Nt = D.length, Gt = B != null; vt < Nt; vt++)
+            (ut = D[vt]) && (!W || W(ut, nt, K)) && (ot.push(ut), Gt && B.push(vt));
           return ot;
         }
         function ei(D, B, W, nt, K, ut) {
-          return nt && !nt[Tt] && (nt = ei(nt)), K && !K[Tt] && (K = ei(K, ut)), tt(function(ot, gt, Nt, Gt) {
-            var Mt, Ht, te, be = [], It = [], Le = gt.length, qe = ot || ti(B || "*", Nt.nodeType ? [Nt] : Nt, []), un = D && (ot || !B) ? Tr(qe, be, D, Nt, Gt) : qe, Pe = W ? (
+          return nt && !nt[Tt] && (nt = ei(nt)), K && !K[Tt] && (K = ei(K, ut)), tt(function(ot, vt, Nt, Gt) {
+            var Mt, Ht, te, be = [], It = [], Le = vt.length, qe = ot || ti(B || "*", Nt.nodeType ? [Nt] : Nt, []), un = D && (ot || !B) ? Tr(qe, be, D, Nt, Gt) : qe, Pe = W ? (
               // If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
               K || (ot ? D : Le || nt) ? (
                 // ...intermediate processing is necessary
                 []
               ) : (
                 // ...otherwise use results directly
-                gt
+                vt
               )
             ) : un;
             if (W && W(un, Pe, Nt, Gt), nt)
@@ -7425,37 +7425,37 @@ var bd = { exports: {} };
                   K(null, Pe = [], Mt, Gt);
                 }
                 for (Ht = Pe.length; Ht--; )
-                  (te = Pe[Ht]) && (Mt = K ? Sr(ot, te) : be[Ht]) > -1 && (ot[Mt] = !(gt[Mt] = te));
+                  (te = Pe[Ht]) && (Mt = K ? Sr(ot, te) : be[Ht]) > -1 && (ot[Mt] = !(vt[Mt] = te));
               }
             } else
               Pe = Tr(
-                Pe === gt ? Pe.splice(Le, Pe.length) : Pe
-              ), K ? K(null, gt, Pe, Gt) : jn.apply(gt, Pe);
+                Pe === vt ? Pe.splice(Le, Pe.length) : Pe
+              ), K ? K(null, vt, Pe, Gt) : jn.apply(vt, Pe);
           });
         }
         function me(D) {
-          for (var B, W, nt, K = D.length, ut = d.relative[D[0].type], ot = ut || d.relative[" "], gt = ut ? 1 : 0, Nt = Jr(function(Ht) {
+          for (var B, W, nt, K = D.length, ut = d.relative[D[0].type], ot = ut || d.relative[" "], vt = ut ? 1 : 0, Nt = Jr(function(Ht) {
             return Ht === B;
           }, ot, !0), Gt = Jr(function(Ht) {
             return Sr(B, Ht) > -1;
           }, ot, !0), Mt = [function(Ht, te, be) {
             var It = !ut && (be || te !== H) || ((B = te).nodeType ? Nt(Ht, te, be) : Gt(Ht, te, be));
             return B = null, It;
-          }]; gt < K; gt++)
-            if (W = d.relative[D[gt].type])
+          }]; vt < K; vt++)
+            if (W = d.relative[D[vt].type])
               Mt = [Jr(zo(Mt), W)];
             else {
-              if (W = d.filter[D[gt].type].apply(null, D[gt].matches), W[Tt]) {
-                for (nt = ++gt; nt < K && !d.relative[D[nt].type]; nt++)
+              if (W = d.filter[D[vt].type].apply(null, D[vt].matches), W[Tt]) {
+                for (nt = ++vt; nt < K && !d.relative[D[nt].type]; nt++)
                   ;
                 return ei(
-                  gt > 1 && zo(Mt),
-                  gt > 1 && Ke(
+                  vt > 1 && zo(Mt),
+                  vt > 1 && Ke(
                     // If the preceding token was a descendant combinator, insert an implicit any-element `*`
-                    D.slice(0, gt - 1).concat({ value: D[gt - 2].type === " " ? "*" : "" })
+                    D.slice(0, vt - 1).concat({ value: D[vt - 2].type === " " ? "*" : "" })
                   ).replace(Qi, "$1"),
                   W,
-                  gt < nt && me(D.slice(gt, nt)),
+                  vt < nt && me(D.slice(vt, nt)),
                   nt < K && me(D = D.slice(nt)),
                   nt < K && Ke(D)
                 );
@@ -7465,12 +7465,12 @@ var bd = { exports: {} };
           return zo(Mt);
         }
         function Cu(D, B) {
-          var W = B.length > 0, nt = D.length > 0, K = function(ut, ot, gt, Nt, Gt) {
+          var W = B.length > 0, nt = D.length > 0, K = function(ut, ot, vt, Nt, Gt) {
             var Mt, Ht, te, be = 0, It = "0", Le = ut && [], qe = [], un = H, Pe = ut || nt && d.find.TAG("*", Gt), wi = Kt += un == null ? 1 : Math.random() || 0.1, fr = Pe.length;
             for (Gt && (H = ot === ct || ot || Gt); It !== fr && (Mt = Pe[It]) != null; It++) {
               if (nt && Mt) {
-                for (Ht = 0, !ot && Mt.ownerDocument !== ct && (mt(Mt), gt = !qt); te = D[Ht++]; )
-                  if (te(Mt, ot || ct, gt)) {
+                for (Ht = 0, !ot && Mt.ownerDocument !== ct && (mt(Mt), vt = !qt); te = D[Ht++]; )
+                  if (te(Mt, ot || ct, vt)) {
                     Nt.push(Mt);
                     break;
                   }
@@ -7480,7 +7480,7 @@ var bd = { exports: {} };
             }
             if (be += It, W && It !== be) {
               for (Ht = 0; te = B[Ht++]; )
-                te(Le, qe, ot, gt);
+                te(Le, qe, ot, vt);
               if (ut) {
                 if (be > 0)
                   for (; It--; )
@@ -7502,7 +7502,7 @@ var bd = { exports: {} };
           }
           return ut;
         }, z = ge.select = function(D, B, W, nt) {
-          var K, ut, ot, gt, Nt, Gt = typeof D == "function" && D, Mt = !nt && L(D = Gt.selector || D);
+          var K, ut, ot, vt, Nt, Gt = typeof D == "function" && D, Mt = !nt && L(D = Gt.selector || D);
           if (W = W || [], Mt.length === 1) {
             if (ut = Mt[0] = Mt[0].slice(0), ut.length > 2 && (ot = ut[0]).type === "ID" && f.getById && B.nodeType === 9 && qt && d.relative[ut[1].type]) {
               if (B = (d.find.ID(ot.matches[0].replace(Yn, Qn), B) || [])[0], B)
@@ -7510,8 +7510,8 @@ var bd = { exports: {} };
               else return W;
               D = D.slice(ut.shift().value.length);
             }
-            for (K = Zi.needsContext.test(D) ? 0 : ut.length; K-- && (ot = ut[K], !d.relative[gt = ot.type]); )
-              if ((Nt = d.find[gt]) && (nt = Nt(
+            for (K = Zi.needsContext.test(D) ? 0 : ut.length; K-- && (ot = ut[K], !d.relative[vt = ot.type]); )
+              if ((Nt = d.find[vt]) && (nt = Nt(
                 ot.matches[0].replace(Yn, Qn),
                 Fo.test(ut[0].type) && bi(B.parentNode) || B
               ))) {
@@ -8129,12 +8129,12 @@ var bd = { exports: {} };
       }
       return f && (X = +X || +z || 0, C = f[1] ? X + (f[1] + 1) * f[2] : +f[2], d && (d.unit = H, d.start = X, d.end = C)), C;
     }
-    var vt = function(i, s, f, d, C, A, L) {
+    var gt = function(i, s, f, d, C, A, L) {
       var R = 0, z = i.length, H = f == null;
       if (a.type(f) === "object") {
         C = !0;
         for (R in f)
-          vt(i, s, R, f[R], !0, A, L);
+          gt(i, s, R, f[R], !0, A, L);
       } else if (d !== void 0 && (C = !0, a.isFunction(d) || (L = !0), H && (L ? (s.call(i, d), s = null) : (H = s, s = function(X, ft, mt) {
         return H.call(a(X), mt);
       })), s))
@@ -8663,7 +8663,7 @@ var bd = { exports: {} };
         return Bi(this, i);
       },
       text: function(i) {
-        return vt(this, function(s) {
+        return gt(this, function(s) {
           return s === void 0 ? a.text(this) : this.empty().append(
             (this[0] && this[0].ownerDocument || c).createTextNode(s)
           );
@@ -8709,7 +8709,7 @@ var bd = { exports: {} };
         });
       },
       html: function(i) {
-        return vt(this, function(s) {
+        return gt(this, function(s) {
           var f = this[0] || {}, d = 0, C = this.length;
           if (s === void 0)
             return f.nodeType === 1 ? f.innerHTML.replace(se, "") : void 0;
@@ -9003,7 +9003,7 @@ var bd = { exports: {} };
       }, Ca.test(i) || (a.cssHooks[i + s].set = To);
     }), a.fn.extend({
       css: function(i, s) {
-        return vt(this, function(f, d, C) {
+        return gt(this, function(f, d, C) {
           var A, L, R = {}, z = 0;
           if (a.isArray(d)) {
             for (A = ir(f), L = d.length; z < L; z++)
@@ -9357,7 +9357,7 @@ var bd = { exports: {} };
     var Cr, $i, $n = a.expr.attrHandle, Gi = /^(?:checked|selected)$/i, Gn = h.getSetAttribute, jr = h.input;
     a.fn.extend({
       attr: function(i, s) {
-        return vt(this, a.attr, i, s, arguments.length > 1);
+        return gt(this, a.attr, i, s, arguments.length > 1);
       },
       removeAttr: function(i) {
         return this.each(function() {
@@ -9457,7 +9457,7 @@ var bd = { exports: {} };
     var Yr = /^(?:input|select|textarea|button|object)$/i, Oa = /^(?:a|area)$/i;
     a.fn.extend({
       prop: function(i, s) {
-        return vt(this, a.prop, i, s, arguments.length > 1);
+        return gt(this, a.prop, i, s, arguments.length > 1);
       },
       removeProp: function(i) {
         return i = a.propFix[i] || i, this.each(function() {
@@ -10200,7 +10200,7 @@ var bd = { exports: {} };
     }), a.each({ scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function(i, s) {
       var f = /Y/.test(s);
       a.fn[i] = function(d) {
-        return vt(this, function(C, A, L) {
+        return gt(this, function(C, A, L) {
           var R = Oo(C);
           if (L === void 0)
             return R ? s in R ? R[s] : R.document.documentElement[A] : C[A];
@@ -10224,7 +10224,7 @@ var bd = { exports: {} };
         function(f, d) {
           a.fn[d] = function(C, A) {
             var L = arguments.length && (f || typeof C != "boolean"), R = f || (C === !0 || A === !0 ? "margin" : "border");
-            return vt(this, function(z, H, X) {
+            return gt(this, function(z, H, X) {
               var ft;
               return a.isWindow(z) ? z.document.documentElement["client" + i] : z.nodeType === 9 ? (ft = z.documentElement, Math.max(
                 z.body["scroll" + i],
@@ -11148,7 +11148,7 @@ function oC(e) {
       var Bt, Y = P === "y" ? wn : xn, pt = P === "y" ? Fn : zn, J = P === "y" ? "height" : "width", lt = Q[P], xt = lt + k[Y], At = lt - k[pt], Lt = w ? -yt[J] / 2 : 0, j = G === yo ? et[J] : yt[J], kt = G === yo ? -yt[J] : -et[J], le = o.elements.arrow, zt = w && le ? rf(le) : {
         width: 0,
         height: 0
-      }, ie = o.modifiersData["arrow#persistent"] ? o.modifiersData["arrow#persistent"].padding : Sd(), de = ie[Y], oe = ie[pt], Yt = ia(0, et[J], zt[J]), Be = q ? et[J] / 2 - Lt - Yt - de - bt.mainAxis : j - Yt - de - bt.mainAxis, Je = q ? -et[J] / 2 + Lt + Yt + oe + bt.mainAxis : kt + Yt + oe + bt.mainAxis, ye = o.elements.arrow && ya(o.elements.arrow), Ot = ye ? P === "y" ? ye.clientTop || 0 : ye.clientLeft || 0 : 0, rt = (Bt = wt == null ? void 0 : wt[P]) != null ? Bt : 0, dt = lt + Be - rt - Ot, vt = lt + Je - rt, Jt = ia(w ? Ks(xt, dt) : xt, lt, w ? Mi(At, vt) : At);
+      }, ie = o.modifiersData["arrow#persistent"] ? o.modifiersData["arrow#persistent"].padding : Sd(), de = ie[Y], oe = ie[pt], Yt = ia(0, et[J], zt[J]), Be = q ? et[J] / 2 - Lt - Yt - de - bt.mainAxis : j - Yt - de - bt.mainAxis, Je = q ? -et[J] / 2 + Lt + Yt + oe + bt.mainAxis : kt + Yt + oe + bt.mainAxis, ye = o.elements.arrow && ya(o.elements.arrow), Ot = ye ? P === "y" ? ye.clientTop || 0 : ye.clientLeft || 0 : 0, rt = (Bt = wt == null ? void 0 : wt[P]) != null ? Bt : 0, dt = lt + Be - rt - Ot, gt = lt + Je - rt, Jt = ia(w ? Ks(xt, dt) : xt, lt, w ? Mi(At, gt) : At);
       Q[P] = Jt, jt[P] = Jt - lt;
     }
     if (b) {
@@ -11890,13 +11890,13 @@ function UC(e, o) {
   function ye() {
     wt() && (Je("touchstart", rt, {
       passive: !0
-    }), Je("touchend", vt, {
+    }), Je("touchend", gt, {
       passive: !0
     })), _C(P.props.trigger).forEach(function(it) {
       if (it !== "manual")
         switch (Je(it, rt), it) {
           case "mouseenter":
-            Je("mouseleave", vt);
+            Je("mouseleave", gt);
             break;
           case "focus":
             Je(RC ? "focusout" : "blur", Jt);
@@ -11936,7 +11936,7 @@ function UC(e, o) {
       PC(ae, it) && (j(), Ae(it));
     }
   }
-  function vt(it) {
+  function gt(it) {
     var St = pe(it) || P.props.trigger.indexOf("click") >= 0 && g;
     if (!St) {
       if (P.props.interactive) {
@@ -14363,11 +14363,11 @@ si.GeneMap = function(e) {
     }
     return rt;
   }, yt = function() {
-    const rt = uo(c.node()), dt = rt.k, vt = [rt.x, rt.y];
-    return vt[0] !== 0 || vt[1] !== 0 || dt !== 1;
+    const rt = uo(c.node()), dt = rt.k, gt = [rt.x, rt.y];
+    return gt[0] !== 0 || gt[1] !== 0 || dt !== 1;
   }, _t = function() {
-    const rt = uo(c.node()), dt = rt.k, vt = [rt.x, rt.y];
-    dt === 1 && we.isEqual(vt, [0, 0]) || (p.translate([0, 0]), p.scale(1), m.attr(
+    const rt = uo(c.node()), dt = rt.k, gt = [rt.x, rt.y];
+    dt === 1 && we.isEqual(gt, [0, 0]) || (p.translate([0, 0]), p.scale(1), m.attr(
       "transform",
       "translate(" + p.translate() + ")scale(" + p.scale() + ")"
     ), a.setFitButtonEnabled(yt()), Yt(), ye());
@@ -14386,22 +14386,22 @@ si.GeneMap = function(e) {
     fA.saveSvgAsPng(rt, "genemap.png");
   };
   v = function() {
-    var rt = uo(this), dt = [rt.x, rt.y], vt = rt.k;
+    var rt = uo(this), dt = [rt.x, rt.y], gt = rt.k;
     if (x) {
-      var Jt = c.node().getBoundingClientRect(), pe = -x.drawing.width * vt + Jt.width * (1 - n.extraPanArea) + x.drawing.margin.right * vt, xe = Jt.width * n.extraPanArea - x.drawing.margin.left * vt;
+      var Jt = c.node().getBoundingClientRect(), pe = -x.drawing.width * gt + Jt.width * (1 - n.extraPanArea) + x.drawing.margin.right * gt, xe = Jt.width * n.extraPanArea - x.drawing.margin.left * gt;
       dt[0] = we.clamp(dt[0], pe, xe);
-      var Ve = -x.drawing.height * vt + Jt.height * (1 - n.extraPanArea) + x.drawing.margin.bottom * vt, ke = Jt.height * n.extraPanArea - x.drawing.margin.top * vt;
+      var Ve = -x.drawing.height * gt + Jt.height * (1 - n.extraPanArea) + x.drawing.margin.bottom * gt, ke = Jt.height * n.extraPanArea - x.drawing.margin.top * gt;
       dt[1] = we.clamp(dt[1], Ve, ke);
     }
     (rt.x !== dt[0] || rt.y !== dt[1]) && p.translateBy(
       c,
       dt[0] - rt.x,
       dt[1] - rt.y
-    ), vt !== S && (Yt(), ye(), S = vt), a.setFitButtonEnabled(yt()), m.attr(
+    ), gt !== S && (Yt(), ye(), S = gt), a.setFitButtonEnabled(yt()), m.attr(
       "transform",
-      "translate(" + dt[0] + "," + dt[1] + ")scale(" + vt + ")"
+      "translate(" + dt[0] + "," + dt[1] + ")scale(" + gt + ")"
     ), pt(), g.text(
-      "translate: [ " + dt[0].toFixed(1) + "," + dt[1].toFixed(1) + "]  zoom:" + vt.toFixed(2)
+      "translate: [ " + dt[0].toFixed(1) + "," + dt[1].toFixed(1) + "]  zoom:" + gt.toFixed(2)
     );
   };
   var Y = function(rt) {
@@ -14409,26 +14409,26 @@ si.GeneMap = function(e) {
   }, pt = function() {
     Xt(".gene-annotation-popover").remove();
   }, J = function() {
-    var rt = function(vt) {
-      vt.target !== "undefined" && vt.target.tagName.toLowerCase() === "a" || Xt(vt.target).closest(".genemap-advanced-menu").length > 0 || Xt(vt.target).closest(".color-picker-modal").length > 0 || pt();
+    var rt = function(gt) {
+      gt.target !== "undefined" && gt.target.tagName.toLowerCase() === "a" || Xt(gt.target).closest(".genemap-advanced-menu").length > 0 || Xt(gt.target).closest(".color-picker-modal").length > 0 || pt();
     }, dt = "mousedown mousewheel DOMMouseScroll touchstart ";
-    Xt(l).off(dt).on(dt, rt), Xt("body").on("click", function(vt) {
-      Xt(vt.target).closest(l).length < 1 && q == !0 && Q();
+    Xt(l).off(dt).on(dt, rt), Xt("body").on("click", function(gt) {
+      Xt(gt.target).closest(l).length < 1 && q == !0 && Q();
     });
   }, lt = function(rt) {
     rt == "auto" ? (E = !0, k = !0, x.chromosomes.forEach(function(dt) {
-      dt.annotations.genes.forEach(function(vt) {
-        vt.selected == !0 && (vt.visible = !0);
+      dt.annotations.genes.forEach(function(gt) {
+        gt.selected == !0 && (gt.visible = !0);
       });
     })) : rt == "show" ? (E = !1, k = !0) : rt == "hide" && (E = !1, k = !1), x.chromosomes.forEach(function(dt) {
-      dt.annotations.genes.forEach(function(vt) {
-        rt === "auto" ? delete vt.showLabel : vt.showLabel = rt;
+      dt.annotations.genes.forEach(function(gt) {
+        rt === "auto" ? delete gt.showLabel : gt.showLabel = rt;
       });
     }), console.log("genome", x), Yt(), ye();
   }, xt = function() {
     var rt = x.chromosomes.some(function(dt) {
-      return dt.annotations.genes.some(function(vt) {
-        return vt.selected;
+      return dt.annotations.genes.some(function(gt) {
+        return gt.selected;
       });
     });
     Ot.onAnonationLabelSelectFunction && Ot.onAnonationLabelSelectFunction(Ot.getSelectedGenes()), Yt(), ye(), Dt(".network-btn").classed("disabled", !rt);
@@ -14440,7 +14440,7 @@ si.GeneMap = function(e) {
         return rt.annotations.genes.filter(function(dt) {
           return dt.selected;
         }).map(function(dt) {
-          var vt = dt.link, Jt = vt.substring(vt.indexOf("list="), vt.length).split("=")[1];
+          var gt = dt.link, Jt = gt.substring(gt.indexOf("list="), gt.length).split("=")[1];
           return (
             /*gene.label*/
             decodeURIComponent(
@@ -14465,8 +14465,8 @@ si.GeneMap = function(e) {
     rt == "all" ? (O = !0, G = !0) : rt == "selected" ? (O = !1, G = "true") : (O = !1, G = !1), oe(), Yt(), ye();
   }, ie = function() {
     const dt = uo(c.node()).k;
-    var vt = Y0(n.layout).width(et().width).height(et().height).scale(dt);
-    x = vt.decorateGenome(x);
+    var gt = Y0(n.layout).width(et().width).height(et().height).scale(dt);
+    x = gt.decorateGenome(x);
   }, de = function() {
     x.chromosomes.forEach(function(rt) {
       rt.layout = rt.layout || {}, rt.layout.annotationDisplayClusters = null, rt.layout.geneBandDisplayClusters = null;
@@ -14478,7 +14478,7 @@ si.GeneMap = function(e) {
   }, Yt = function() {
     const dt = uo(c.node()).k;
     ie();
-    var vt = rA({
+    var gt = rA({
       longestChromosome: x.cellLayout.longestChromosome,
       layout: x.cellLayout.geneAnnotationPosition,
       annotationMarkerSize: x.cellLayout.annotations.marker.size,
@@ -14505,13 +14505,13 @@ si.GeneMap = function(e) {
       annotationLabelSize: x.cellLayout.annotations.label.size
     });
     x.chromosomes.forEach(function(xe) {
-      xe.layout = xe.layout || {}, xe.layout.annotationDisplayClusters || vt.computeChromosomeClusters(xe), vt.layoutChromosome(xe), xe.layout.geneBandDisplayClusters || Jt.computeChromosomeClusters(xe), Jt.layoutChromosome(xe), xe.layout.qtlDisplayClusters || pe.computeChromosomeClusters(xe), pe.layoutChromosome(xe);
-    }), vt.computeNormalisedGeneScores(x.chromosomes);
+      xe.layout = xe.layout || {}, xe.layout.annotationDisplayClusters || gt.computeChromosomeClusters(xe), gt.layoutChromosome(xe), xe.layout.geneBandDisplayClusters || Jt.computeChromosomeClusters(xe), Jt.layoutChromosome(xe), xe.layout.qtlDisplayClusters || pe.computeChromosomeClusters(xe), pe.layoutChromosome(xe);
+    }), gt.computeNormalisedGeneScores(x.chromosomes);
   }, Be = function(rt, dt) {
-    var vt = /* @__PURE__ */ new Set(), Jt = [];
+    var gt = /* @__PURE__ */ new Set(), Jt = [];
     dt.chromosomes.forEach(function(Ve) {
       Ve.annotations.snps.forEach(function(ke) {
-        vt.has(ke.trait) || ke.trait != null && Jt.push({ trait: ke.trait, color: ke.color }), vt.add(ke.trait);
+        gt.has(ke.trait) || ke.trait != null && Jt.push({ trait: ke.trait, color: ke.color }), gt.add(ke.trait);
       });
     }), Jt.length > 0 ? rt.text("SNP legend: ") : rt.text("");
     var pe = rt.selectAll("span").data(Jt), xe = pe.enter().append("span").classed("key-item", !0);
@@ -14521,14 +14521,18 @@ si.GeneMap = function(e) {
       return Ve.trait;
     }), pe.exit().remove();
   }, Je = function(rt) {
-    var dt = rt.append("div").attr("class", "mapview-wrapper"), vt = dt.append("svg").attr("width", n.width).attr("height", n.height).attr("class", "mapview").attr("flex", n.flex);
-    g = rt.append("div").append("span").attr("class", "logger").attr("id", "logbar"), b = rt.append("div").attr("class", "key").attr("id", "keybar"), si.vectorEffectSupport = "vectorEffect" in vt.node().style, J(), vt.on("contextmenu", Y), vt.append("g").classed("zoom_window", !0).append("rect").classed("drawing_outline", !0), n.contentBorder && rt.select(".zoom_window").append("rect").classed("drawing_margin", !0), S = 1, p = l_().scaleExtent([0.5, 60]), p.on("zoom", v), rt.select("svg").call(p);
+    var dt = rt.append("div").attr("class", "mapview-wrapper"), gt = dt.append("svg").attr("width", n.width).attr("height", n.height).attr("class", "mapview").attr("flex", n.flex);
+    g = rt.append("div").append("span").attr("class", "logger").attr("id", "logbar"), b = rt.append("div").attr("class", "key").attr("id", "keybar"), si.vectorEffectSupport = "vectorEffect" in gt.node().style, J(), gt.on("contextmenu", Y), gt.append("g").classed("zoom_window", !0).append("rect").classed("drawing_outline", !0), n.contentBorder && rt.select(".zoom_window").append("rect").classed("drawing_margin", !0), S = 1, p = l_().scaleExtent([0.5, 60]), p.on("start", function() {
+      gt.classed("dragging", !0);
+    }).on("zoom", v).on("end", function() {
+      gt.classed("dragging", !1);
+    }), rt.select("svg").call(p);
     var Jt = rt.append("div").attr("id", "clusterPopover").attr("class", "popover");
-    return Jt.append("div").attr("class", "arrow"), Jt.append("h3").attr("class", "popover-title").text("Cluster"), Jt.append("div").attr("class", "popover-content"), vt;
+    return Jt.append("div").attr("class", "arrow"), Jt.append("h3").attr("class", "popover-title").text("Cluster"), Jt.append("div").attr("class", "popover-content"), gt;
   }, ye = function() {
     Dt(l).select("svg").node() ? (c = Dt(l).select("svg"), c.attr("width", n.width).attr("height", n.height)) : c = Je(Dt(l)), ie();
-    var rt = x.chromosomes.every(function(vt) {
-      return vt.layout;
+    var rt = x.chromosomes.every(function(gt) {
+      return gt.layout;
     });
     rt || Yt(), c.datum(x), m = c.select(".zoom_window"), bt(), n.contentBorder && wt();
     var dt = KC().onAnnotationSelectFunction(xt).onLabelSelectFunction(At).maxAnnotationLayers(n.layout.maxAnnotationLayers).maxSnpPValue(n.maxSnpPValue).svg(c);
@@ -14536,8 +14540,8 @@ si.GeneMap = function(e) {
   };
   function Ot(rt) {
     rt.each(function(dt) {
-      var vt = this;
-      l = vt, h = dt, x = h, w = !1, a || (a = oA().onTagBtnClick(j).onFitBtnClick(_t).onLabelBtnClick(lt).onQtlBtnClick(zt).onNetworkBtnClick(Lt).onResetBtnClick(kt).onSetNumberPerRowClick(le).initialMaxGenes(n.nGenesToDisplay).initialNPerRow(n.layout.numberPerRow).onExportBtnClick(Bt).onExportAllBtnClick(jt).onExpandBtnClick(Q).maxSnpPValueProperty(Ot.maxSnpPValue).nGenesToDisplayProperty(Ot.nGenesToDisplay).annotationLabelSizeProperty(Ot.annotationLabelSize)), Dt(l).call(a), a.setNetworkButtonEnabled(!1), a.setFitButtonEnabled(!1), a.setTabButtonState("auto"), ye();
+      var gt = this;
+      l = gt, h = dt, x = h, w = !1, a || (a = oA().onTagBtnClick(j).onFitBtnClick(_t).onLabelBtnClick(lt).onQtlBtnClick(zt).onNetworkBtnClick(Lt).onResetBtnClick(kt).onSetNumberPerRowClick(le).initialMaxGenes(n.nGenesToDisplay).initialNPerRow(n.layout.numberPerRow).onExportBtnClick(Bt).onExportAllBtnClick(jt).onExpandBtnClick(Q).maxSnpPValueProperty(Ot.maxSnpPValue).nGenesToDisplayProperty(Ot.nGenesToDisplay).annotationLabelSizeProperty(Ot.annotationLabelSize)), Dt(l).call(a), a.setNetworkButtonEnabled(!1), a.setFitButtonEnabled(!1), a.setTabButtonState("auto"), ye();
     });
   }
   return Ot.resetZoom = _t, Ot.width = function(rt) {
@@ -14546,29 +14550,29 @@ si.GeneMap = function(e) {
     return arguments.length ? (n.height = rt, Ot) : n.height;
   }, Ot.layout = function(rt) {
     return arguments.length ? (n.layout = we.merge(n.layout, rt), Ot) : n.layout;
-  }, Ot.draw = async function(rt, dt, vt, Jt = !1) {
+  }, Ot.draw = async function(rt, dt, gt, Jt = !1) {
     var pe = X0();
-    if (vt)
-      pe.readXMLData(dt, vt, Jt).then(function(xe) {
+    if (gt)
+      pe.readXMLData(dt, gt, Jt).then(function(xe) {
         Ot._draw(rt, xe, Jt);
       });
     else {
       const xe = await pe.readXMLData(
         dt,
-        vt,
+        gt,
         Jt
       );
       Ot._draw(rt, xe, Jt);
     }
   }, Ot._draw = function(rt, dt) {
-    var vt = Dt(rt).selectAll("div").data(["genemap-target"]);
-    vt.enter().append("div").attr("id", function(Jt) {
+    var gt = Dt(rt).selectAll("div").data(["genemap-target"]);
+    gt.enter().append("div").attr("id", function(Jt) {
       return Jt;
     }), l = Dt(rt).select("#genemap-target").node(), Dt(l).datum(dt).call(Ot), Ot.nGenesToDisplay(n.initialMaxGenes), _t(), Be(b, x);
-  }, Ot.changeQtlColor = function(rt, dt, vt) {
+  }, Ot.changeQtlColor = function(rt, dt, gt) {
     x.chromosomes.forEach(function(Jt) {
       Jt.layout.qtlNodes.forEach(function(pe) {
-        pe.id === rt && (pe.color = dt, pe.label = vt);
+        pe.id === rt && (pe.color = dt, pe.label = gt);
       });
     }), Yt(), ye();
   }, Ot.changeColor = function(rt) {
@@ -14592,8 +14596,8 @@ si.GeneMap = function(e) {
   }), Ot.setQtlLabels = function(rt) {
     if (l) {
       var dt = Dt(l).datum();
-      dt.chromosomes.forEach(function(vt) {
-        vt.annotations.qtls.forEach(function(Jt) {
+      dt.chromosomes.forEach(function(gt) {
+        gt.annotations.qtls.forEach(function(Jt) {
           rt === "auto" ? delete Jt.showLabel : Jt.showLabel = rt;
         });
       });
@@ -14606,8 +14610,8 @@ si.GeneMap = function(e) {
   }, Ot.getSelectedGenes = function() {
     var rt = [];
     return x.chromosomes.forEach(function(dt) {
-      dt.annotations.genes.forEach(function(vt) {
-        vt.selected && rt.push(vt);
+      dt.annotations.genes.forEach(function(gt) {
+        gt.selected && rt.push(gt);
       });
     }), rt;
   }, Ot.getGenome = function() {
