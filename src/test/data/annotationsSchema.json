@@ -1,4 +1,6 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
   "type": "object",
   "properties": {
     "genome": {
@@ -9,39 +11,35 @@
           "items": {
             "type": "object",
             "properties": {
-              "chromosome": {
-                "type": "number"
-              },
-              "start": {
-                "type": "number"
-              },
-              "end": {
-                "type": "number"
-              },
               "type": {
                 "type": "string"
               },
               "color": {
                 "type": "string"
               },
+              "geneId": {
+                "type": "string"
+              },
               "label": {
                 "type": "string"
               },
-              "link": {
-                "type": "string"
-              },
               "id": {
-                "type": "number"
+                "oneOf": [{ "type": "string" }, { "type": "number" }]
+              },
+              "chromosome": {
+               "oneOf": [{ "type": "string" }, { "type": "number" }]
+              },
+              "start": {
+                "oneOf": [{ "type": "string" }, { "type": "number" }]
+              },
+              "end": {
+                "oneOf": [{ "type": "string" }, { "type": "number" }]
               }
             },
             "required": [
-              "chromosome",
-              "start",
-              "end",
               "type",
               "color",
               "label",
-              "link",
               "id"
             ]
           }

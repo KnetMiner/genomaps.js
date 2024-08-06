@@ -1,7 +1,7 @@
-import { AnnotationXMLReader } from "./annotation_xml_reader";
-import { BasemapXmlReader } from "./basemap_xml_reader";
+import { AnnotationReader } from "./annotation_reader";
+import { BasemapReader } from "./basemap_reader";
 // reads from the basemap and (optinally) annotation XML files
-export const XmlDataReader = function () {
+export const DataReader = function () {
   /// returns the color property of the data formatted as an HTML color (#ffffff)
   var getColor = function (d) {
     // transform 0xffffff into #ffffff
@@ -120,23 +120,22 @@ export const XmlDataReader = function () {
   };
 
   return {
-    readXMLData: async function (basemapPath, annotationPath, isString) {
-      var basemapReader = BasemapXmlReader();
+    readData: async function (basemapPath, annotationPath, isString) {
+      var basemapReader = BasemapReader();
       let basemapData;
       if (!isString) {
-        basemapData = await basemapReader.readBasemapXML(basemapPath);
+        basemapData = await basemapReader.readBasemap(basemapPath);
       } else {
-        basemapData = basemapReader.readBasemapXMLFromRawXML(basemapPath);
+        basemapData = basemapReader.readBasemapFromRawJSON(basemapPath);
       }
       if (annotationPath) {
-        var annotationReader = AnnotationXMLReader();
+        var annotationReader = AnnotationReader();
         let annotationPromise;
         if (isString) {
           annotationPromise =
-            annotationReader.readAnnotationXMLFromRawXML(annotationPath);
+            annotationReader.readAnnotationJSONFromRawJSON(annotationPath);
         } else {
-          annotationPromise =
-            annotationReader.readAnnotationXML(annotationPath);
+          annotationPromise = annotationReader.readAnnotation(annotationPath);
         }
 
         var promise = Promise.all([basemapData, annotationPromise]).then(

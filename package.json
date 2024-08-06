@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "ajv": "^8.17.1",
     "canvg": "^4.0.2",
     "clusterfck": "^1.0.0",
     "d3": "^7.9.0",
@@ -74,7 +75,6 @@
     "es6-shim": "~0.35.1",
     "jquery": "^1.12.0",
     "jquery-ui": "^1.12.1",
-    "jsonschema": "^1.4.1",
     "labella": "^1.1.4",
     "lodash": "^4.17.21",
     "loglevel": "~1.4.1",

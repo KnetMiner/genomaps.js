@@ -1,5 +1,4 @@
 {
-  "genome": {
     "chromosomes": [
       {
         "index": 1,
@@ -57,5 +56,4 @@
         }]
       }
     ]
-  }
 }

@@ -1,6 +1,6 @@
 // import "../node_modules/bootstrap-touchspin/src/jquery.bootstrap-touchspin.css";
 // import "../node_modules/bootstrap-select/dist/css/bootstrap-select.css";
-import { XmlDataReader } from "./js/xml_data_reader";
+import { DataReader } from "./js/data_reader";
 import { AutoLayoutDecorator } from "./js/auto_layout";
 import { ChromosomeCell } from "./js/chromosome_cell";
 import { GeneAnnotationLayout } from "./js/gene_annotation_layout";
@@ -891,20 +891,16 @@ GENEMAP.GeneMap = function (userConfig) {
     annotationPath,
     isString = false
   ) {
-    var reader = XmlDataReader();
+    var reader = DataReader();
 
     if (annotationPath) {
       reader
-        .readXMLData(basemapPath, annotationPath, isString)
+        .readData(basemapPath, annotationPath, isString)
         .then(function (data) {
           my._draw(outerTargetId, data, isString);
         });
     } else {
-      const data = await reader.readXMLData(
-        basemapPath,
-        annotationPath,
-        isString
-      );
+      const data = await reader.readData(basemapPath, annotationPath, isString);
       my._draw(outerTargetId, data, isString);
     }
   };

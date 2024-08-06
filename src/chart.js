@@ -23,7 +23,7 @@ export function changeQtlColor() {
   chart.changeQtlColor("C6", "#000");
 }
 
-export function redraw(resetZoom) {
+export async function redraw(resetZoom) {
   // const sel = document.getElementById("basemap-file");
   // let option = sel.options[sel.selectedIndex].value;
 
@@ -49,9 +49,11 @@ export function redraw(resetZoom) {
   //     "annotations/" + sel.options[sel.selectedIndex].value + ".xml";
   // }
 
-  const basemap = "./test/data/basemap/arabidopsis.json";
-  const annotationFile = "./test/data/annotations/arabidopsis.json";
+  const basemap = await import("./test/data/basemap/arabidopsis.json");
+  const annotationFile = await import(
+    "./test/data/annotations/arabidopsis.json"
+  );
 
   // Update this line to your actual function call
-  chart.draw("#map", basemap, annotationFile);
+  chart.draw("#map", basemap.default, annotationFile.default, true);
 }
