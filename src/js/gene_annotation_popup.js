@@ -242,11 +242,9 @@ export const GeneAnnotationPopup = function (userConfig) {
       interactive: true, // Allows interaction with the popover
       onShow(instance) {
         // Custom actions when popover is shown
-        console.log("Popover is shown");
       },
       onHide(instance) {
         // Custom actions when popover is hidden
-        console.log("Popover is hidden");
       },
     });
 
