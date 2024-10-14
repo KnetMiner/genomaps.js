@@ -5,7 +5,6 @@
   "type": "module",
   "license": "MIT",
   "description": "Interactive visualization of high-density SNP, QTL, GWAS and gene data",
-  "main": "./dist/genomaps.umd.cjs",
   "module": "./dist/genomaps.js",
   "files": [
     "dist"
@@ -50,12 +49,6 @@
     "D3",
     "biojs"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/genomaps.js",
-      "require": "./dist/genomaps.umd.cjs"
-    }
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
