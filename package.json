@@ -6,6 +6,7 @@
   "license": "MIT",
   "description": "Interactive visualization of high-density SNP, QTL, GWAS and gene data",
   "module": "./dist/genomaps.js",
+  "main": "./dist/genomaps.js",
   "files": [
     "dist"
   ],
