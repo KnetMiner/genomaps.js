@@ -4,7 +4,6 @@
 import * as d3 from "d3";
 import _ from "lodash";
 import { GeneClusterer } from "./gene_clusterer";
-var labella = require("labella");
 
 export const GeneAnnotationLayout = function (userConfig) {
   var defaultConfig = {

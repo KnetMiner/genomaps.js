@@ -104,7 +104,6 @@
     "uniq": "^1.0.1",
     "util": "^0.12.4",
     "vite": "^5.3.4",
-    "vite-plugin-commonjs": "^0.10.1",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-lib-inject-css": "^2.1.1",
     "yargs": "^17.4.1"
