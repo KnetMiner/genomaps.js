@@ -76,6 +76,7 @@
     "stream-series": "^0.1.1",
     "tippy.js": "^6.3.7",
     "util": "^0.12.4",
+    "vite-plugin-commonjs": "^0.10.3",
     "vite-plugin-federation": "^0.0.1",
     "vite-plugin-static-copy": "^1.0.6"
   },
