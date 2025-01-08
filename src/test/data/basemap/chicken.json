@@ -1,5 +1,4 @@
 {
-	"genome": {
 		"chromosomes": [
 			{
 				"bands": [{
@@ -376,5 +375,4 @@
 				"number": "MT"
 			}
 		]
-	}
 }

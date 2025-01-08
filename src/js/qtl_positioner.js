@@ -1,4 +1,4 @@
-import _ from "lodash";
+// import _ from "lodash";
 
 export const QtlPositioner = function () {
   var regionsOverlap = function (regionA, regionB) {
