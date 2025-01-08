@@ -4547,7 +4547,7 @@ const A0 = /* @__PURE__ */ xc(qH), zH = "http://json-schema.org/draft-07/schema#
 }, eS = new A0(), hw = eS.compile(AS), tS = function() {
   var A = function(e) {
     var i;
-    if (!hw(e))
+    if (console.log("annotation json:", e), !hw(e))
       throw console.log("annotation json:", e), console.log("Invalid data:", hw.errors), new Error("Invalid data");
     var n = {};
     return n.features = (i = e.genome.features) == null ? void 0 : i.map((o) => ({
@@ -4661,10 +4661,10 @@ const A0 = /* @__PURE__ */ xc(qH), zH = "http://json-schema.org/draft-07/schema#
   required: oS
 }, uS = new A0(), dw = uS.compile(sS), lS = function() {
   var A = function(e) {
-    if (console.log("json", e), !dw(e))
+    if (!dw(e))
       throw console.log("json:", e), console.log("Invalid data:", dw.errors), new Error("Invalid data");
     var n = {};
-    return n.chromosomes = e == null ? void 0 : e.chromosomes, console.log("genome", n), n;
+    return n.chromosomes = e == null ? void 0 : e.chromosomes, n;
   };
   return {
     readBasemap: async function(e) {
@@ -4682,7 +4682,7 @@ const A0 = /* @__PURE__ */ xc(qH), zH = "http://json-schema.org/draft-07/schema#
     return o == "#00FF00" && (o = "#208000"), o;
   }, e = function(n) {
     return n.chromosomes.forEach(function(i) {
-      console.log("chromosome", i), i.annotations = {
+      i.annotations = {
         allGenes: [],
         genes: [],
         qtls: [],

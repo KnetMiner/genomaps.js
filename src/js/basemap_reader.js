@@ -5,7 +5,6 @@ const validate = ajv.compile(basemapSchema);
 
 export const BasemapReader = function () {
   var _readBasemapJSON = function (json) {
-    console.log('json', json)
     // Validate data
     const valid = validate(json);
 
@@ -17,8 +16,6 @@ export const BasemapReader = function () {
 
     var genome = {};
     genome.chromosomes = json?.chromosomes;
-
-    console.log('genome', genome)
 
     return genome;
   };
