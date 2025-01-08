@@ -19,7 +19,7 @@ export const DataReader = function () {
 
   var _processBasemapData = function (genome) {
     genome.chromosomes.forEach(function (chromosome) {
-      // console.log("chromosome", chromosome);
+      console.log("chromosome", chromosome);
       // include empty lists incase there is no annotation data
       chromosome.annotations = {
         allGenes: [],
