@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export const QtlPositioner = function () {
   var regionsOverlap = function (regionA, regionB) {
     return regionA.start < regionB.end && regionB.start < regionA.end;

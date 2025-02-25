@@ -1,5 +1,3 @@
-// import "../node_modules/bootstrap-touchspin/src/jquery.bootstrap-touchspin.css";
-// import "../node_modules/bootstrap-select/dist/css/bootstrap-select.css";
 import { DataReader } from "./js/data_reader";
 import { AutoLayoutDecorator } from "./js/auto_layout";
 import { ChromosomeCell } from "./js/chromosome_cell";
@@ -400,8 +398,6 @@ GENEMAP.GeneMap = function (userConfig) {
         }
       });
     });
-
-    console.log("genome", genome);
 
     computeGeneLayout();
     drawMap();

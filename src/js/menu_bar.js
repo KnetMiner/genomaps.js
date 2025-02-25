@@ -85,7 +85,6 @@ export const MenuBar = function (userConfig) {
     const element = document.getElementById(name);
 
     if (!element) {
-      console.log("Failed to find the select element.");
       return;
     }
 
