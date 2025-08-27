@@ -5,7 +5,6 @@ const ajv = new Ajv();
 const validate = ajv.compile(annotationSchema);
 export const AnnotationReader = function () {
   var _readAnnotations = function (json) {
-    console.log("annotation json:", json);
     const valid = validate(json);
     if (!valid) {
       console.log("annotation json:", json);

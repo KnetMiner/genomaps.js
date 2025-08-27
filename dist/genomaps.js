@@ -4547,7 +4547,7 @@ const A0 = /* @__PURE__ */ xc(qH), zH = "http://json-schema.org/draft-07/schema#
 }, eS = new A0(), hw = eS.compile(AS), tS = function() {
   var A = function(e) {
     var i;
-    if (console.log("annotation json:", e), !hw(e))
+    if (!hw(e))
       throw console.log("annotation json:", e), console.log("Invalid data:", hw.errors), new Error("Invalid data");
     var n = {};
     return n.features = (i = e.genome.features) == null ? void 0 : i.map((o) => ({
@@ -23982,7 +23982,6 @@ wi.GeneMap = function(A) {
   }, KA.layout = function(oA) {
     return arguments.length ? (t.layout = He.merge(t.layout, oA), KA) : t.layout;
   }, KA.draw = async function(oA, mA, EA, ee = !1) {
-    console.log("draw");
     var we = cS();
     if (EA)
       we.readData(mA, EA, ee).then(function(Fe) {
