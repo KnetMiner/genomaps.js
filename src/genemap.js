@@ -864,6 +864,49 @@ GENEMAP.GeneMap = function (userConfig) {
 
   my.resetZoom = resetMapZoom;
 
+  // Get the current zoom scale
+  my.getZoom = function () {
+    if (!svg || !svg.node()) {
+      return 1;
+    }
+    const transform = d3.zoomTransform(svg.node());
+    return transform.k;
+  };
+
+  // Set zoom to a specific scale (centered on viewport)
+  my.setZoom = function (scale) {
+    if (!svg || !svg.node()) {
+      return my;
+    }
+    // Clamp scale to the zoom extent [0.5, 60]
+    scale = _.clamp(scale, 0.5, 60);
+    
+    // Scale to the specified level (D3 will center on the selection)
+    zoom.scaleTo(svg, scale);
+    
+    return my;
+  };
+
+  // Zoom in by a factor (default 1.5)
+  my.zoomIn = function (factor) {
+    if (!svg || !svg.node()) {
+      return my;
+    }
+    factor = factor || 1.5;
+    zoom.scaleBy(svg, factor);
+    return my;
+  };
+
+  // Zoom out by a factor (default 1/1.5)
+  my.zoomOut = function (factor) {
+    if (!svg || !svg.node()) {
+      return my;
+    }
+    factor = factor || 1 / 1.5;
+    zoom.scaleBy(svg, factor);
+    return my;
+  };
+
   my.width = function (value) {
     if (!arguments.length) {
       return config.width;
@@ -957,6 +1000,20 @@ GENEMAP.GeneMap = function (userConfig) {
     updateDimensions();
     d3.select(target).call(my);
     closeAllPopovers();
+  };
+
+  // Force layout recalculation - useful when container dimensions change
+  my.forceLayout = function () {
+    if (!genome || !svg || !svg.node()) {
+      return my;
+    }
+    // Reset clusters to force recalculation
+    resetClusters();
+    resetQtls();
+    // Recalculate layout with current dimensions
+    computeGeneLayout();
+    drawMap();
+    return my;
   };
 
   my.setGeneLabels = function (value) {
