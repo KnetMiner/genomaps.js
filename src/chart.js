@@ -26,7 +26,7 @@ export function changeQtlColor() {
 export async function redraw(resetZoom) {
   const sel = document.getElementById("basemap-file");
   if (!sel) return;
-  
+
   const option = sel.options[sel.selectedIndex].value;
   const file = "./src/test/data/basemap/" + option + ".json";
 
