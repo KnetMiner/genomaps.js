@@ -664,7 +664,7 @@ GENEMAP.GeneMap = function (userConfig) {
     });
 
     if (traitColors.length > 0) {
-      keyTarget.text("SNP legend: ");
+      keyTarget.text("Study Legend: ");
     } else {
       keyTarget.text("");
     }

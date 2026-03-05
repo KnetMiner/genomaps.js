@@ -24,11 +24,32 @@ export function changeQtlColor() {
 }
 
 export async function redraw(resetZoom) {
- 
+  const sel = document.getElementById("basemap-file");
+  if (!sel) return;
+  
+  const option = sel.options[sel.selectedIndex].value;
+  const file = "./src/test/data/basemap/" + option + ".json";
+
+  const numberPerRowInput = document.getElementById("chromosome_per_row");
+  if (numberPerRowInput) {
+    const numberPerRow = +numberPerRowInput.value;
+    chart.layout().numberPerRow = numberPerRow;
+  }
+
   if (resetZoom) {
     chart.resetZoom();
   }
 
-  chart.zoomIn(1.5);
+  const qtlLabelSelect = document.getElementById("show-qtl-labels");
+  if (qtlLabelSelect) {
+    qtlLabelSelect.options[2].selected = true;
+  }
 
+  let annotationFile = null;
+  const includeAnnotationsCheck = document.getElementById("chk-annotations");
+  if (includeAnnotationsCheck && includeAnnotationsCheck.checked) {
+    annotationFile = "./src/test/data/annotations/" + option + ".json";
+  }
+
+  await chart.draw("#map", file, annotationFile, false);
 }

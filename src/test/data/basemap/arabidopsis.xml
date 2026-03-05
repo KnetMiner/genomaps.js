@@ -1,38 +1,331 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<genome>
-	<chromosome index="1" length="30427671" number="1">
-		<band index="1">
-			<start>15085894</start>
-			<end>15240552</end>
-			<color>0x6F7F8F</color>
-		</band>
-	</chromosome>
-	<chromosome index="2" length="19698289" number="2">
-		<band index="1">
-			<start>3594073</start>
-			<end>3614985</end>
-			<color>0x6F7F8F</color>
-		</band>
-	</chromosome>
-	<chromosome index="3" length="23459830" number="3">
-		<band index="1">
-			<start>13898638</start>
-			<end>14020686</end>
-			<color>0x6F7F8F</color>
-		</band>
-	</chromosome>
-	<chromosome index="4" length="18585056" number="4">
-		<band index="1">
-			<start>3940798</start>
-			<end>4070548</end>
-			<color>0x6F7F8F</color>
-		</band>
-	</chromosome>
-	<chromosome index="5" length="26975502" number="5">
-		<band index="1">
-			<start>11757223</start>
-			<end>11785054</end>
-			<color>0x6F7F8F</color>
-		</band>
-	</chromosome>
-</genome>
+[
+  {
+    "genoMapsJSON": {
+      "genome": {
+        "features": [
+          {
+            "id": "709646",
+            "pValue": 3.204507e-12,
+            "color": "#FF0000",
+            "start": 8834321,
+            "label": "SNP:709646 (P=3.204507E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 8834322,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6427892",
+            "pValue": 3.204507e-12,
+            "color": "0x00FF00",
+            "start": 8834206,
+            "geneId": "AT5G25415",
+            "label": "AT5G25415",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 8837248,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "716696",
+            "pValue": 3.204507e-12,
+            "color": "#FF0000",
+            "start": 8832053,
+            "label": "SNP:716696 (P=3.204507E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 8832054,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6428082",
+            "pValue": 3.204507e-12,
+            "color": "0x00FF00",
+            "start": 8831670,
+            "geneId": "AT5G25410",
+            "label": "AT5G25410",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 8833509,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "709645",
+            "pValue": 3.204507e-12,
+            "color": "#FF0000",
+            "start": 6633513,
+            "label": "SNP:709645 (P=3.204507E-12)",
+            "chromosome": "2",
+            "type": "snp",
+            "end": 6633514,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6146241",
+            "pValue": 3.204507e-12,
+            "color": "0x00FF00",
+            "start": 6630528,
+            "geneId": "AT2G15260;AT2G15260;locus:2049083",
+            "label": "AT2G15260",
+            "chromosome": "2",
+            "type": "gene",
+            "end": 6634008,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "716697",
+            "pValue": 3.204507e-12,
+            "color": "#FF0000",
+            "start": 579409,
+            "label": "SNP:716697 (P=3.204507E-12)",
+            "chromosome": "3",
+            "type": "snp",
+            "end": 579410,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6219109",
+            "pValue": 3.204507e-12,
+            "color": "0x00FF00",
+            "start": 576308,
+            "geneId": "AT3G02680",
+            "label": "NBS1",
+            "chromosome": "3",
+            "type": "gene",
+            "end": 579562,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "713045",
+            "pValue": 5.1511746e-12,
+            "color": "#FF0000",
+            "start": 22467191,
+            "label": "SNP:713045 (P=5.1511746E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 22467192,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6440186",
+            "pValue": 5.1511746e-12,
+            "color": "0x00FF00",
+            "start": 22465693,
+            "geneId": "AT5G55440",
+            "label": "AtDOA16",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 22467209,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "716993",
+            "pValue": 5.1511746e-12,
+            "color": "#FF0000",
+            "start": 22476348,
+            "label": "SNP:716993 (P=5.1511746E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 22476349,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6440871",
+            "pValue": 5.1511746e-12,
+            "color": "0x00FF00",
+            "start": 22474142,
+            "geneId": "AT5G55480",
+            "label": "SVL1",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 22478216,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "713050",
+            "pValue": 5.1511746e-12,
+            "color": "#FF0000",
+            "start": 22476369,
+            "label": "SNP:713050 (P=5.1511746E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 22476370,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "713044",
+            "pValue": 5.1511746e-12,
+            "color": "#FF0000",
+            "start": 22468028,
+            "label": "SNP:713044 (P=5.1511746E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 22468029,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6441623",
+            "pValue": 5.1511746e-12,
+            "color": "0x00FF00",
+            "start": 22467337,
+            "geneId": "AT5G55450",
+            "label": "AtLTP4.4",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 22468306,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "778491",
+            "pValue": 7.515203e-12,
+            "color": "#FF0000",
+            "start": 21339893,
+            "label": "SNP:778491 (P=7.515203E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 21339894,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6452291",
+            "pValue": 7.515203e-12,
+            "color": "0x00FF00",
+            "start": 21337861,
+            "geneId": "AT5G52580;AT5G52580;locus:2149604",
+            "label": "AT5G52580",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 21343051,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "713043",
+            "pValue": 7.515203e-12,
+            "color": "#FF0000",
+            "start": 21350588,
+            "label": "SNP:713043 (P=7.515203E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 21350589,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6444225",
+            "pValue": 7.515203e-12,
+            "color": "0x00FF00",
+            "start": 21350375,
+            "geneId": "AT5G52630",
+            "label": "MEF1",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 21352333,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "717326",
+            "pValue": 7.515203e-12,
+            "color": "#FF0000",
+            "start": 21338709,
+            "label": "SNP:717326 (P=7.515203E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 21338710,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "778488",
+            "pValue": 7.515203e-12,
+            "color": "#FF0000",
+            "start": 21349295,
+            "label": "SNP:778488 (P=7.515203E-12)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 21349296,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6453115",
+            "pValue": 7.515203e-12,
+            "color": "0x00FF00",
+            "start": 21348554,
+            "geneId": "AT5G52620",
+            "label": "AT5G52620",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 21349681,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "711655",
+            "pValue": 5.2387962e-11,
+            "color": "#FF0000",
+            "start": 14942815,
+            "label": "SNP:711655 (P=5.2387962E-11)",
+            "chromosome": "2",
+            "type": "snp",
+            "end": 14942816,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6141449",
+            "pValue": 5.2387962e-11,
+            "color": "0x00FF00",
+            "start": 14940774,
+            "geneId": "AT2G35600",
+            "label": "BRXL1",
+            "chromosome": "2",
+            "type": "gene",
+            "end": 14945357,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "733922",
+            "pValue": 6.819247e-11,
+            "color": "#FF0000",
+            "start": 21336254,
+            "label": "SNP:733922 (P=6.819247E-11)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 21336255,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "6453890",
+            "pValue": 6.819247e-11,
+            "color": "0x00FF00",
+            "start": 21334793,
+            "geneId": "AT5G52570",
+            "label": "AT5G52570",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 21337126,
+            "trait": "PC2sc0"
+          },
+          {
+            "id": "787014",
+            "pValue": 5.2648628e-9,
+            "color": "#FF0000",
+            "start": 10813283,
+            "label": "SNP:787014 (P=5.2648628E-9)",
+            "chromosome": "5",
+            "type": "snp",
+            "end": 10813284,
+            "trait": "Apical125"
+          },
+          {
+            "id": "6411472",
+            "pValue": 5.2648628e-9,
+            "color": "0x00FF00",
+            "start": 10812907,
+            "geneId": "AT5G28780",
+            "label": "PLH1",
+            "chromosome": "5",
+            "type": "gene",
+            "end": 10814173,
+            "trait": "Apical125"
+          }
+        ]
+      }
+    }
+  }
+]

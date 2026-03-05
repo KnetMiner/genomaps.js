@@ -22,8 +22,13 @@ export const BasemapReader = function () {
 
   return {
     readBasemap: async function (path) {
-      const data = await import(path);
-      return _readBasemapJSON(data.default);
+      const response = await fetch(path);
+      let data = await response.json();
+      // Handle array-wrapped JSON
+      if (Array.isArray(data) && data.length > 0) {
+        data = data[0];
+      }
+      return _readBasemapJSON(data);
     },
     readBasemapFromRawJSON: function (json) {
       return _readBasemapJSON(json);
