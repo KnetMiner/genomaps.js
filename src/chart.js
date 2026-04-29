@@ -24,36 +24,32 @@ export function changeQtlColor() {
 }
 
 export async function redraw(resetZoom) {
-  // const sel = document.getElementById("basemap-file");
-  // let option = sel.options[sel.selectedIndex].value;
+  const sel = document.getElementById("basemap-file");
+  if (!sel) return;
 
-  // if (option === "cow_milk" || option === "cow_weight") {
-  //   option = "cow";
-  // }
+  const option = sel.options[sel.selectedIndex].value;
+  const file = "./src/test/data/basemap/" + option + ".json";
 
-  // const file = "basemap/" + option + ".xml";
-  // const numberPerRow = +document.getElementById("chromosome_per_row").value;
-  // chart.layout().numberPerRow = numberPerRow;
+  const numberPerRowInput = document.getElementById("chromosome_per_row");
+  if (numberPerRowInput) {
+    const numberPerRow = +numberPerRowInput.value;
+    chart.layout().numberPerRow = numberPerRow;
+  }
 
   if (resetZoom) {
     chart.resetZoom();
   }
 
-  // document.getElementById("show-qtl-labels").options[2].selected = true;
+  const qtlLabelSelect = document.getElementById("show-qtl-labels");
+  if (qtlLabelSelect) {
+    qtlLabelSelect.options[2].selected = true;
+  }
 
-  // let annotationFile = null;
-  // const includeAnnotations = document.getElementById("chk-annotations").checked;
+  let annotationFile = null;
+  const includeAnnotationsCheck = document.getElementById("chk-annotations");
+  if (includeAnnotationsCheck && includeAnnotationsCheck.checked) {
+    annotationFile = "./src/test/data/annotations/" + option + ".json";
+  }
 
-  // if (includeAnnotations) {
-  //   annotationFile =
-  //     "annotations/" + sel.options[sel.selectedIndex].value + ".xml";
-  // }
-
-  const basemap = await import("./test/data/basemap/arabidopsis.json");
-  const annotationFile = await import(
-    "./test/data/annotations/arabidopsis.json"
-  );
-
-  // Update this line to your actual function call
-  chart.draw("#map", basemap.default, annotationFile.default, true);
+  await chart.draw("#map", file, annotationFile, false);
 }

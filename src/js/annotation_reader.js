@@ -25,8 +25,17 @@ export const AnnotationReader = function () {
       return _readAnnotations(json);
     },
     readAnnotation: async function (path) {
-      const data = await import(path);
-      return _readAnnotations(data.default);
+      const response = await fetch(path);
+      let data = await response.json();
+      // Handle array-wrapped JSON
+      if (Array.isArray(data) && data.length > 0) {
+        data = data[0];
+      }
+      // Handle nested genoMapsJSON structure
+      if (data.genoMapsJSON) {
+        data = data.genoMapsJSON;
+      }
+      return _readAnnotations(data);
     },
   };
 };
